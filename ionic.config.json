@@ -1,0 +1,7 @@
+{
+  "name": "DriveSafe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
