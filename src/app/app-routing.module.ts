@@ -6,9 +6,12 @@ const routes: Routes = [
      path: 'inicio',
    loadChildren: () => import('./modules/inicio/inicio.module').then( m => m.InicioModule)
    },
+  {
+    path: 'auth',
+    loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthModule)
+  },
 
 
-   
   {
     path: '',
     redirectTo: 'inicio',
