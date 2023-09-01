@@ -27,12 +27,12 @@
     "@capacitor/keyboard": "5.0.6",
     "@capacitor/status-bar": "5.0.6",
     "@ionic/angular": "^7.0.0",
+    "firebase": "^10.3.1",
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
-  
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.0.0",
     "@angular-eslint/builder": "^16.0.0",
