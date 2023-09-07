@@ -32,10 +32,15 @@
               }
             ],
             "styles": [
-             "src/theme/variables.scss", "src/global/.scss","node_modules/bootstrap/dist/css/bootstrap.min.scss"
+            "src/theme/variables.scss"
+          ,
+        "src/global.scss",
+          
+ "node_modules/bootstrap/dist/css/bootstrap.min.css"
+          
           ],
             "scripts": [
-              "node_modules/botstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
               
             ]
           },
@@ -85,7 +90,7 @@
               "browserTarget": "app:build:development"
             },
             "ci": {
-              "progress": false
+             
             }
           },
           "defaultConfiguration": "development"
