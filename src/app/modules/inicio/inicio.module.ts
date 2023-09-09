@@ -14,7 +14,7 @@ import { ComponentesComponent } from './componentes/componentes.component';
   ],
   imports: [
     CommonModule,
-    InicioRoutingModule
+    InicioRoutingModule,
   ],
   exports:[
     ComponentesComponent
