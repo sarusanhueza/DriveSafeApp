@@ -7,14 +7,18 @@ import { RegistroComponent } from './page/registro/registro.component';
 import { IonicModule } from '@ionic/angular';
 
 
+
 @NgModule({
   declarations: [
     LoginComponent, RegistroComponent
+    
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    IonicModule
+    IonicModule,
+   
   ]
 })
-export class AuthModule { }
+export class AuthModule { 
+}

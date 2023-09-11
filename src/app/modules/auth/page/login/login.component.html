@@ -1,12 +1,28 @@
-<p>
-  este es el login
-</p>
+  <div class="container position-relative">
 
+    <div class="row"> 
+      <h1 style="color:#97CADB">
+        Comience hoy a gestionar su vehiculo
+      </h1>
+    </div>
 
-<ion-button id="present-alert">Goggle</ion-button>
-<ion-alert
-  trigger="present-alert"
-  header="Please enter your info"
-  [buttons]="alertButtons"
-  [inputs]="alertInputs"
-></ion-alert>
+    <div class="formulario">
+      <ion-list inset class="ilist">
+        <br>
+        <ion-input label="Gmail" label-placement="floating" fill="outline" placeholder="Ingrese su gmail" type="gmail"></ion-input>
+        <br>
+        <ion-input label="Contraseña" label-placement="floating" fill="outline" placeholder="Ingrese su contraseña" type="password"></ion-input>
+      </ion-list>
+      <div>
+        <ion-button shape="round">Iniciar sesion</ion-button>
+      </div>
+  
+      <div>
+        <ion-button fill="clear" >Registrarse/Crear cuenta</ion-button>
+      </div>
+  
+    </div>
+
+    
+  </div>
+  
