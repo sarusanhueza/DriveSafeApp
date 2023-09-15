@@ -28,11 +28,8 @@
     "@capacitor/keyboard": "5.0.6",
     "@capacitor/status-bar": "5.0.6",
     "@ionic/angular": "^7.0.0",
-<<<<<<< HEAD
     "bootstrap": "^5.3.1",
-=======
     "firebase": "^10.3.1",
->>>>>>> 7dfcb70c0fca8bf9aeb8628e499f1f703e9adbd1
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
