@@ -1,23 +1,12 @@
+ 
+ .row{//cambiar fondo
+  background-color: #97CADB;
+ }
 
-.carousel-item {
-    height: 65vh;
-    min-height: 300px;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-  
- .card-columns .card {
-    display: inline-block;
-    width: 100%;
-   
-  }
-  
-  .img {
-    width: 100%;
-    height: 200px !important; //esta es la parte importante para que todas tus card-img tengan la misma medida sin importar el tamaño de la imagen
-    border-top-left-radius: calc(0.25rem - 1px);
-    border-top-right-radius: calc(0.25rem - 1px);
-  }
+.abs-center { //centrar todo el carrusel
+  display: flex;
+  align-items: center;//centre 
+  justify-content: center;
+  min-height: 100vh;
+}
+
