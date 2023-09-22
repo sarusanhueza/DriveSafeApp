@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageComponent } from './page/page.component';
-
+import { InicioComponent } from './page/inicio/inicio.component';
 const routes: Routes = [
-{path: '', component: PageComponent  }
+{path: '', component: InicioComponent  }
 ];
 
 @NgModule({

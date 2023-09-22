@@ -14,7 +14,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'inicio',
+    redirectTo: 'auth/login',
     pathMatch: 'full'
   },
 
