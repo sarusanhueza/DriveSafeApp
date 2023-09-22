@@ -1,5 +1,3 @@
-.container{
-}
 .titulo{
   font-weight: bolder;
   font-family: sans-serif;
@@ -7,6 +5,15 @@
   font-style: italic;
 }
 
-.button-cont{
-  margin-top: auto;
+ion-input{
+  margin-top: 10px;
 }
+
+.inicio {
+width:fit-content;
+height:fit-content;
+}
+.registrar {
+  width:fit-content;
+  height:20px;
+  }
