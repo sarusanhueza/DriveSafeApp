@@ -31,16 +31,8 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-            "src/theme/variables.scss"
-          ,
-          "src/global.scss",
-          "node_modules/bootstrap/dist/css/bootstrap.min.css"
-          
-          ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ]
+            "styles": ["src/theme/variables.scss", "src/global.scss"],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -88,7 +80,7 @@
               "browserTarget": "app:build:development"
             },
             "ci": {
-             
+              "progress": false
             }
           },
           "defaultConfiguration": "development"
