@@ -1,14 +1,22 @@
-.titulo {
-  font-size: x-small;
-  color:#97cadb;
+.container {
+  height: 100%;
+  width: 90%;
 }
 
-.container {
-  width: 100%;
-  height: 100%;
+.titu {
+  margin-top: 10px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 40px;
+  color:#97cadb;
+  margin-bottom: 15%;
+}
+
+.container1 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 30%;
   background-color: #ffffff;
-  margin-top: 20%;
-  margin-bottom: 20%;
 }
 
 ion-input {
@@ -16,19 +24,20 @@ ion-input {
 }
 
 .inicio {
-  text-align: center;
-  height: max-content;
-  width: max-content;
-  border-radius: 10px;
+  margin-top: 15px;
+  margin-left: 50px;
+  
+  margin-bottom: 20px;
+  border-radius: 20%;
+
+  
+  
+  
 
 }
 
-
 .registrar {
-  text-align: center;
-  color: white;
-  height: max-content;
-  width: max-content;
-  border-radius: 10%;
-
+  margin-top: 70%;
+  margin-left: 30%;
+ 
 }
