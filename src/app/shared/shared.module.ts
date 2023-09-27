@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { AppRoutingModule } from '../app-routing.module';
+
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -10,8 +14,13 @@ import { AppRoutingModule } from '../app-routing.module';
   declarations: [NavbarComponent],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatIconModule,
+    MatButtonModule
+    
   ],
-  exports: [NavbarComponent]
+  exports: [NavbarComponent,
+  MatIconModule,
+MatButtonModule]
 })
 export class SharedModule { }
