@@ -30,10 +30,6 @@ import { environment } from 'src/environments/environment';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 
-
-
-
-
 })
 export class AppModule { }
 

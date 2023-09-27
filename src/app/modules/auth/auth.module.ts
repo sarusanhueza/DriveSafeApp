@@ -10,6 +10,7 @@ import { IonicModule } from '@ionic/angular';
 @NgModule({
   declarations: [
     LoginComponent, RegistroComponent
+    
   ],
   imports: [
     CommonModule,
@@ -17,4 +18,5 @@ import { IonicModule } from '@ionic/angular';
     IonicModule
   ]
 })
-export class AuthModule { }
+export class AuthModule { 
+}
