@@ -1,29 +1,40 @@
-
-  <div class="container">
-    <div class="titulo">
-      <h1 style="color: #97cadb">Comience hoy a gestionar su vehiculo</h1>
-    </div>
-    <div>
-      <ion-input class="button-gmail"
-        label="Gmail"
-        label-placement="floating"
-        fill="outline"
-        placeholder="Ingrese su Gmail"
-      ></ion-input>
-      <ion-input class="button-cont"
-        label="Contraseña"
-        label-placement="floating"
-        fill="outline"
-        placeholder="Ingrese su contraseña"
-        type="password"
-      ></ion-input>
+<div class="container">
+    <div class="titu">
+     <ion-text>Comienza hoy a gestionar tu vehiculo</ion-text>
     </div>
 
-    <div>
-      <ion-button shape="round">Iniciar sesion</ion-button>
+
+
+    <div class="container1">
+
+        <ion-input>
+
+        </ion-input>
+
+        <ion-input [(ngModel)]="usuarios.email" label="Email" label-placement="floating" fill="outline" placeholder="Ingrese su Email"> </ion-input>
+
+        <ion-input [(ngModel)]="usuarios.contrasena" label="Contraseña" label-placement="floating" fill="outline" placeholder="Ingrese su contraseña" type="password"> </ion-input>
+
+        <div>
+          <ion-button shape="round" class="inicio">Iniciar sesion</ion-button>
+      </div>
+
+
+
     </div>
 
-    <div>
-      <ion-button shape="round">Registrarse/Crear cuenta</ion-button>
+
+
+    <div class="registrar">
+      <ion-chip color="primary" routerLink="./registro.component">Crear cuenta</ion-chip>
     </div>
-  </div>
+
+</div>
+
+
+
+
+
+
+
+
