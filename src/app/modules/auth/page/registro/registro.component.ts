@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class RegistroComponent  implements OnInit {
   hide = true;
+  password_type: string = 'password'
 
  
 
@@ -77,6 +78,10 @@ export class RegistroComponent  implements OnInit {
     const uid = await this.servicioAuth.getUid();
     console.log(uid);
   }
+
+  togglePasswordMode() {   
+    this.password_type = this.password_type === 'text' ? 'password' : 'text';
+ }
 
 }
 

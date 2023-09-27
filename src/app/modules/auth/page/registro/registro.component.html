@@ -24,7 +24,15 @@
   
     <ion-input [(ngModel)]="usuarios.fecha" type="text" label="Ingrese fecha de nacimiento" label-placement="floating" fill="outline" placeholder="" ></ion-input>
   
-    <ion-input [(ngModel)]="usuarios.contrasena" type="password" label="Crear contraseña" label-placement="floating" fill="outline" placeholder=""></ion-input>
+    <ion-input [(ngModel)]="usuarios.contrasena" [type]="password_type" type="password" label="Crear contraseña" label-placement="floating" fill="outline" placeholder="" required>
+
+      <ion-icon name="eye" item-right (click)="togglePasswordMode()"></ion-icon>
+      
+    </ion-input>
+      
+    
+
+  
     
   </ion-list>
 
