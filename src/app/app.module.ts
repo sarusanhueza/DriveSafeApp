@@ -22,12 +22,11 @@ import { environment } from 'src/environments/environment';
   ],
 
 
-  imports: [
+ imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    SharedModule,
-
+    SharedModule,   
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)

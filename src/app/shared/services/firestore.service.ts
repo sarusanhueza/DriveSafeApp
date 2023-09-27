@@ -14,8 +14,20 @@ export class FirestoreService {
     this.usuariosCollection = this.database.collection<Usuario>('usuarios');
   }
 
+agregarUsuario(usuario:Usuario, id:string) {
+  return new Promise(async(resolve, reject)=> {
+    //try condicion que debe cumplirse, sino tira error. Y el catch, toma ese error y lo muestra. 
+    try {
+      usuario.uid = id; 
+      const resultado = await this.usuariosCollection.doc(id).set(usuario);
 
-
+      resolve(resultado)
+    }catch(error) {
+      reject(error)
+    }
+  }
+  )
+}
 
 
   
