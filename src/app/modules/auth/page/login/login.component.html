@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="titu"> 
+    <div class="titu">
      <ion-text>Comienza hoy a gestionar tu vehiculo</ion-text>
     </div>
 
@@ -8,30 +8,19 @@
     <div class="container1">
 
         <ion-input>
-          
+
         </ion-input>
 
-        <ion-input
-          label="Gmail"
-          label-placement="floating"
-          fill="outline"
-          placeholder="Ingrese su Gmail"
-        ></ion-input>
-  
-        <ion-input
-          label="Contraseña"
-          label-placement="floating"
-          fill="outline"
-          placeholder="Ingrese su contraseña"
-          type="password"
-        ></ion-input>
-        
+        <ion-input [(ngModel)]="usuarios.email" label="Email" label-placement="floating" fill="outline" placeholder="Ingrese su Email"> </ion-input>
+
+        <ion-input [(ngModel)]="usuarios.contrasena" label="Contraseña" label-placement="floating" fill="outline" placeholder="Ingrese su contraseña" type="password"> </ion-input>
+
         <div>
           <ion-button shape="round" class="inicio">Iniciar sesion</ion-button>
       </div>
-     
-  
-      
+
+
+
     </div>
 
 
@@ -42,10 +31,10 @@
 
 </div>
 
- 
-
- 
 
 
- 
+
+
+
+
 

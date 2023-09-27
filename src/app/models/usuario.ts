@@ -1,8 +1,8 @@
 export interface Usuario {
     uid: string | any; // id para autentificación de Firebase
-    gmail: string;
+    email: string;
     nombre: string;
-    fecha: number;
-    contraseña: string;
+    fecha: string;
+    contrasena: string;
 }
 
