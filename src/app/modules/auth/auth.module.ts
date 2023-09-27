@@ -12,18 +12,17 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    RegistroComponent
-    
+    LoginComponent, RegistroComponent
   ],
   imports: [
     CommonModule,
-    FormsModule,
     AuthRoutingModule,
+    FormsModule,
     IonicModule
   ],
-  //proveedor
+    
   providers: [AuthService]
+
 })
-export class AuthModule { 
+export class AuthModule {
 }

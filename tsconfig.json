@@ -7,6 +7,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "skipLibCheck": true,
+    "noImplicitAny": false,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -24,7 +25,7 @@
     "target": "es2022",
     "module": "es2020",
     "lib": [
-      "es2018", 
+      "es2018",
       "dom"
     ],
     "useDefineForClassFields": false
