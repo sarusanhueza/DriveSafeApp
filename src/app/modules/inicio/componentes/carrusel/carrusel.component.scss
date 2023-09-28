@@ -1,20 +1,37 @@
- 
+
  .row{//cambiar fondo
   background-color: #97CADB;
  }
 
 .abs-center { //centrar todo el carrusel, no img
   display: flex;
-  align-items: center;//centre 
+  align-items: center;//centre
   justify-content: center;
   min-height: 100vh;
 }
 
 
 .carousel-inner{
-  
+
     line-height: 100px;
     text-align: center;
     vertical-align: middle;
-  
+
 }
+
+
+p{
+  margin-top: 10px;
+
+  font-size: medium;
+  line-height: normal;
+  margin-bottom: 50px;
+  color: beige;
+
+
+}
+h2{
+ color: beige;
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
