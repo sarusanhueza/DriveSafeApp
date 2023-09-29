@@ -7,19 +7,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
  
   
-
+//para usar la etiqueta routing deben ir vacias las rutas. 
   {
      path: '',loadChildren: () => import('./modules/inicio/inicio.module').then( m => m.InicioModule)
    },
   {
     path: '',loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthModule)
   },
-
-  //{
-    //path: '',
-    //redirectTo: 'inicio',
-    //pathMatch: 'full'
-  //}
 
 ];
 
