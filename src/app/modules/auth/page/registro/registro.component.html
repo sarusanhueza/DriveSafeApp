@@ -18,15 +18,15 @@
 
     <h2 style="color: #97CADB;">Cree su cuenta</h2>
 
-    <ion-input [(ngModel)]="usuarios.nombre" label="Ingrese un nombre de Usuario" label-placement="floating" fill="outline" placeholder=""></ion-input>
+    <ion-input [(ngModel)]="usuarios.nombre" label="Ingrese un nombre de usuario" label-placement="floating" fill="outline" placeholder=""></ion-input>
 
-    <ion-input [(ngModel)]="usuarios.email"  label="Ingrese un Email" label-placement="floating" fill="outline" placeholder=""></ion-input>
+    <ion-input [(ngModel)]="usuarios.email"  label="Ingrese un email" label-placement="floating" fill="outline" placeholder=""></ion-input>
   
-    <ion-input [(ngModel)]="usuarios.fecha" type="text" label="Ingrese fecha de nacimiento" label-placement="floating" fill="outline" placeholder="" ></ion-input>
+    <ion-input [(ngModel)]="usuarios.fecha" type="date" label="Ingrese fecha de nacimiento" label-placement="floating" fill="outline" placeholder="" ></ion-input>
   
     <ion-input [(ngModel)]="usuarios.contrasena" [type]="password_type" type="password" label="Crear contraseña" label-placement="floating" fill="outline" placeholder="" required>
 
-      <ion-icon name="eye" item-right (click)="togglePasswordMode()"></ion-icon>
+      <!--<ion-icon name="eye" item-right (click)="togglePasswordMode()"></ion-icon>-->
       
     </ion-input>
       
@@ -38,7 +38,7 @@
 
   <ion-list style="text-align:center">
 
-    <ion-button (click)="registrarse()">CONTINUAR</ion-button>
+    <ion-button  (click)="registrarse()">CONTINUAR</ion-button>
 
   </ion-list>
 

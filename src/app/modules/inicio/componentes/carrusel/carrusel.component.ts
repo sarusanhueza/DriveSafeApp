@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginComponent } from 'src/app/modules/auth/page/login/login.component';
+
 
 @Component({
   selector: 'app-carrusel',
@@ -6,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carrusel.component.scss'],
 })
 export class CarruselComponent  implements OnInit {
+  component = LoginComponent
+  
 
   constructor() { }
 
   ngOnInit() {}
 
 }
+
