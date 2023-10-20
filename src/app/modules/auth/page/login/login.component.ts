@@ -37,12 +37,11 @@ export class LoginComponent {
     const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
 
     .then(res => {
-      alert("Acceso consedido");
-      console.log(credenciales.email);
+      this.router.navigate(["/menu"])
     })
     // MÉTODO THEN -> ENCAPSULA UN FALLO
     .catch(error => {
-      alert("Error al ininciar sesion\n"+error);
+      alert("Error al iniciar sesion\n"+error);
 
       console.log(credenciales.email);
     })
