@@ -5,13 +5,14 @@ import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './page/inicio/inicio.component';
 import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 import { IonMenu, IonMenuButton, IonicModule, MenuController } from '@ionic/angular';
+import { MenuComponent } from './componentes/menu/menu.component';
 
 //
 
 
 @NgModule({
   declarations: [
-    InicioComponent, CarruselComponent
+    InicioComponent, CarruselComponent,MenuComponent
   ],
   imports: [
     CommonModule,
