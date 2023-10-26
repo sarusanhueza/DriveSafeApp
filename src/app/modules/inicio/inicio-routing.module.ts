@@ -8,7 +8,7 @@ const routes: Routes = [
   //rutas secundarias
 {path: 'inicio', component: InicioComponent  },
 {path: 'menu', component: MenuComponent},
-{path: "carrusel", component: CarruselComponent}
+{path: 'carrusel', component: CarruselComponent}
 
 ];
 
