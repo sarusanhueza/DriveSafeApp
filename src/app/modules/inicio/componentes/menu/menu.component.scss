@@ -1,6 +1,8 @@
-ion-fab-button::part(native) {
-    background-color: #97cadb;
-    border-radius: 15px;
-    color: rgb(6, 11, 44);
-  }
-
+ion-fab-button {
+  --background: #0000;
+  --background-activated: #ffdd00;
+  --background-hover: #1a39b5;
+  --border-radius: 15px;
+  --box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.3), 0px 1px 3px 1px rgba(255, 255, 255, 0.15);
+  --color: rgb(255, 255, 255);
+}
