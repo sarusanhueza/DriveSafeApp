@@ -5,6 +5,7 @@ import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './page/inicio/inicio.component';
 import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 import { MapaComponent } from './componentes/mapa/mapa.component';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { MapaComponent } from './componentes/mapa/mapa.component';
   imports: [
     CommonModule,
     InicioRoutingModule,
+    //funcionamiento componentes ionic
+    IonicModule
   ],
   exports:[
     CarruselComponent,
