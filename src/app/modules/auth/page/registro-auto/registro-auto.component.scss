@@ -1,5 +1,6 @@
-h2{
+h1{
     text-align: center;
+    margin-top: 10%;
 }
 
 .lista-input{
@@ -17,7 +18,19 @@ ion-button{
 
     --color: white
 }
-.container{
-    margin-top: 20%;
-}
 
+.container{
+    margin-top: 30%; //bajen de abajo
+    margin-bottom: 10%; //dejen espacio abajo
+    position: relative; //no se vuelva a sobrepongan inputs
+}
+.container1{
+    margin-top:20% ;
+    margin-bottom: 10%;
+    position: relative;
+}
+.container2{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    position: relative;
+}
