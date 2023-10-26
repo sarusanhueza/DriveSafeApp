@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+   
 import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './page/inicio/inicio.component';
 import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 import { EditarAutoComponent } from './componentes/editar-auto/editar-auto.component';
+import { IonicModule } from '@ionic/angular';
+
 
 
 @NgModule({
@@ -13,10 +15,12 @@ import { EditarAutoComponent } from './componentes/editar-auto/editar-auto.compo
   ],
   imports: [
     CommonModule,
-    InicioRoutingModule,
+    InicioRoutingModule,IonicModule // IonicModule importar porque sino cuando pego compomenetes de ionic no se encuentra
+                                    // importamos en el padre
   ],
   exports:[
-    CarruselComponent
+    CarruselComponent,
+    EditarAutoComponent
   ]
 })
 export class InicioModule { }
