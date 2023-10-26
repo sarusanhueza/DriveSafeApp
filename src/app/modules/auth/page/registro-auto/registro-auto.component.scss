@@ -19,18 +19,21 @@ ion-button{
     --color: white
 }
 
-.container{
-    margin-top: 30%; //bajen de abajo
-    margin-bottom: 10%; //dejen espacio abajo
+.tituloo {
+    margin-top: 40px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;  //dimensión de letra
+    color:#97cadb;
+    margin-bottom: 15%;
     position: relative; //no se vuelva a sobrepongan inputs
 }
 .container1{
     margin-top:10% ;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     position: relative;
 }
 .container2{
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 5%;
+    margin-bottom: 30%;
     position: relative;
 }
