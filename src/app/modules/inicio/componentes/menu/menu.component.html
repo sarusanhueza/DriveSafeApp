@@ -19,30 +19,38 @@
 
   <ion-content class="ion-padding">
     <div class="container">
-      <ion-button>
-        <ion-icon slot="icon-only" name="star"></ion-icon>
-      </ion-button>
-      <br>
-      <ion-fab>
-        <ion-fab-button>
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-list side="end">
-          <ion-fab-button>
-            <ion-icon name="document"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-button>
-            <ion-icon name="color-palette"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-button>
-            <ion-icon name="globe"></ion-icon>
-          </ion-fab-button>
-        </ion-fab-list>
-      </ion-fab>
-      <br>
-      <ion-button>
-        <ion-icon slot="icon-only" name="star"></ion-icon>
-      </ion-button>
+
+     <ion-grid>
+       <ion-row>
+        <ion-col><ion-button fill="clear" id="casa"><ion-icon name="home-outline"></ion-icon></ion-button></ion-col>
+
+           <ion-col><ion-fab>
+           <ion-fab-button>
+           <ion-icon name="add"></ion-icon>
+           </ion-fab-button>
+
+           <ion-fab-list side="top">
+           <ion-fab-button>
+           <ion-icon name="time-outline"></ion-icon>
+           </ion-fab-button>
+           <ion-fab-button>
+           <ion-icon name="receipt-outline"></ion-icon>
+           </ion-fab-button>
+           <ion-fab-button>
+           <ion-icon name="map-outline"></ion-icon>
+           </ion-fab-button>
+           <ion-fab-button>
+           <ion-icon name="color-fill-outline"></ion-icon>
+           </ion-fab-button>
+           </ion-fab-list>
+           </ion-fab></ion-col>
+
+        <ion-col><ion-button fill="clear" id="auto"><ion-icon name="car-sport-outline"></ion-icon></ion-button></ion-col>
+       </ion-row>
+     </ion-grid>
     </div>
   </ion-content>
 </div>
+
+
+

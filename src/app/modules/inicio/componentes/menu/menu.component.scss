@@ -1,8 +1,16 @@
 ion-fab-button {
   --background: #0000;
-  --background-activated: #ffdd00;
-  --background-hover: #1a39b5;
+  --background-activated: #ffffff;
+  --background-hover: #5f74c7;
   --border-radius: 15px;
-  --box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.3), 0px 1px 3px 1px rgba(255, 255, 255, 0.15);
-  --color: rgb(255, 255, 255);
+  --box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.3), 0px 1px 3px 1px rgba(205, 199, 233, 0.15);
+  --color: #97cadb;
 }
+
+.container{
+  background: rgb(2,69,122);
+  background: linear-gradient(90deg, rgba(2,69,122,0.42620798319327735) 49%, rgba(151,202,219,0.4598214285714286) 74%);
+  height: 20%;
+  width:100%;
+}
+
