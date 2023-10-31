@@ -7,8 +7,28 @@ import { CarruselComponent } from '../inicio/componentes/carrusel/carrusel.compo
 const routes: Routes = [
   //rutas secundarias
 {path: 'inicio', component: InicioComponent  },
-{path: 'menu', component: MenuComponent},
-{path: 'carrusel', component: CarruselComponent}
+{path: 'menu', component: MenuComponent, children: [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'menu',
+  },
+  {
+    path: 'conducir',
+    loadChildren: () => import('./page/conducir/conducir.module').then( m => m.ConducirPageModule)
+  },
+  {
+    path: 'menucito',
+    loadChildren: () => import('./page/menucito/menucito.module').then( m => m.MenucitoPageModule)
+  },
+
+]},
+
+
+{path: 'carrusel', component: CarruselComponent},
+  
+
+
 
 ];
 
