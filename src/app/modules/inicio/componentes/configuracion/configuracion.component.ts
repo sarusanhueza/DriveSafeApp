@@ -12,7 +12,7 @@ export class ConfiguracionComponent  implements OnInit {
   @ViewChild(IonModal)
   modal!: IonModal; 
 
-  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
+  message = 'nombre';
   name!: string;
 
   cancel() {
@@ -29,6 +29,10 @@ export class ConfiguracionComponent  implements OnInit {
       this.message = `Hello, ${ev.detail.data}!`;
     }
   }
+
+
+
+ 
 
   constructor() { }
 
