@@ -6,6 +6,7 @@ import { InicioComponent } from './page/inicio/inicio.component';
 import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 import { ConfiguracionComponent } from './componentes/configuracion/configuracion.component';
 import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { IonicModule } from '@ionic/angular';
   imports: [
     CommonModule,
     InicioRoutingModule,
-    IonicModule
+    IonicModule,
+    FormsModule
   ],
   exports:[
     CarruselComponent,
