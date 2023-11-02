@@ -7,6 +7,7 @@ import { CarruselComponent } from '../inicio/componentes/carrusel/carrusel.compo
 const routes: Routes = [
   //rutas secundarias
 {path: 'inicio', component: InicioComponent  },
+//metodo children para carga peresoza
 {path: 'menu', component: MenuComponent, children: [
   {
     path: '',
@@ -26,7 +27,7 @@ const routes: Routes = [
 
 
 {path: 'carrusel', component: CarruselComponent},
-  
+
 
 
 
