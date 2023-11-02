@@ -8,6 +8,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 export class AuthService {
+
+  ///perteneciente al login
   iniciarSesion(email: string, contrasena: string) {
     return this.auth.signInWithEmailAndPassword(email, contrasena);
   }
@@ -16,7 +18,7 @@ export class AuthService {
   constructor(public auth: AngularFireAuth) {}
 
 
-
+    //perteneciente al registro
   // retorna nueva informacion de register
   registrar(nombre: string, contrasena: string) {
     return this.auth.createUserWithEmailAndPassword(nombre, contrasena);
@@ -32,4 +34,23 @@ export class AuthService {
       return user.uid;
     }
    }
+
+   ///////////
+    /*registrarVehiculo( nombreAuto:string, patente: string  ){ 
+     return this.auth.createUserAndPatent( nombreAuto, patente);
+    }
+    async getUser(){
+      const user = await this.auth.currentUser;
+        
+      if(user == null){
+        return null;
+      }else{
+        return user.uid
+      }
+    }*/
+
+
+   
+
+
   }
