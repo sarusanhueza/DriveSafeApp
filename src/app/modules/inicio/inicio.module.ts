@@ -17,7 +17,7 @@ import { MenuComponent } from './componentes/menu/menu.component';
   imports: [
     CommonModule,
     InicioRoutingModule,
-    IonicModule
+    IonicModule,
   ],
   exports:[
     CarruselComponent

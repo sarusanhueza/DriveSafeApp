@@ -1,15 +1,8 @@
 ion-fab-button {
-  --background: #000000ce00ce;
-  --background-activated: #1c1a1a;
-  --background-hover: #5f74c7;
+  --background: rgba(151, 202, 219, 0.122);
+  --background-activated: rgb(255, 255, 255);
+  --background-hover: #132a84;
   --border-radius: 15px;
-  --color: #104152;
+  --color: #02457a;
   --height: 40px;
-  overflow:auto !important;
 }
-
-ion-list{
-  position: absolute;
-}
-
-
