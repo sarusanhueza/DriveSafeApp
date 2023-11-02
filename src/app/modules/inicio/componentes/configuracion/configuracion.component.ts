@@ -30,6 +30,7 @@ export class ConfiguracionComponent  implements OnInit {
     }
   }
 
+ 
 
 
  
