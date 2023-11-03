@@ -4,6 +4,7 @@
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <ion-content class="ion-padding">
     <div class="col">
       <div>
@@ -39,7 +40,31 @@
       <ion-title>Drive safe</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> . </ion-content>
+
+    <ion-content color="light">
+      <ion-list [inset]="true">
+        <ion-item [button]="true">
+          <ion-icon color="danger" slot="start" name="list-circle" size="large"></ion-icon>
+          <ion-label>General</ion-label>
+          <ion-note slot="end">6</ion-note>
+        </ion-item>
+        <ion-item [button]="true">
+          <ion-icon color="tertiary" slot="start" name="list-circle" size="large"></ion-icon>
+          <ion-label>Shopping</ion-label>
+          <ion-note slot="end">15</ion-note>
+        </ion-item>
+        <ion-item [button]="true">
+          <ion-icon color="success" slot="start" name="list-circle" size="large"></ion-icon>
+          <ion-label>Cleaning</ion-label>
+          <ion-note slot="end">3</ion-note>
+        </ion-item>
+        <ion-item [button]="true">
+          <ion-icon color="warning" slot="start" name="list-circle" size="large"></ion-icon>
+          <ion-label>Reminders</ion-label>
+          <ion-note slot="end">8</ion-note>
+        </ion-item>
+      </ion-list>
+  </ion-content>
 </div>
 
 
