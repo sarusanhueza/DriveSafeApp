@@ -1,9 +1,17 @@
-ion-menu::part(backdrop) {
-  background-color: rgba(255, 0, 255, 0.5);
+
+.btn{
+    margin: auto;
+    color: rgb(0, 0, 0);
 }
 
-ion-menu::part(container) {
-  border-radius: 0 20px 20px 0;
+ion-segment-button {
+    --indicator-color: #00000;
+  }
+  
+  /* Material Design styles */
+  ion-segment-button.md {
+    --color: #000;
+    --color-checked: #97cadb;
+    --indicator-height: 4px;
+  }
 
-  box-shadow: 4px 0px 16px rgba(255, 0, 255, 0.18);
-}
