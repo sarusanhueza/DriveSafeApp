@@ -6,31 +6,81 @@
 
 <ion-content>
   
-  <div>
-    <ion-text class="texto1">Nombre y apellido 
-      <!--<div>
-        <ion-button fill="clear" class="boton1" id="open-modal">></ion-button>
-      </div>-->
-    </ion-text> 
-    <!--<p>{{ message }}</p>-->
-  </div>
-  <div>
-    <ion-text class="texto2">Fecha de nacimiento</ion-text>
-  </div>
-  <div>
-    <ion-text class="texto3">Contraseña</ion-text>
-  </div>
-  <div>
-    <ion-text class="texto4">Correo electronico</ion-text>
-  </div>
-  <div>
-    <ion-text class="texto5">Estado de la cuenta</ion-text>
-  </div>
-  <div>
-    <ion-text class="texto6">Preguntas frecuentes ？</ion-text>
-  </div>
 
-  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ion-row>
+    <ion-col size="5" class="ion-text-left">
+      <ion-text class="ion-margin-bottom" class="texto">
+        <p>Nombre y apellido</p>
+      </ion-text> 
+    </ion-col>
+    <ion-col size="5" class="ion-text-right">
+       <ion-button fill="clear" class="boton1" id="open-modal">></ion-button>
+       <p class="textorellenar">{{ message }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="5" class="ion-text-left">
+      <ion-text class="ion-margin-bottom" class="texto">
+        <p>Fecha de nacimiento</p>
+      </ion-text>
+    </ion-col>
+    <ion-col size="5" class="ion-text-right">
+       <ion-button fill="clear" class="boton1" id="open-modal">></ion-button>
+       <p class="textorellenar">{{ message }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="5" class="ion-text-left">
+      <ion-text class="ion-margin-bottom" class="texto">
+        <p>Contraseña</p>
+      </ion-text>
+    </ion-col>
+    <ion-col size="5" class="ion-text-right">
+       <ion-button fill="clear" class="boton1" id="open-modal">></ion-button>
+       <p class="textorellenar">{{ message }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="5" class="ion-text-left">
+      <ion-text class="ion-margin-bottom" class="texto">
+        <p>Correo electronico</p>
+      </ion-text>
+    </ion-col>
+    <ion-col size="5" class="ion-text-right">
+       <ion-button fill="clear" class="boton1" id="open-modal">></ion-button>
+       <p class="textorellenar">{{ message }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="5" class="ion-text-left">
+      <ion-text class="ion-margin-bottom" class="texto">
+        <p>Estado de la cuenta</p>
+      </ion-text>
+    </ion-col>
+    <ion-col size="5" class="ion-text-right">
+       <ion-button fill="clear" class="boton1" id="open-modal">></ion-button>
+       <p class="textorellenar">{{ message }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="5" class="ion-text-left">
+      <ion-text class="ion-margin-bottom" class="texto">
+        <p>Preguntas frecuentes ？</p>
+      </ion-text>
+    </ion-col>
+    <ion-col size="5" class="ion-text-right">
+       <ion-button fill="clear" class="boton1" id="open-modal">></ion-button>
+       <p class="textorellenar">{{ message }}</p>
+    </ion-col>
+  </ion-row>
+
+
+ <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
     <ng-template>
       <ion-header>
         <ion-toolbar>
@@ -56,6 +106,14 @@
       </ion-content>
     </ng-template>
   </ion-modal>
+
+  
+   
+ 
+
+  
+  
+  
 
 
 </ion-content>
