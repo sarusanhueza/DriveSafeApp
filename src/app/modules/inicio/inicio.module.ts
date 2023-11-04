@@ -6,6 +6,7 @@ import { InicioComponent } from './page/inicio/inicio.component';
 import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 import { EditarAutoComponent } from './componentes/editar-auto/editar-auto.component';
 import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,8 +16,8 @@ import { IonicModule } from '@ionic/angular';
   ],
   imports: [
     CommonModule,
-    InicioRoutingModule,IonicModule // IonicModule importar porque sino cuando pego compomenetes de ionic no se encuentra
-                                    // importamos en el padre
+    InicioRoutingModule,IonicModule, // IonicModule importar porque sino cuando pego compomenetes de ionic no se encuentra(importamos el padre)
+    FormsModule                              
   ],
   exports:[
     CarruselComponent,
