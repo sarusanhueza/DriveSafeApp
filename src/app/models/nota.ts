@@ -1,5 +1,5 @@
 export interface Nota {
-    idProducto: string;
+    idNota: string;
     nombre: string;
     imagen: string;
     alt: string;
