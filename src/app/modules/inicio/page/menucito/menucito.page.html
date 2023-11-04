@@ -31,6 +31,10 @@
   </ion-content>
 </ion-menu>
 
+
+
+
+
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
@@ -40,10 +44,17 @@
       <ion-title>Drive safe</ion-title>
     </ion-toolbar>
   </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        sara
+      </ion-item>
+    </ion-list>
+  </ion-content>
 
 
-
-    <ion-content>
+<!--<ion-content>
       <ion-list [inset]="true">
 
           <ion-item [button]="true" id="open-modal" expand="block">
@@ -52,8 +63,6 @@
             <ion-note slot="end">15</ion-note>
           </ion-item>
 
-
-
 <ion-content class="ion-padding">
   
 
@@ -61,33 +70,25 @@
     <ng-template>
       <ion-content>
         <ion-toolbar>
-          <ion-title>Modal</ion-title>
+          <ion-title>Titulo</ion-title>
           <ion-buttons slot="end">
-            <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+            <ion-button (click)="modal.dismiss()">Cerrar</ion-button>
           </ion-buttons>
-        </ion-toolbar>
-        <ion-list>
-          <ion-item>
-            <ion-avatar slot="start">
-              <ion-img src="https://i.pravatar.cc/300?u=b"></ion-img>
-            </ion-avatar>
-            <ion-label>
-              <h2>Connor Smith</h2>
-              <p>Sales Rep</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
+
+
+        <ion-buttons>
+
+          <ion-button slot="start" (click)="eliminar">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+
+        </ion-buttons>
+
+        </ion-toolbar>       
       </ion-content>
     </ng-template>
   </ion-modal>
 </ion-content>
-
-
-
-
-
-
-
 
         <ion-item [button]="true">
           <ion-icon color="tertiary" slot="start" name="list-circle" size="large"></ion-icon>
@@ -108,7 +109,8 @@
         </ion-item>
       </ion-list>
   </ion-content>
-</div>
+</div>-->
+    
 
 
 

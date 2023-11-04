@@ -12,4 +12,11 @@ export class MenucitoPage implements OnInit {
   ngOnInit() {
   }
 
+  eliminar(){
+   
+  }
+
+
+
+
 }
