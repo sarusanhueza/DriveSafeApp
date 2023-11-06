@@ -41,10 +41,10 @@
       </ion-content>
     </div>
 
-       
-      <div class="container-Patente">
+
+    <div class="container-Patente">
       <!--comienza porpiedad PATENTE -->
-     
+
       <ion-content class="ion-padding">
 
         <ion-button id="open-modal" expand="block">Patente</ion-button>
@@ -68,7 +68,7 @@
             <ion-content class="ion-padding">
               <ion-item>
                 <ion-input label="Editar Patente" labelPlacement="stacked" type="text" placeholder=""
-                  [(ngModel)]="name" ></ion-input>
+                  [(ngModel)]="patente"></ion-input>
               </ion-item>
             </ion-content>
 
@@ -76,18 +76,18 @@
         </ion-modal>
       </ion-content>
 
-    </div>  
+    </div>
 
 
     <div class="container-Marca">
       <!--comienza porpiedad MARCA -->
-      
+
       <ion-content class="ion-padding">
 
         <ion-button id="open-modal" expand="block">Marca</ion-button>
         <p>{{ message }}</p>
 
-        <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+        <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss2($event)">
           <ng-template>
 
             <ion-header>
@@ -105,7 +105,7 @@
             <ion-content class="ion-padding">
               <ion-item>
                 <ion-input label="Editar Marca" labelPlacement="stacked" type="text" placeholder=""
-                  [(ngModel)]="name"></ion-input>
+                  [(ngModel)]="marca"></ion-input>
               </ion-item>
             </ion-content>
 
@@ -121,7 +121,7 @@
         <ion-button id="open-modal" expand="block">Tipo de Combustible</ion-button>
         <p>{{ message }}</p>
 
-        <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+        <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss3($event)">
           <ng-template>
 
             <ion-header>
@@ -139,7 +139,7 @@
             <ion-content class="ion-padding">
               <ion-item>
                 <ion-input label="Editar Tipo de Combustible" labelPlacement="stacked" type="text" placeholder=""
-                  [(ngModel)]="name"></ion-input>
+                  [(ngModel)]=" tipocombustible"></ion-input>
               </ion-item>
             </ion-content>
 
@@ -147,9 +147,10 @@
         </ion-modal>
       </ion-content>
 
-    </div>
+          
+    </div>
 
-   
+
 
 
     <div class="container2">

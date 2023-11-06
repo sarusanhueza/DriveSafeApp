@@ -3,14 +3,6 @@ h1{
     margin-top: 10%;
 }
 
-.listaa-input{
-    justify-content: center;
-    align-items: center!important;
-}
-
-ion-input{
-    margin-top: 10px;
-}
 
 ion-button{
 
@@ -29,11 +21,16 @@ ion-button{
     position: relative; //no se vuelva a sobreporner  inputs
 }
 
-.container-Nombre, .container-Patente, .container-Marca, .container-TipoCombustible{
+.container-Nombre, .container-Patente, .container-Marca, .container-TipoCombustible {
     margin-top:10% ;
     margin-bottom: 5%;
     position: relative;
     height: 100%;
+}
+.p{
+
+  text-align: center;
+  
 }
 
 
