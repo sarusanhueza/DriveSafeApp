@@ -7,8 +7,32 @@
           </ion-tab-button>
 
           <ion-fab>
-            <ion-fab-button id="modalMas">
+            <ion-fab-button id="open-custom-dialog">
               <ion-icon name="add"></ion-icon>
+
+
+
+
+                <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+                  <ng-template>
+                    <div class="wrapper">
+                      <h1>Notas</h1>
+                        <ion-item button="true" detail="false" (click)="modal.dismiss()">
+                          <ion-icon name="person-circle"></ion-icon>
+                          <ion-label>Item 1</ion-label>
+                        </ion-item>
+
+                        <ion-item button="true" detail="false" (click)="modal.dismiss()">
+                          <ion-icon name="person-circle"></ion-icon>
+                        </ion-item>
+
+                        <ion-item button="true" detail="false" (click)="modal.dismiss()">
+                          <ion-icon name="person-circle"></ion-icon>
+                        </ion-item>
+
+                    </div>
+                  </ng-template>
+                </ion-modal>
 
 
             </ion-fab-button>
@@ -22,7 +46,7 @@
       </ion-tabs>
     </ion-content>
 
-   
+
 
 
 
