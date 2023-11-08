@@ -16,90 +16,32 @@ export class EditarAutoComponent {
 
   message = '';
   name: string | undefined;
+  patente: string | undefined;
+  marca: string | undefined;
+  tcombustible: string | undefined;
 
 
-
-  //confirmaciones o cancelaciones pertenecientes a NOMBRE
+  //confirmaciones o cancelaciones pertenecientes a  propiedades
   cancel() {
     this.modal.dismiss(null, 'cancel');
   }
 
   confirm() {
-    this.modal.dismiss(this.name, 'confirm');
+    this.modal.dismiss(this.name,'confirm'); 
+    this.modal.dismiss(this.patente,'confirm'); 
+    this.modal.dismiss(this.marca,'confirm'); 
+    this.modal.dismiss(this.tcombustible,'confirm'); 
   }
+  
 
-  //retornando confirmacion del NOMBRE 
+  //retornando confirmacion de propiedades
   onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
-      this.message = ` ${ev.detail.data}!`;
+      this.message = ` ${ev.detail.data}`;
     }
   }
   
-  message1 = '';
-  patente: string | undefined;
-  //confirmaciones o cancelaciones pertenecientes a PATENTE
-
-  cancel1() {
-    this.modal.dismiss(null, 'cancel1');
-  }
-
-  confirm1() {
-    this.modal.dismiss(this.patente, 'confirm1');
-  }
-
-  //retornando confirmacion de la PATENTE
-  onWillDismiss1(event1: Event) {
-    const ev = event1 as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm1') {
-      this.message1 = ` ${ev.detail.data}!`;
-    }
-  }
-
-   //MARCA
-  message2 = '';
-  marca: string | undefined;
-
-  //confirmaciones o cancelaciones pertenecientes a MARCA
-
-  cancel2() {
-    this.modal.dismiss(null, 'cancel2');
-  }
-
-  confirm2() {
-    this.modal.dismiss(this.marca, 'confirm2');
-  }
-
-  //retornando confirmacion de la MARCA
-  onWillDismiss2(event2: Event) {
-    const ev = event2 as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm2') {
-      this.message2 = ` ${ev.detail.data}!`;
-    }
-  }
-
-  //TIPO DE COMBUSTIBLE
-  message3 = '';
-  tipocombustible: string | undefined;
-
-  //confirmaciones o cancelaciones pertenecientes a TIPO COMBUSTIBLE
-
-  cancel3() {
-    this.modal.dismiss(null, 'cancel3');
-  }
-
-  confirm3() {
-    this.modal.dismiss(this.tipocombustible, 'confirm3');
-  }
-
-
-  //retornando confirmacion del TIPO DE COMBUSTIBLE
-  onWillDismiss3(event3: Event) {
-    const ev = event3 as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm3') {
-      this.message3 = ` ${ev.detail.data}!`;
-    }
-  }
 
 
 
