@@ -1,3 +1,4 @@
+//boton mas
 ion-fab-button::part(native) {
   background-color: #97cadb;
   border-radius: 40px;
@@ -5,20 +6,12 @@ ion-fab-button::part(native) {
   color: rgb(255, 255, 255);
 }
 
-ion-fab-button::part(native):hover::after {
-  background-color: #97cadb;
-}
-
-ion-fab-button::part(native):active::after {
-  background-color: #02457a;
-}
-
+//modal
 ion-modal#example-modal {
   --width: fit-content;
-  --min-width: 250px;
+  --min-width: 230px;
   --height: fit-content;
-  --border-radius: 6px;
-  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  --border-radius: 20px;
 }
 
 ion-modal#example-modal h1 {
@@ -26,16 +19,33 @@ ion-modal#example-modal h1 {
 }
 
 ion-modal#example-modal ion-icon {
-  margin-right: 6px;
 
-  width: 48px;
-  height: 48px;
+  width: 30px;
+  height: 30px;
 
   padding: 4px 0;
 
-  color: #aaaaaa;
+  color: #ffffff;
+  background-color: #97cadb;
 }
 
+
+//titulo de las notas
 ion-modal#example-modal .wrapper {
   margin-bottom: 10px;
+}
+
+
+ion-button {
+  --background: #97cadb;
+
+
+  --color: #97cadb;
+
+  --border-radius: 20px;
+
+  --ripple-color: #02457a;
+
+  --padding-top: 10px;
+  --padding-bottom: 10px;
 }
