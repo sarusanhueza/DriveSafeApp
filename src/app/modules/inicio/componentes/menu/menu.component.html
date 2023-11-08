@@ -17,10 +17,26 @@
                   <ng-template>
                     <div class="wrapper">
                       <h1>Notas</h1>
-                        <ion-item button="true" detail="false" (click)="modal.dismiss()">
-                          <ion-icon name="person-circle"></ion-icon>
-                          <ion-label>Item 1</ion-label>
-                        </ion-item>
+
+                      <ion-item>
+                        <ion-button slot="start">
+                          <ion-icon name="map-outline"></ion-icon>
+                        </ion-button>
+                        <ion-button slot="end">
+                          <ion-icon name="receipt-outline"></ion-icon>
+                        </ion-button>
+                      </ion-item>
+
+                      <ion-item>
+                        <ion-button slot="start">
+                          <ion-icon name="color-fill-outline"></ion-icon>
+                        </ion-button>
+                        <ion-button slot="end">
+                          <ion-icon name="pricetag-outline"></ion-icon>
+                        </ion-button>
+                      </ion-item>
+
+
 
                         <ion-item button="true" detail="false" (click)="modal.dismiss()">
                           <ion-icon name="person-circle"></ion-icon>
