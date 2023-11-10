@@ -60,6 +60,28 @@ async agregarCombustible (){
       })
     }
 
+    editarCombustible(){
+      let datos: Combustible = {
+        uid: this.combustibleSelec.uid,
+
+        titulo: this.combustible.value.titulo!,
+        fecha: this.combustible.value.fecha!,
+        litros: this.combustible.value.litros!,
+        tipo: this.combustible.value.tipo!,
+        gasto: this.combustible.value.gasto!
+      }
+
+
+      this.servicioCrud.modificarCombustible(this.combustibleSelec.uid, datos)
+    }
+
+    mostrarBorrar(combustibleSelec: Combustible){
+      this.ModalVisibleCombustible = true;
+      this.combustibleSelec = combustibleSelec;
+    }
+
+    boarr
+
 
 
 
