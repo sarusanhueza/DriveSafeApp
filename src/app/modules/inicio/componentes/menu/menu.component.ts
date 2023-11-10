@@ -40,12 +40,29 @@ async agregarCombustible (){
       titulo: this.combustible.value.titulo!,
       fecha: this.combustible.value.fecha!,
       litros: this.combustible.value.litros!,
+      tipo: this.combustible.value.tipo!,
       gasto: this.combustible.value.gasto!,
     };
     await this.servicioCrud.creaarCombustible(nuevoCombustible)
 
     }
   }
+
+    mostrarEditar(combustibleSelec: Combustible){
+      this.combustibleSelec = combustibleSelec;
+
+      this.combustible.setValue({
+        titulo: combustibleSelec.titulo,
+        fecha: combustibleSelec.fecha,
+        litros: combustibleSelec.litros,
+        tipo: combustibleSelec.tipo,
+        gasto: combustibleSelec.gasto
+      })
+    }
+
+
+
+
 }
 
 
