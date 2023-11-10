@@ -24,7 +24,7 @@
                         <ion-icon name="map-outline"></ion-icon>
                       </ion-button>
 
-                      <ion-button>
+                      <ion-button id="modalCombustible">
                         <ion-icon name="receipt-outline"></ion-icon>
                       </ion-button>
 
@@ -50,6 +50,59 @@
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
+
+
+
+
+
+
+
+
+    <ion-content class="ion-padding">
+      <ion-modal trigger="modalCombustible" (willDismiss)="onWillDismiss($event)">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="cancel()">Cancel</ion-button>
+              </ion-buttons>
+              <ion-title>Welcome</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <ion-item>
+              <ion-input  type="text" [(ngModel)]="titulo"> </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input placeholder="Fecha de hoy" type="text" [(ngModel)]="fecha"> </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input placeholder="¿Con cuanto llenaste el tanque?" type="text" [(ngModel)] = "litros"></ion-input>
+            </ion-item>
+
+          <ion-item>
+            <ion-input placeholder="Tipo de combustible" type="text" [(ngModel)] = "tipo"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input placeholder="¿Cuanto gastaste?" type="number" [(ngModel)] = "gasto"  ></ion-input>
+          </ion-item>
+
+
+
+
+
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+    </ion-content>
+
+
 
 
 

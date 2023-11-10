@@ -10,7 +10,7 @@ export class CrudService {
   private combustibleColeccion : AngularFirestoreCollection <Combustible>
 
   constructor(private database : AngularFirestore) {
-    this.combustibleColeccion = database.collection('combustibles');
+    this.combustibleColeccion = database.collection('Mcombustible');
    }
 
       crearCombustible (combustible: Combustible){
@@ -29,13 +29,13 @@ export class CrudService {
       }
 
 
-      obteenrCombustible(){
+      obtenerCombustible(){
 
         return this.combustibleColeccion.snapshotChanges().
         pipe (map(action => action.map(a => a.payload.doc.data())))
       }
       modificarCombustible(uid: string, nuevaData: Combustible){
-        return this.database.collection('combustibles').doc(uid).update(nuevaData);
+        return this.database.collection('Mcombustible').doc(uid).update(nuevaData);
       }
 
       eliminarCombustible(uid: string){

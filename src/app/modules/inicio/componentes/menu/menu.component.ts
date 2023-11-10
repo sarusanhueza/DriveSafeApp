@@ -28,7 +28,7 @@ export class MenuComponent  implements OnInit {
 
   ngOnInit(): void {
 
-    this.servicioCrud.obtenerCombustible.subscribe (combustible =>{
+    this.servicioCrud.obtenerCombustible().subscribe (combustible =>{
       this.coleccionCombustible = combustible;
     })
   }
@@ -43,7 +43,7 @@ async agregarCombustible (){
       tipo: this.combustible.value.tipo!,
       gasto: this.combustible.value.gasto!,
     };
-    await this.servicioCrud.creaarCombustible(nuevoCombustible)
+    await this.servicioCrud.crearCombustible(nuevoCombustible)
 
     }
   }
@@ -80,8 +80,10 @@ async agregarCombustible (){
       this.combustibleSelec = combustibleSelec;
     }
 
-    boarr
+    borrarCombustible(){
+      this.servicioCrud.eliminarCombustible(this.combustibleSelec.uid);
 
+    }
 
 
 

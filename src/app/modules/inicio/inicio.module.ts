@@ -7,6 +7,7 @@ import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 import { IonMenu, IonMenuButton, IonicModule, MenuController } from '@ionic/angular';
 import { MenuComponent } from './componentes/menu/menu.component';
 
+
 //
 
 
@@ -18,6 +19,7 @@ import { MenuComponent } from './componentes/menu/menu.component';
     CommonModule,
     InicioRoutingModule,
     IonicModule,
+
   ],
   exports:[
     CarruselComponent
