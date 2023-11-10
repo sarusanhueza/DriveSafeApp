@@ -28,21 +28,27 @@ export class ConfiguracionComponent  implements OnInit {
 
   confirm() {
     this.modal.dismiss(this.name, 'confirm');
-    this.modal1.dismiss(this.fecha, 'confirm');
   }
 
   onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
-      this.message = `${ev.detail.data}!`;
+      this.message = `${ev.detail.data}`;
     }
   }
 
+  cancel1() {
+    this.modal1.dismiss(null, 'cancel');
+  }
+
+  confirm1() {
+    this.modal1.dismiss(this.fecha, 'confirm');
+  }
 
   onWillDismiss1(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
-      this.message1 = `${ev.detail.data}!`;
+      this.message1 = `${ev.detail.data}`;
     }
   }
  
