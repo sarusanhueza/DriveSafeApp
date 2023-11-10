@@ -1,61 +1,55 @@
 
+
+
   <ion-content class="ion-padding" class="tab">
-      <ion-tabs>
-        <ion-tab-bar slot="bottom">
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
 
-          <ion-tab-button tab="menucito">
-            <ion-icon name="home-outline"></ion-icon>
-          </ion-tab-button>
+        <ion-tab-button tab="menucito">
+          <ion-icon name="home-outline"></ion-icon>
+        </ion-tab-button>
 
-          <ion-fab>
-            <ion-fab-button id="open-custom-dialog" size="small" >
-              <ion-icon name="add"></ion-icon>
-                <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
-                  <ng-template>
+        <ion-fab>
+          <ion-fab-button id="open-custom-dialog" size="small" >
+            <ion-icon name="add"></ion-icon>
+              <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+                <ng-template>
 
-                    <div class="wrapper">
-                      <h1>Notas</h1>
-
-
-                      <div> <!--aca estamos creando dos items en un dv para en cada uno poner dos iconos como botones para las notasy adjjuntarlos en el modal-->
-                        <ion-button>
-                          <ion-icon name="map-outline"></ion-icon>
-                        </ion-button>
+                  <div class="wrapper">
+                    <h1>Notas</h1>
 
 
+                    <div> <!--aca estamos creando dos items en un dv para en cada uno poner dos iconos como botones para las notasy adjjuntarlos en el modal-->
+                      <ion-button>
+                        <ion-icon name="map-outline"></ion-icon>
+                      </ion-button>
 
-                        <ion-button>
-                          <ion-icon name="receipt-outline"></ion-icon>
-                        </ion-button>
+                      <ion-button>
+                        <ion-icon name="receipt-outline"></ion-icon>
+                      </ion-button>
 
-                        <ion-button>
-                          <ion-icon name="speedometer-outline"></ion-icon>
-                        </ion-button>
+                      <ion-button>
+                        <ion-icon name="speedometer-outline"></ion-icon>
+                      </ion-button>
 
-                        <ion-button>
-                          <ion-icon name="today-outline"></ion-icon>
-                        </ion-button>
-                      </div>
-
+                      <ion-button>
+                        <ion-icon name="today-outline"></ion-icon>
+                      </ion-button>
                     </div>
-                  </ng-template>
-                </ion-modal>
 
-            </ion-fab-button>
-          </ion-fab>
+                  </div>
+                </ng-template>
+              </ion-modal>
 
-
-          <ion-tab-button tab="conducir" class="tab">
-            <ion-icon name="car-sport-outline"></ion-icon>
-          </ion-tab-button>
-        </ion-tab-bar>
-      </ion-tabs>
-    </ion-content>
+          </ion-fab-button>
+        </ion-fab>
 
 
-
-
-
+        <ion-tab-button tab="conducir" class="tab">
+          <ion-icon name="car-sport-outline"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
 
 
 
