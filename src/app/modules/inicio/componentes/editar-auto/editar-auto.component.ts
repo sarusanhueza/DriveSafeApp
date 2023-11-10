@@ -48,6 +48,6 @@ export class EditarAutoComponent {
 
   // showAllValues concatena todos los valores que fueron ingresados y los muestra
   showAllValues(){
-    this.message = `Nombre: ${this.nombre}, <br> Patente: ${this.patente}, <br> Marca: ${this.marca}, \m Tipo de combustible: ${this.tcombustible}`;
+    this.message = `Nombre: ${this.nombre}, Patente: ${this.patente}, Marca: ${this.marca}, Tipo de combustible: ${this.tcombustible}`;
   }
 }
