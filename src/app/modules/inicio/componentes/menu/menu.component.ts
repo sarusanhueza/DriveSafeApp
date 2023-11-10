@@ -36,13 +36,17 @@ export class MenuComponent  implements OnInit {
 async agregarCombustible (){
   if(this.combustible.valid){
     let nuevoCombustible : Combustible = {
+      uid: ' ',
       titulo: this.combustible.value.titulo!,
       fecha: this.combustible.value.fecha!,
       litros: this.combustible.value.litros!,
       gasto: this.combustible.value.gasto!,
+    };
+    await this.servicioCrud.creaarCombustible(nuevoCombustible)
+
     }
   }
 }
 
 
-}
+
