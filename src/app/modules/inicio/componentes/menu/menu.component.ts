@@ -14,7 +14,9 @@ export class MenuComponent  implements OnInit {
   combustibleSelec!: Combustible;
   ModalVisibleCombustible: boolean = false;
 
-  combustible = new FormGroup ({
+  //formulario reactivo: para tener las valiraciones hechas. 
+
+  FormCombustible = new FormGroup ({
     titulo: new FormControl (' ', Validators.required),
     fecha: new FormControl (' ', Validators.required),
     litros: new FormControl (' ', Validators.required),
@@ -34,14 +36,14 @@ export class MenuComponent  implements OnInit {
   }
 
 async agregarCombustible (){
-  if(this.combustible.valid){
+  if(this.FormCombustible.valid){
     let nuevoCombustible : Combustible = {
       uid: ' ',
-      titulo: this.combustible.value.titulo!,
-      fecha: this.combustible.value.fecha!,
-      litros: this.combustible.value.litros!,
-      tipo: this.combustible.value.tipo!,
-      gasto: this.combustible.value.gasto!,
+      titulo: this.FormCombustible.value.titulo!,
+      fecha: this.FormCombustible.value.fecha!,
+      litros: this.FormCombustible.value.litros!,
+      tipo: this.FormCombustible.value.tipo!,
+      gasto: this.FormCombustible.value.gasto!,
     };
     await this.servicioCrud.crearCombustible(nuevoCombustible)
 
@@ -51,7 +53,7 @@ async agregarCombustible (){
     mostrarEditar(combustibleSelec: Combustible){
       this.combustibleSelec = combustibleSelec;
 
-      this.combustible.setValue({
+      this.FormCombustible.setValue({
         titulo: combustibleSelec.titulo,
         fecha: combustibleSelec.fecha,
         litros: combustibleSelec.litros,
@@ -64,11 +66,11 @@ async agregarCombustible (){
       let datos: Combustible = {
         uid: this.combustibleSelec.uid,
 
-        titulo: this.combustible.value.titulo!,
-        fecha: this.combustible.value.fecha!,
-        litros: this.combustible.value.litros!,
-        tipo: this.combustible.value.tipo!,
-        gasto: this.combustible.value.gasto!
+        titulo: this.FormCombustible.value.titulo!,
+        fecha: this.FormCombustible.value.fecha!,
+        litros: this.FormCombustible.value.litros!,
+        tipo: this.FormCombustible.value.tipo!,
+        gasto: this.FormCombustible.value.gasto!
       }
 
 
@@ -85,6 +87,18 @@ async agregarCombustible (){
 
     }
 
+    confirm(){
+
+    }
+
+    cancel(){
+
+    }
+
+    
+    onWillDismiss(event){
+
+    }
 
 
 }

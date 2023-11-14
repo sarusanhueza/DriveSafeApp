@@ -26,7 +26,11 @@ const routes: Routes = [
 ]},
 
 
-{path: 'carrusel', component: CarruselComponent},
+{path: 'carrusel', component: CarruselComponent},  {
+    path: 'form-combustible',
+    loadChildren: () => import('./page/form-combustible/form-combustible.module').then( m => m.FormCombustiblePageModule)
+  },
+
 
 
 
