@@ -9,7 +9,7 @@
       <ion-fab>
         <ion-fab-button id="open-custom-dialog" size="small">
           <ion-icon name="add"></ion-icon>
-         
+
 
         </ion-fab-button>
       </ion-fab>
@@ -41,9 +41,12 @@
             <ion-icon name="receipt-outline"></ion-icon>
           </ion-button>
 
-          <ion-button >
-            <ion-icon name="speedometer-outline" id="modalCombustible"  ></ion-icon>
-          </ion-button>
+          <ion-nav-link router-direction = "forward" [component] = "component">
+            <ion-button>
+              <ion-icon name="speedometer-outline"></ion-icon>
+            </ion-button>
+          </ion-nav-link>
+
 
           <ion-button>
             <ion-icon name="today-outline"></ion-icon>
@@ -69,32 +72,3 @@
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
-
-
-      <ion-content class="ion-padding">
-        <form [formGroup]="FormCombustible">
-
-          <ion-item>
-            <ion-input type="text" formControlName="titulo"> </ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-input placeholder="Fecha de hoy" type="text" formControlName="fecha"> </ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-input placeholder="¿Con cuanto llenaste el tanque?" type="text" formControlName="litros"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-input placeholder="Tipo de combustible" type="text" formControlName="tipo"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-input placeholder="¿Cuanto gastaste?" type="number" formControlName="gasto"></ion-input>
-          </ion-item>
-        </form>
-
-      </ion-content>
-    </ng-template>
-  </ion-modal>

@@ -13,11 +13,7 @@ const routes: Routes = [
    },
   {
     path: '',loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthModule)
-  },  {
-    path: 'form-combustible',
-    loadChildren: () => import('./medules/inicio/page/form-combustible/form-combustible.module').then( m => m.FormCombustiblePageModule)
   }
-
 
 
 ];

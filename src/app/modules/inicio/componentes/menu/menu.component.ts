@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { Combustible } from 'src/app/models/Mcombustible';
 import { CrudService } from '../../services/crud.service';
+import { FormCombustiblePage } from '../../page/form-combustible/form-combustible.page';
 
 @Component({
   selector: 'app-menu',
@@ -9,6 +10,8 @@ import { CrudService } from '../../services/crud.service';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent  implements OnInit {
+  component = FormCombustiblePage
+  
 
   coleccionCombustible: Combustible [] = [];
   combustibleSelec!: Combustible;
@@ -16,14 +19,7 @@ export class MenuComponent  implements OnInit {
 
   //formulario reactivo: para tener las valiraciones hechas. 
 
-  FormCombustible = new FormGroup ({
-    titulo: new FormControl (' ', Validators.required),
-    fecha: new FormControl (' ', Validators.required),
-    litros: new FormControl (' ', Validators.required),
-    tipo: new FormControl (' ', Validators.required),
-    gasto: new FormControl (0, Validators.required)
-
-  })
+  
   constructor(
     public servicioCrud : CrudService
   ) { }
@@ -35,7 +31,7 @@ export class MenuComponent  implements OnInit {
     })
   }
 
-async agregarCombustible (){
+/*async agregarCombustible (){
   if(this.FormCombustible.valid){
     let nuevoCombustible : Combustible = {
       uid: ' ',
@@ -81,7 +77,7 @@ async agregarCombustible (){
       this.ModalVisibleCombustible = true;
       this.combustibleSelec = combustibleSelec;
     }
-
+*/
     borrarCombustible(){
       this.servicioCrud.eliminarCombustible(this.combustibleSelec.uid);
 
