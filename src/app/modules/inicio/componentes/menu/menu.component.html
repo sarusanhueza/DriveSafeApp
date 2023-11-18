@@ -41,11 +41,9 @@
             <ion-icon name="receipt-outline"></ion-icon>
           </ion-button>
 
-          <ion-nav-link router-direction = "forward" [component] = "component">
-            <ion-button>
-              <ion-icon name="speedometer-outline"></ion-icon>
-            </ion-button>
-          </ion-nav-link>
+          <ion-button>
+            <ion-icon name="speedometer-outline"></ion-icon>
+          </ion-button>
 
 
           <ion-button>
@@ -57,18 +55,3 @@
     </ng-template>
   </ion-modal>
 
-
-
-  <ion-modal trigger="modalCombustible" (willDismiss)="onWillDismiss($event)">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-button (click)="cancel()">Cancel</ion-button>
-          </ion-buttons>
-          <ion-title>Combustible</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>

@@ -9,8 +9,6 @@ import { MenuComponent } from './componentes/menu/menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-//
-
 
 @NgModule({
   declarations: [
@@ -28,3 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ]
 })
 export class InicioModule { }
+
+
+
+
