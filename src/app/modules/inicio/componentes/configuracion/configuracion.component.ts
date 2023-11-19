@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
+import { IonModal } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-configuracion',
@@ -10,9 +11,13 @@ import { OverlayEventDetail } from '@ionic/core/components';
 export class ConfiguracionComponent  implements OnInit {
 
   @ViewChild(IonModal)
-  modal!: IonModal; 
-  modal1!:IonModal;
+  modal_!: IonModal;
 
+  @ViewChild(IonModal)
+  modal!: IonModal;
+  
+//  @ViewChild(IonModal)
+  
   message = 'nombre';
   message1 = '00/00/00';
   message2 = 'cambiar contraseña';
@@ -22,6 +27,9 @@ export class ConfiguracionComponent  implements OnInit {
   name!: string;
   fecha!: string;
 
+  ngOnInit() {
+  }
+
   cancel() {
     this.modal.dismiss(null, 'cancel');
   }
@@ -29,6 +37,7 @@ export class ConfiguracionComponent  implements OnInit {
   confirm() {
     this.modal.dismiss(this.name, 'confirm');
   }
+
 
   onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
@@ -38,26 +47,34 @@ export class ConfiguracionComponent  implements OnInit {
   }
 
   cancel1() {
-    this.modal1.dismiss(null, 'cancel');
+    this.modal_.dismiss(null, 'cancel');
+    //if (this.modal1) {
+    //  this.modal1.dismiss(null, 'cancel');
+    // } else {
+    //  this.modal1.dismiss(null, 'cancel');
+    //  console.error('El modal1 no está definido');
+    // }
   }
 
   confirm1() {
-    this.modal1.dismiss(this.fecha, 'confirm');
+    if (this.modal_) {
+      this.modal_.dismiss(this.fecha, 'confirm');
+    } 
   }
 
   onWillDismiss1(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
-      this.message1 = `${ev.detail.data}`;
+      this.message1 = `${ev.detail.data}!`;
     }
   }
  
 
 
- 
+
 
   constructor() { }
 
-  ngOnInit() {}
+
 
 }
