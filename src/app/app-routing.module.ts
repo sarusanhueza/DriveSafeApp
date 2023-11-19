@@ -13,9 +13,6 @@ const routes: Routes = [
    },
   {
     path: '',loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthModule)
-  },
-  {
-    path:'', loadChildren:() => import('./modules/inicio-admin/inicio-admin.module').then( m => m.InicioAdminModule)
   }
 
 ];
