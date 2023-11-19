@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './page/inicio/inicio.component';
 import { MenuComponent } from './componentes/menu/menu.component';
 import { CarruselComponent } from '../inicio/componentes/carrusel/carrusel.component';
+import { FormCombustiblePageModule } from './page/form-combustible/form-combustible.module';
 
 const routes: Routes = [
   //rutas secundarias
@@ -22,14 +23,16 @@ const routes: Routes = [
     path: 'menucito',
     loadChildren: () => import('./page/menucito/menucito.module').then( m => m.MenucitoPageModule)
   },
+  {
+    path: 'form-combustible',
+    loadChildren: () => import('./page/form-combustible/form-combustible.module').then( m => m.FormCombustiblePageModule)
+  },
 
 ]},
 
 
-{path: 'carrusel', component: CarruselComponent},  {
-    path: 'form-combustible',
-    loadChildren: () => import('./page/form-combustible/form-combustible.module').then( m => m.FormCombustiblePageModule)
-  },
+{path: 'carrusel', component: CarruselComponent},
+
 
 
 

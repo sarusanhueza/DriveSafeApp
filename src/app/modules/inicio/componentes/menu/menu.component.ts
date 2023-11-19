@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Combustible } from 'src/app/models/Mcombustible';
 import { CrudService } from '../../services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -14,11 +15,14 @@ export class MenuComponent  implements OnInit {
   coleccionCombustible: Combustible [] = [];
   combustibleSelec!: Combustible;
   ModalVisibleCombustible: boolean = false;
+  FormCombustible: any;
+  
 
 
   
   constructor(
-    public servicioCrud : CrudService
+    public servicioCrud : CrudService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
