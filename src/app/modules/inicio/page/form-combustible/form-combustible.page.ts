@@ -18,7 +18,7 @@ export class FormCombustiblePage implements OnInit {
   ModalVisibleCombustible: boolean = false;
 
   Mcombustible = new FormGroup({
-    titulo: new FormControl('',Validators.required),
+    titulo: new FormControl('Combustible'),
     fecha: new FormControl('',Validators.required),
     litros: new FormControl('',Validators.required),
     tipo: new FormControl('',Validators.required),
@@ -39,7 +39,8 @@ export class FormCombustiblePage implements OnInit {
   }
 
   async agregarCombustible (){
-    if(this.Mcombustible.valid){
+    console.log("hola")
+    //if(this.Mcombustible.valid){
       let nuevoCombustible : Combustible = {
         uid: ' ',
         titulo: this.Mcombustible.value.titulo!,
@@ -48,9 +49,14 @@ export class FormCombustiblePage implements OnInit {
         tipo: this.Mcombustible.value.tipo!,
         gasto: this.Mcombustible.value.gasto!,
       };
-      await this.servicioCrud.crearCombustible(nuevoCombustible)
+      console.log(nuevoCombustible);
+      const valor = await this.servicioCrud.crearCombustible(nuevoCombustible);
+      console.log(valor)
   
-      }
+      //}
+      //else{
+      //  console.log(this.Mcombustible)
+     // }
     }
 
     mostrarEditar(combustibleSelec: Combustible){

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Combustible } from 'src/app/models/Mcombustible';
+import { CrudService } from '../../services/crud.service';
 
 @Component({
   selector: 'app-menucito',
@@ -7,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenucitoPage implements OnInit {
 
+  coleccionCombustible: Combustible [] = [];
+  combustibleSelec!: Combustible;
   constructor(
+    public servicioCrud: CrudService
   ){}
 
-  ngOnInit(
-
-  ){}
+  ngOnInit(): void {
+    this.servicioCrud.obtenerCombustible().subscribe (combustible =>{
+      this.coleccionCombustible = combustible;
+    })
+  }
 
 
   eliminar(){
