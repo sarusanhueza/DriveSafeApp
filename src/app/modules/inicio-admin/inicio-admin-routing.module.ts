@@ -4,6 +4,7 @@ import { InicioAdminModule } from './inicio-admin.module';
 import { ReconocimientoComponent } from './componentes/reconocimiento/reconocimiento.component';
 
 const routes: Routes = [
+  //rutas hijas del modulo "inicio-admin"
   {path:'reconocimiento', component:ReconocimientoComponent}
 ];
 
