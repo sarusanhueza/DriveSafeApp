@@ -45,7 +45,8 @@
   <ion-content class="ion-padding"> 
 
     <ion-list [inset]="true">
-      <ion-item [button]="true" *ngFor ="let col of coleccionCombustible">
+      <div class="custom-item">
+      <ion-item [button]="true" *ngFor ="let col of coleccionCombustible" >
         <ion-icon color="primary" slot="start" name="speedometer-outline" size="large"></ion-icon>
         <ion-label>
           {{col.titulo}} <br />
@@ -54,10 +55,11 @@
         <ion-button fill="outline" slot="end" color="dark" size="small">
           <ion-icon slot="icon-only" name="create-outline" size="small"></ion-icon>
         </ion-button>
-        <ion-button fill="outline" slot="end" color="dark" size="small">
+        <ion-button fill="outline" slot="end" color="dark" size="small"  data-bs-toggle="modal" data-bs-target="#borrarCombustible" (click)="mostrarBorrar(col)">
           <ion-icon slot="icon-only" name="trash-outline" size="small"></ion-icon>
         </ion-button>
       </ion-item>
+    </div>
 
        <ion-item [button]="true">
         <ion-icon color="primary" slot="start" name="map-outline" size="large"></ion-icon>
@@ -65,7 +67,8 @@
         <ion-icon color="info" slot="end" name="create-outline" size="small"></ion-icon>
         <ion-icon color="info" slot="end" name="trash-outline" size="small"></ion-icon>
       </ion-item>
-      <ion-item [button]="true">
+
+      <!-- <ion-item [button]="true">
         <ion-icon color="primary" slot="start" name="today-outline" size="large"></ion-icon>
         <ion-label>Recordatorio</ion-label>
         <ion-icon color="info" slot="end" name="create-outline" size="small"></ion-icon>
@@ -76,8 +79,40 @@
         <ion-label>Gastos</ion-label>
         <ion-icon color="info" slot="end" name="create-outline" size="small"></ion-icon>
         <ion-icon color="info" slot="end" name="trash-outline" size="small"></ion-icon>
-      </ion-item>
-    </ion-list> 
+      </ion-item>-->
+    </ion-list>  
+
+     <div class="modal fade" *ngIf="ModalVisibleCombustible" id="eliminarCombustible" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">¿Estas seguro que quiere eliminar el producto?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- MOSTRAR EL PRODUCTO QUE ELIMINAMOS-->
+             {{combustibleSelec.titulo}}
+            <img src="{{combustibleSelec.fecha}}">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" (click)="borrarCombustible()">Eliminar</button>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <!-- <ion-modal id="example-modal" #modal trigger="open-custom-dialog" *ngIf="ModalVisibleCombustible" id="eliminarCombustible" >
+      <ng-template>
+        <div class="wrapper" class="modal-body">
+          <h1></h1>
+        <p>Su nota ha sido eliminada correctamente!</p>
+         <!-- MOSTRAR EL PRODUCTO QUE ELIMINAMOS-->
+         <!-- {{combustibleSelec.titulo}}
+         {{combustibleSelec.fecha}}
+        </div>
+      </ng-template>
+    </ion-modal>  -->
     
    
   </ion-content>

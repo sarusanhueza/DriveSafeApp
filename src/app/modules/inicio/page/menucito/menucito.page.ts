@@ -11,6 +11,7 @@ export class MenucitoPage implements OnInit {
 
   coleccionCombustible: Combustible [] = [];
   combustibleSelec!: Combustible;
+  ModalVisibleCombustible: boolean = false;
   constructor(
     public servicioCrud: CrudService
   ){}
@@ -19,10 +20,23 @@ export class MenucitoPage implements OnInit {
     this.servicioCrud.obtenerCombustible().subscribe (combustible =>{
       this.coleccionCombustible = combustible;
     })
+
+  }
+
+  mostrarBorrar(combustibleSelec: Combustible){
+    this.ModalVisibleCombustible = true;
+    this.combustibleSelec = combustibleSelec;
+  }
+
+  borrarCombustible(){ // boton para eliminar definitivamente
+    this.servicioCrud.eliminarCombustible(this.combustibleSelec.uid)
+    .then(respuesta => {
+      alert("El producto se ha eliminado correctamente.");
+    })
+    .catch(error => {
+      alert("No se ha podido eliminar el producto: \n"+error);
+    })
   }
 
 
-  eliminar(){
-    
-  }
 }
