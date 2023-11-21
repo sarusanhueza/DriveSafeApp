@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonModal } from '@ionic/angular';
 
 import { Combustible } from 'src/app/models/Mcombustible';
 import { CrudService } from '../../services/crud.service';
@@ -10,19 +11,24 @@ import { Router } from '@angular/router';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent  implements OnInit {
-  
+export class MenuComponent implements OnInit {
 
 
-  
 
-  
+  @ViewChild(IonModal) modal!: IonModal;
+
+
   constructor(
   ) { }
 
-  ngOnInit(){
+
+
+  ngOnInit() {
   }
 
+  cerrarModal() {
+    this.modal.dismiss(null, 'cancel');
+  }
 
 
 }
