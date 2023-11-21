@@ -23,9 +23,17 @@ export class MenucitoPage implements OnInit {
 
   }
 
-  mostrarBorrar(combustibleSelec: Combustible){
-    this.ModalVisibleCombustible = true;
-    this.combustibleSelec = combustibleSelec;
+  mostrarBorrar(uid: string){
+    // this.ModalVisibleCombustible = true;
+    // this.combustibleSelec = combustibleSelec;
+
+    this.servicioCrud.eliminarCombustible(uid)
+    .then(respuesta => {
+      alert("El producto se ha eliminado correctamente.");
+    })
+    .catch(error => {
+      alert("No se ha podido eliminar el producto: \n"+error);
+    })
   }
 
   borrarCombustible(){ // boton para eliminar definitivamente

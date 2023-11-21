@@ -55,9 +55,15 @@
         <ion-button fill="outline" slot="end" color="dark" size="small">
           <ion-icon slot="icon-only" name="create-outline" size="small"></ion-icon>
         </ion-button>
-        <ion-button fill="outline" slot="end" color="dark" size="small"  data-bs-toggle="modal" data-bs-target="#borrarCombustible" (click)="mostrarBorrar(col)">
+
+
+
+        <ion-button fill="outline" slot="end" color="dark" size="small"  (click)="mostrarBorrar(col.uid)">
           <ion-icon slot="icon-only" name="trash-outline" size="small"></ion-icon>
         </ion-button>
+
+
+
       </ion-item>
     </div>
 
@@ -92,7 +98,7 @@
           <div class="modal-body">
             <!-- MOSTRAR EL PRODUCTO QUE ELIMINAMOS-->
              {{combustibleSelec.titulo}}
-            <img src="{{combustibleSelec.fecha}}">
+             {{combustibleSelec.fecha}}
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" (click)="borrarCombustible()">Eliminar</button>
