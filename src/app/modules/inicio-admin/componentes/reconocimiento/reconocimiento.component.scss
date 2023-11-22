@@ -1,25 +1,30 @@
-.container{
+.container {
     //cambiar fondo
- background-color: #97CADB;
+    background-color: #97CADB !important;
+
 }
 
-.row{
+.row {
     //cambiar fondo
- background-color: #97CADB;
+    background-color: #97CADB;
 
 }
-img{
-padding-top: 20%;
+
+img {
+    padding-top: 20%;
 
 }
-h1{
+
+h1 {
     color: white;
-    text-align: center; 
+    text-align: center;
     padding-top: 3%;
-   padding-bottom: 3%;
+    padding-bottom: 3%;
 
 }
-p, ion-button{
+
+p,
+ion-button {
     color: white;
     text-align: center;
     padding-bottom: 10%;
