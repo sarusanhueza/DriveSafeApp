@@ -20,9 +20,9 @@ export class FormCombustiblePage implements OnInit {
   Mcombustible = new FormGroup({
     titulo: new FormControl('Combustible'),
     fecha: new FormControl('',Validators.required),
-    litros: new FormControl(0,Validators.required),
+    litros: new FormControl('',Validators.required),
     tipo: new FormControl('',Validators.required),
-    gasto: new FormControl(0,Validators.required),
+    gasto: new FormControl('$',Validators.required),
   })
 
 

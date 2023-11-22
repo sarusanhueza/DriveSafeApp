@@ -2,7 +2,7 @@ export interface Combustible{
   uid: string | any;
   titulo: string;
   fecha: string;
-  litros: number;
+  litros: string;
   tipo: string;
-  gasto: number;
+  gasto: string;
 }
