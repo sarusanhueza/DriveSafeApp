@@ -46,9 +46,6 @@
 
     <ion-list [inset]="true">
       <div class="custom-item">
-
-
-
       <ion-item [button]="true" *ngFor ="let col of coleccionCombustible" >
         <ion-icon color="primary" slot="start" name="speedometer-outline" size="large"></ion-icon>
         <ion-label>
@@ -61,22 +58,13 @@
 
 
 
-        <ion-button fill="outline" slot="end" color="dark" size="small" (click)="mostrarBorrar(col.uid)">
-          
-
-
+        <ion-button fill="outline" slot="end" color="dark" size="small"  (click)="mostrarBorrar(col.uid)">
           <ion-icon slot="icon-only" name="trash-outline" size="small"></ion-icon>
         </ion-button>
 
 
 
       </ion-item>
-
-
-
-
-
-
     </div>
 
        <ion-item [button]="true">

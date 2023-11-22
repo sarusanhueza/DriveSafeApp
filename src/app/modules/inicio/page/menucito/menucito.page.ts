@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Combustible } from 'src/app/models/Mcombustible';
 import { CrudService } from '../../services/crud.service';
-import Swal from 'sweetalert2'
-
 
 @Component({
   selector: 'app-menucito',
@@ -31,8 +29,6 @@ export class MenucitoPage implements OnInit {
     // this.ModalVisibleCombustible = true;
     // this.combustibleSelec = combustibleSelec;
 
-    
-
     this.servicioCrud.eliminarCombustible(uid)
    
   }
@@ -43,8 +39,4 @@ export class MenucitoPage implements OnInit {
   }
 
 
-  
-
-
 }
-
