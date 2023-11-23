@@ -11,32 +11,32 @@
     </ion-toolbar>
   </ion-header>
 
+    <div [formGroup]="Mcombustible" class="formulario">
 
-  <div [formGroup]="Mcombustible" class="formulario">
-
-    <ion-list inset class="ilist" >
-  
-      <h2 style="color: #97CADB;"></h2>
-
-      <ion-input  type="date" label="Ingrese fecha" formControlName="fecha" label-placement="floating" fill="outline" placeholder="" ></ion-input>
-  
-      <ion-input  label="Ingrese tipo de combustible" formControlName="tipo"  label-placement="floating" fill="outline" placeholder=""></ion-input>
-  
-      <ion-input  label="Ingrese litros cargados" formControlName="litros" label-placement="floating" fill="outline" placeholder=""></ion-input>
+      <ion-list inset class="ilist" >
     
-      <ion-input  label="Ingrese su gasto $" formControlName="gasto" label-placement="floating" fill="outline" placeholder="" required></ion-input>
+        <h2 style="color: #97CADB;"></h2>
+  
+        <ion-input  type="date" label="Ingrese fecha" formControlName="fecha" label-placement="floating" fill="outline" placeholder="" ></ion-input>
+    
+        <ion-input  label="Ingrese tipo de combustible" formControlName="tipo"  label-placement="floating" fill="outline" placeholder=""></ion-input>
+    
+        <ion-input  label="Ingrese litros cargados" formControlName="litros" label-placement="floating" fill="outline" placeholder=""></ion-input>
+      
+        <ion-input  label="Ingrese su gasto $" formControlName="gasto" label-placement="floating" fill="outline" placeholder="" required></ion-input>
+          
         
-      
-  
     
       
-    </ion-list>
-  
-    <ion-list style="text-align:center">
-  
-      <ion-button (click)="agregarCombustible()" routerLink="/menu">GUARDAR</ion-button>
-  
-    </ion-list>
-  
-   </div>
+        
+      </ion-list>
+    
+      <ion-list style="text-align:center">
+    
+        <ion-button (click)="agregarCombustible()" routerLink="/menu">GUARDAR</ion-button>
+    
+      </ion-list>
+    
+     </div>
+ 
 </ion-content>

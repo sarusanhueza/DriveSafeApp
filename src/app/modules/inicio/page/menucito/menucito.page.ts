@@ -3,6 +3,7 @@ import { Combustible } from 'src/app/models/Mcombustible';
 import { CrudService } from '../../services/crud.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-menucito',
   templateUrl: './menucito.page.html',
@@ -15,7 +16,7 @@ export class MenucitoPage implements OnInit {
   ModalVisibleCombustible: boolean = false;
 
   Mcombustible = new FormGroup({
-    titulo: new FormControl('Combustible',),
+    titulo: new FormControl('Combustible'),
     fecha: new FormControl('', Validators.required),
     litros: new FormControl('', Validators.required),
     tipo: new FormControl('', Validators.required),
@@ -61,7 +62,7 @@ export class MenucitoPage implements OnInit {
     // this.combustibleSelec = combustibleSelec;
      this.servicioCrud.eliminarCombustible(uid)
 
-
+     this.ModalVisibleCombustible = true;
   }
   
 
