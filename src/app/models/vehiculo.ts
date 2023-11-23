@@ -1,5 +1,5 @@
 export interface Vehiculo {
-    uid: string | any; // id proveniente del usuario
+    uidVehiculo: string | any; // id proveniente del usuario
     nombre: string; // -> nombre del auto
     patente: string; // -> patente
     marca: string; // -> marca  

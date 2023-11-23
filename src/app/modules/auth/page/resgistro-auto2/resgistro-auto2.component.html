@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+
+    <div class="tituloo">
+      <h1> Registre su vehiculo</h1>
+    </div>
+
+
+    <div class="container1">
+
+      <div [formGroup]="vehiculo">
+
+        <ion-list class="lista-input">
+
+          <ion-input formControlName="nombre" label="Ingrese un nombre para su vehiculo" label-placement="floating"
+            fill="outline" placeholder=""></ion-input>
+
+          <ion-input formControlName="patente" label="Ingrese la patente" label-placement="floating" fill="outline"
+            placeholder=""></ion-input>
+
+          <ion-input formControlName="marca" label="Ingrese marca" label-placement="floating" fill="outline"
+            placeholder=""></ion-input>
+
+          <ion-input formControlName="combustible" label="Ingrese tipo de combustible" label-placement="floating"
+            fill="outline" placeholder=""></ion-input>
+
+        </ion-list>
+
+
+      </div>
+
+    </div>
+
+    <div class="container2">
+
+      <ion-list style="text-align:center">
+
+        <ion-button routerLink="/menu" (click)="registrarVehiculo()"  >CONTINUAR</ion-button>
+
+      </ion-list>
+
+    </div>
+
+
+
+  </div>
+
+</div>

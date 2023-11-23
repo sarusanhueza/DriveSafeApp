@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
 import { Router } from '@angular/router';
 import { Vehiculo } from 'src/app/models/vehiculo';
-
-
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
 
 @Component({
@@ -12,7 +11,7 @@ import { Vehiculo } from 'src/app/models/vehiculo';
   templateUrl: './registro-auto.component.html',
   styleUrls: ['./registro-auto.component.scss'],
 })
-export class RegistroAutoComponent  implements OnInit {
+export class RegistroAutoComponent {
 
   constructor( 
     public servicioAuth: AuthService,

@@ -9,20 +9,31 @@ import { LoginComponent } from './page/login/login.component';
 import { RegistroAutoComponent } from './page/registro-auto/registro-auto.component';
 //servicio que nos provee
 import { AuthService } from './services/auth.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ResgistroAuto2Component } from './page/resgistro-auto2/resgistro-auto2.component';
 
 
 
 
 @NgModule({
   declarations: [
-    LoginComponent, RegistroComponent, RegistroAutoComponent
+    LoginComponent, RegistroComponent, RegistroAutoComponent, ResgistroAuto2Component
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     FormsModule,
-    IonicModule
+    IonicModule, 
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  exports:[
+   LoginComponent,
+   RegistroComponent,
+   RegistroAutoComponent,
+    ResgistroAuto2Component,
+    FormsModule,
+    ReactiveFormsModule
   ],
     
   providers: [AuthService]

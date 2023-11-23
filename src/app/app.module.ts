@@ -30,7 +30,8 @@ import { environment } from 'src/environments/environment';
     SharedModule,   
     AngularFireAuthModule,
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    IonicModule
   ],
 
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

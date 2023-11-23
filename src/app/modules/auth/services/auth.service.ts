@@ -15,7 +15,8 @@ export class AuthService {
   }
 
 
-  constructor(public auth: AngularFireAuth) {}
+  constructor(public auth: AngularFireAuth) { 
+  }
 
 
     //perteneciente al registro
