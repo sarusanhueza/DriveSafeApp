@@ -24,6 +24,8 @@ export class FormCombustiblePage implements OnInit {
     tipo: new FormControl('',Validators.required),
     gasto: new FormControl('$',Validators.required),
   })
+  
+col: any;
 
 
   constructor(
