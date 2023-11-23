@@ -15,6 +15,7 @@ import { error } from 'console';
   styleUrls: ['./resgistro-auto2.component.scss'],
 })
 export class ResgistroAuto2Component  implements OnInit {
+  //creamos coleccion basada en las propiedades sugeridas  ingregar del vehiculo
   coleccionVehiculos: Vehiculo[] = [];
    
   //formulario que se vincula con el HTML
@@ -46,8 +47,8 @@ export class ResgistroAuto2Component  implements OnInit {
       patente: this.vehiculo.value.patente!,
       marca: this.vehiculo.value.marca!,
       combustible: this.vehiculo.value.combustible!,
-    };
-   
+    }; 
+      //llamamos al servioAuto;  crearVehiculo; seteamos(subimos/ousheamos) el nuevoProducto o el registro del vehiculo
     await this.servicioAuto.crearVehiculo(nuevoVehiculo)
      
     .then(vehiculo =>{

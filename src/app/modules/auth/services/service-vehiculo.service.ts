@@ -12,6 +12,7 @@ export class ServiceVehiculoService {
   private usuariosCollection: AngularFirestoreCollection<Usuario>
   private vehiculoCollection: AngularFirestoreCollection<Vehiculo>
 
+  //camino de la coleccion de (usuario) y su subcollecion (vehiculos)
   constructor(private database: AngularFirestore) {
     this.usuariosCollection = database.collection('usuarios'),
       this.vehiculoCollection = database.collection('usuarios').doc().collection('vehiculos')
@@ -42,11 +43,16 @@ export class ServiceVehiculoService {
     })
 }
 
+//obtenemos al usuario con sus datos
 obtenerUsuario(){
+  // snapshotChanges -> toma captura del estado de los datos
+    // pipe -> funciona como tubería, retorna el nuevo arreglo
+    // map -> "mapea" o recorre esa nueva información
+    // a -> resguarda la nueva información y la envía
   return this.usuariosCollection.snapshotChanges().
   pipe(map(action => action.map(a => a.payload.doc.data())))
 }
-
+//obtenemos vehiculos con sus propiedades
 obtenerVehiculo(){
   return this.vehiculoCollection.snapshotChanges().
   pipe(map(action => action.map(a => a.payload.doc.data())))

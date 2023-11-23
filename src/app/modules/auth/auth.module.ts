@@ -6,18 +6,17 @@ import { IonicModule } from '@ionic/angular';
 //componentes del modulo "Auth"
 import { RegistroComponent } from './page/registro/registro.component';
 import { LoginComponent } from './page/login/login.component';
-import { RegistroAutoComponent } from './page/registro-auto/registro-auto.component';
+import { ResgistroAuto2Component } from './page/resgistro-auto2/resgistro-auto2.component';
 //servicio que nos provee
 import { AuthService } from './services/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ResgistroAuto2Component } from './page/resgistro-auto2/resgistro-auto2.component';
 
 
 
 
 @NgModule({
   declarations: [
-    LoginComponent, RegistroComponent, RegistroAutoComponent, ResgistroAuto2Component
+    LoginComponent, RegistroComponent, ResgistroAuto2Component
   ],
   imports: [
     CommonModule,
@@ -30,7 +29,6 @@ import { ResgistroAuto2Component } from './page/resgistro-auto2/resgistro-auto2.
   exports:[
    LoginComponent,
    RegistroComponent,
-   RegistroAutoComponent,
     ResgistroAuto2Component,
     FormsModule,
     ReactiveFormsModule
