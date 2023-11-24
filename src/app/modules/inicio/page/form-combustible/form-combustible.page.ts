@@ -24,7 +24,7 @@ export class FormCombustiblePage implements OnInit {
     tipo: new FormControl('',Validators.required),
     gasto: new FormControl('$',Validators.required),
   })
-  
+
 col: any;
 
 
@@ -44,7 +44,7 @@ col: any;
     console.log("hola")
     //if(this.Mcombustible.valid){
       let nuevoCombustible : Combustible = {
-        uid: ' ',
+        uid: '',
         titulo: this.Mcombustible.value.titulo!,
         fecha: this.Mcombustible.value.fecha!,
         litros: this.Mcombustible.value.litros!,

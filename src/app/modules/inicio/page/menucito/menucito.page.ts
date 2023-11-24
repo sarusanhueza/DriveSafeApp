@@ -16,7 +16,7 @@ export class MenucitoPage implements OnInit {
   ModalVisibleCombustible: boolean = false;
 
   Mcombustible = new FormGroup({
-    titulo: new FormControl('Combustible'),
+    titulo: new FormControl('Combustible',Validators.required),
     fecha: new FormControl('', Validators.required),
     litros: new FormControl('', Validators.required),
     tipo: new FormControl('', Validators.required),
@@ -34,27 +34,27 @@ export class MenucitoPage implements OnInit {
 
   }
 
-  public alertButtons =
-  [
+  // public alertButtons =
+  // [
     
-    {
-      text: 'No',
-      cssClass: 'alert-button-cancel',
-      confirm: false
-    },
-    {
-      text: 'Si',
-      cssClass: 'alert-button-confirm',
-      handler:() =>{
+  //   {
+  //     text: 'No',
+  //     cssClass: 'alert-button-cancel',
+  //     confirm: false
+  //   },
+  //   {
+  //     text: 'Si',
+  //     cssClass: 'alert-button-confirm',
+  //     handler:() =>{
        
         
-      }
+  //     }
 
-    }, {
+  //   }, {
 
-    }
+  //   }
 
-  ]
+  // ]
 
 
   mostrarBorrar(uid: string) {
@@ -62,7 +62,7 @@ export class MenucitoPage implements OnInit {
     // this.combustibleSelec = combustibleSelec;
      this.servicioCrud.eliminarCombustible(uid)
 
-     this.ModalVisibleCombustible = true;
+     
   }
   
 
@@ -83,6 +83,8 @@ export class MenucitoPage implements OnInit {
       tipo: combustibleSelec.tipo,
       gasto: combustibleSelec.gasto
     })
+
+    // this.ModalVisibleCombustible = true;
   }
 
   // recibir los valores nuevos que ingresemos en el formulario
@@ -102,7 +104,6 @@ export class MenucitoPage implements OnInit {
 
     this.servicioCrud.modificarCombustible(this.combustibleSelec.uid, datos)
   }
-
 
 
 

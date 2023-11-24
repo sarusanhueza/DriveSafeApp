@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Combustible } from 'src/app/models/Mcombustible';
 import { map } from 'rxjs/operators';
+import { find } from 'rxjs/operators';
 
 
 @Injectable({
@@ -9,6 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class CrudService {
   private combustibleColeccion : AngularFirestoreCollection <Combustible>
+
 
   constructor(private database : AngularFirestore) {
     this.combustibleColeccion = database.collection('Mcombustible');
@@ -35,10 +37,21 @@ export class CrudService {
         return this.combustibleColeccion.snapshotChanges().
         pipe (map(action => action.map(a => a.payload.doc.data())))
       }
-      modificarCombustible(uid: string, nuevaData: Combustible){
+
+       modificarCombustible(uid: string, nuevaData: Combustible){
         return this.database.collection('Mcombustible').doc(uid).update(nuevaData);
       }
 
+      // editarForm(combustible: Combustible){
+      //   let MatchLista = this.combustibleColeccion.find((combustibleItem)=> combustibleItem.uid == combustible.uid);
+      //   MatchLista.fecha = combustible.fecha
+      //   MatchLista.tipo = combustible.tipo
+      //   MatchLista.litros = combustible.litros
+      //   MatchLista.gasto = combustible.gasto
+  
+      //   this.guardar
+      // }
+       
       eliminarCombustible(uid: string){
         return new Promise ((resolve,reject) => {
           try{

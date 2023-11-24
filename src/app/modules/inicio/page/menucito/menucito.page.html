@@ -49,21 +49,20 @@
       <ion-item [button]="true" *ngFor ="let col of coleccionCombustible" >
         <ion-icon color="primary" slot="start" name="speedometer-outline" size="large"></ion-icon>
         <ion-label>
-          {{col.titulo}} <br />
+         <p> {{col.titulo}} </p>
           <ion-note color="medium" class="ion-text-wrap">{{col.fecha}}</ion-note>
         </ion-label>
 
 
 
-        <ion-button fill="outline" slot="end" color="dark" size="small" (click)="mostrarEditar(col)" routerLink="/form-combustible">
-          <ion-icon slot="icon-only" name="create-outline" size="small"></ion-icon>
+        <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" data-bs-target="#editarCombustible" (click)="mostrarEditar(col.uid)" >
+          <ion-icon slot="icon-only" name="create-outline" size="small" ></ion-icon>
         </ion-button>
 
 
 
 
-       <ion-button id="present-alert" fill="outline" slot="end" color="dark" size="small">
-        <ion-alert trigger="present-alert" class="custom-alert" backdropDismiss="false" header="¿Quieres eliminar esta nota?" [buttons]="alertButtons" (click)="mostrarBorrar(col.uid)"></ion-alert>
+       <ion-button id="present-alert" fill="outline" slot="end"  size="small" (click)="mostrarBorrar(col.uid)">
           <ion-icon slot="icon-only" name="trash-outline" size="small"></ion-icon>
         </ion-button>
 
@@ -80,12 +79,18 @@
       </ion-item>
 
     </ion-list>
+
+ 
    
   </ion-content>
 </div>
 
+
+
+<!-- 
 <div class="div" *ngIf="ModalVisibleCombustible">
-  <div [formGroup]="Mcombustible" class="formulario">
+
+  <div formGroup="Mcombustible" class="formulario">
 
     <ion-list inset class="ilist" >
   
@@ -107,16 +112,52 @@
   
     <ion-list style="text-align:center">
   
-      <ion-button (click)="agregarCombustible()" routerLink="/menu">EDITAR</ion-button>
+      <ion-button  routerLink="/menu">EDITAR</ion-button>
   
     </ion-list>
   
    </div>
+</div> -->
+
+<div class="modal fade" *ngFor="let col of coleccionCombustible" id="editarCombustible" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edite el siguiente producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div [formGroup]="Mcombustible"  class="modal-body">
+
+        <!-- <label class="form-control" type="text" formControlName="titulo">{{col.titulo}}</label> -->
+
+        <div class="mb-3">
+          <label class="form-label">Ingrese fecha:</label>
+          <input class="form-control" type="text" formControlName="fecha" placeholder="{{col.fecha}}">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Ingrese tipo de combustible:</label>
+          <input class="form-control" type="text" formControlName="tipo" placeholder="{{col.tipo}}">
+        </div>
+
+        <div class="mb-3">
+        <label class="form-label">Ingrese litros cargados:</label>
+          <input class="form-control" type="text" formControlName="litros" placeholder="{{col.litros}}">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Ingrese el gasto:</label>
+          <input class="form-control" type="text" formControlName="gasto" placeholder="{{col.gasto}}">
+        </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="editarCombustible()">Guardar cambios</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    
+    </div>
+  </div>
 </div>
-
-
-
-
 
 <!-- 
 (click)="mostrarBorrar(col.uid)" -->
