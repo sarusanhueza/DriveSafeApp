@@ -209,7 +209,23 @@ export class MenucitoPage implements OnInit {
     }
 
 
-    this.servicioCrud.modificarGastos(this.combustibleSelec.uid, datos)
+    this.servicioCrud.modificarGastos(this.gastoSelec.uid, datos)
+  }
+
+  editarRecordatorio() {
+    let datos: Recordatorio = {
+      uid: this.recordatorioSelec.uid,
+
+      titulo: this.Mrecordatorio.value.titulo!,
+      fecha: this.Mrecordatorio.value.fecha!,
+      hora: this.Mrecordatorio.value.hora!,
+      nombreEvento: this.Mrecordatorio.value.nombreEvento!,
+      
+      
+    }
+
+
+    this.servicioCrud.modificarRecordatorio(this.recordatorioSelec.uid, datos)
   }
 
 
