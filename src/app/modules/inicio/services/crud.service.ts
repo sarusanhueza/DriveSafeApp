@@ -95,8 +95,8 @@ export class CrudService {
         return this.database.collection('Mgastos').doc(uid).update(nuevaData);
       }
 
-      modificarRecordatorio(uid: string, nuevaData: Gastos){
-        return this.database.collection('Mgastos').doc(uid).update(nuevaData);
+      modificarRecordatorio(uid: string, nuevaData: Recordatorio){
+        return this.database.collection('Mrecordatorio').doc(uid).update(nuevaData);
       }
 
       // editarForm(combustible: Combustible){
