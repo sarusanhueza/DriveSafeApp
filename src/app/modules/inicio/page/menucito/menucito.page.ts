@@ -108,6 +108,14 @@ export class MenucitoPage implements OnInit {
      this.servicioCrud.eliminarGastos(uid)
   }
 
+  mostrarBorrar2(uid: string) {
+    // this.ModalVisibleCombustible = true;
+    // this.combustibleSelec = combustibleSelec;
+     
+
+     this.servicioCrud.eliminarRecordatorio(uid)
+  }
+
   
   
 
@@ -120,6 +128,11 @@ export class MenucitoPage implements OnInit {
 
   borrarGastos() { // boton para eliminar definitivamente
     this.servicioCrud.eliminarGastos(this.gastoSelec.uid)
+
+  }
+
+  borrarRecordatorio() { // boton para eliminar definitivamente
+    this.servicioCrud.eliminarRecordatorio(this.recordatorioSelec.uid)
 
   }
 
@@ -145,6 +158,21 @@ export class MenucitoPage implements OnInit {
       fecha: gastoSelec.fecha,
       nombreArticulo: gastoSelec.nombreArticulo,
       precio: gastoSelec.precio,
+     
+    })
+
+    // this.ModalVisibleCombustible = true;
+  }
+
+  mostrarEditar2(recordatorioSelec: Recordatorio) {
+    this.recordatorioSelec = recordatorioSelec;
+
+    this.Mrecordatorio.setValue({
+      titulo: recordatorioSelec.titulo,
+      fecha: recordatorioSelec.fecha,
+      hora: recordatorioSelec.hora,
+      nombreEvento: recordatorioSelec.nombreEvento,
+      
      
     })
 
