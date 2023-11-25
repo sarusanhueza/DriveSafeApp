@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FormCombustiblePage } from './modules/inicio/page/form-combustible/form-combustible.page';
+import { FormGastosPage } from './modules/inicio/page/form-gastos/form-gastos.page';
 
 
 
@@ -15,7 +16,12 @@ const routes: Routes = [
   {
     path: '',loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthModule)
   },
-  { path: 'form-combustible', component: FormCombustiblePage },
+  { 
+    path: 'form-combustible', component: FormCombustiblePage 
+  },
+  {
+    path: 'form-gastos', component: FormGastosPage
+  },
 
 ];
 

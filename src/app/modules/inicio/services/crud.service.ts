@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Combustible } from 'src/app/models/Mcombustible';
 import { map } from 'rxjs/operators';
 import { find } from 'rxjs/operators';
+import { Gastos } from 'src/app/models/Mgastos';
 
 
 @Injectable({
@@ -10,10 +11,12 @@ import { find } from 'rxjs/operators';
 })
 export class CrudService {
   private combustibleColeccion : AngularFirestoreCollection <Combustible>
+  private gastosColeccion : AngularFirestoreCollection <Gastos>
 
 
   constructor(private database : AngularFirestore) {
     this.combustibleColeccion = database.collection('Mcombustible');
+    this.gastosColeccion = database.collection('Mgastos');
    }
 
       crearCombustible (combustible: Combustible){
@@ -31,6 +34,21 @@ export class CrudService {
         )
       }
 
+      crearGastos (gasto: Gastos){
+        return new Promise (async (resolve, reject) =>{
+          try {
+            const uid = this.database.createId();
+            gasto.uid = uid;
+
+            const resultado  = await this.gastosColeccion.doc(uid).set(gasto)
+            resolve(resultado);
+          } catch (error){
+            reject(error)
+          }
+        }
+        )
+      }
+
 
       obtenerCombustible(){
 
@@ -38,8 +56,19 @@ export class CrudService {
         pipe (map(action => action.map(a => a.payload.doc.data())))
       }
 
+      obtenerGastos(){
+
+        return this.gastosColeccion.snapshotChanges().
+        pipe (map(action => action.map(a => a.payload.doc.data())))
+      }
+
+
        modificarCombustible(uid: string, nuevaData: Combustible){
         return this.database.collection('Mcombustible').doc(uid).update(nuevaData);
+      }
+
+      modificarGastos(uid: string, nuevaData: Gastos){
+        return this.database.collection('Mgastos').doc(uid).update(nuevaData);
       }
 
       // editarForm(combustible: Combustible){
@@ -56,6 +85,18 @@ export class CrudService {
         return new Promise ((resolve,reject) => {
           try{
             const resp = this.combustibleColeccion.doc(uid).delete()
+            resolve(resp)
+          }
+          catch (error){
+            reject(error)
+          }
+        })
+      }
+
+      eliminarGastos(uid: string){
+        return new Promise ((resolve,reject) => {
+          try{
+            const resp = this.gastosColeccion.doc(uid).delete()
             resolve(resp)
           }
           catch (error){

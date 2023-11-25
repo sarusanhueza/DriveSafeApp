@@ -4,6 +4,7 @@ import { IonModal } from '@ionic/angular';
 import { Combustible } from 'src/app/models/Mcombustible';
 import { CrudService } from '../../services/crud.service';
 import { Router } from '@angular/router';
+import { Gastos } from 'src/app/models/Mgastos';
 
 
 @Component({

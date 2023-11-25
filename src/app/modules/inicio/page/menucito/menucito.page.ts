@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Combustible } from 'src/app/models/Mcombustible';
+import { Gastos } from 'src/app/models/Mgastos';
 import { CrudService } from '../../services/crud.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -15,12 +16,23 @@ export class MenucitoPage implements OnInit {
   combustibleSelec!: Combustible;
   ModalVisibleCombustible: boolean = false;
 
+  coleccionGastos: Gastos[] = [];
+  gastoSelec!: Gastos;
+
+
   Mcombustible = new FormGroup({
     titulo: new FormControl('Combustible',Validators.required),
     fecha: new FormControl('', Validators.required),
     litros: new FormControl('', Validators.required),
     tipo: new FormControl('', Validators.required),
     gasto: new FormControl('$', Validators.required),
+  })
+
+  Mgastos = new FormGroup({
+    titulo: new FormControl('Gastos',Validators.required),
+    fecha: new FormControl('', Validators.required),
+    nombreArticulo: new FormControl('', Validators.required),
+    precio: new FormControl('$', Validators.required),
   })
 
   constructor(
@@ -32,7 +44,14 @@ export class MenucitoPage implements OnInit {
       this.coleccionCombustible = combustible;
     })
 
+    this.servicioCrud.obtenerGastos().subscribe(gasto => {
+      this.coleccionGastos = gasto;
+    })
+
   }
+
+ 
+  
 
   // public alertButtons =
   // [
@@ -62,14 +81,29 @@ export class MenucitoPage implements OnInit {
     // this.combustibleSelec = combustibleSelec;
      this.servicioCrud.eliminarCombustible(uid)
 
-     
   }
+
+  
+  mostrarBorrar1(uid: string) {
+    // this.ModalVisibleCombustible = true;
+    // this.combustibleSelec = combustibleSelec;
+     
+
+     this.servicioCrud.eliminarGastos(uid)
+  }
+
+  
   
 
 
 
   borrarCombustible() { // boton para eliminar definitivamente
     this.servicioCrud.eliminarCombustible(this.combustibleSelec.uid)
+
+  }
+
+  borrarGastos() { // boton para eliminar definitivamente
+    this.servicioCrud.eliminarGastos(this.gastoSelec.uid)
 
   }
 
@@ -82,6 +116,20 @@ export class MenucitoPage implements OnInit {
       litros: combustibleSelec.litros,
       tipo: combustibleSelec.tipo,
       gasto: combustibleSelec.gasto
+    })
+
+    // this.ModalVisibleCombustible = true;
+  }
+
+  mostrarEditar1(gastoSelec: Gastos) {
+    this.gastoSelec = gastoSelec;
+
+    this.Mgastos.setValue({
+      titulo: gastoSelec.titulo,
+      fecha: gastoSelec.fecha,
+      nombreArticulo: gastoSelec.nombreArticulo,
+      precio: gastoSelec.precio,
+     
     })
 
     // this.ModalVisibleCombustible = true;
@@ -104,6 +152,22 @@ export class MenucitoPage implements OnInit {
 
     this.servicioCrud.modificarCombustible(this.combustibleSelec.uid, datos)
   }
+
+  editarGastos() {
+    let datos: Gastos = {
+      uid: this.gastoSelec.uid,
+
+      titulo: this.Mgastos.value.titulo!,
+      fecha: this.Mgastos.value.fecha!,
+      nombreArticulo: this.Mgastos.value.nombreArticulo!,
+      precio: this.Mgastos.value.precio!,
+      
+    }
+
+
+    this.servicioCrud.modificarGastos(this.combustibleSelec.uid, datos)
+  }
+
 
 
 

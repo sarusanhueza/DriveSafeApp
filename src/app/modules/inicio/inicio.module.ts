@@ -8,6 +8,7 @@ import { IonMenu, IonMenuButton, IonicModule, MenuController } from '@ionic/angu
 import { MenuComponent } from './componentes/menu/menu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { IonAlert } from '@ionic/angular';
 
 
 
@@ -21,13 +22,15 @@ import { ModalController } from '@ionic/angular';
     InicioRoutingModule,
     IonicModule,
     ReactiveFormsModule,
-  FormsModule
+  FormsModule,
+  
 
   ],
   exports:[
     CarruselComponent,
    FormsModule,
-   ReactiveFormsModule
+   ReactiveFormsModule,
+   IonAlert
   ]
 })
 export class InicioModule { }

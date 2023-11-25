@@ -24,7 +24,7 @@
 
 
 
-  <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+   <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
     <ng-template>
 
       <div class="wrapper">
@@ -33,11 +33,11 @@
 
         <div>
           <!--aca estamos creando dos items en un dv para en cada uno poner dos iconos como botones para las notasy adjjuntarlos en el modal-->
-          <ion-button>
+           <ion-button>
             <ion-icon name="map-outline"></ion-icon>
           </ion-button>
 
-          <ion-button (click)="cerrarModal()">
+          <ion-button (click)="cerrarModal()" routerLink="/form-gastos">
             <ion-icon name="receipt-outline"></ion-icon>
           </ion-button>
 
@@ -53,7 +53,7 @@
 
       </div>
     </ng-template>
-  </ion-modal>
+  </ion-modal> 
 
 
 
