@@ -36,7 +36,11 @@ const routes: Routes = [
 ]},
 
 
-{path: 'carrusel', component: CarruselComponent},
+{path: 'carrusel', component: CarruselComponent},  {
+    path: 'form-recordatorio',
+    loadChildren: () => import('./page/form-recordatorio/form-recordatorio.module').then( m => m.FormRecordatorioPageModule)
+  },
+
  
 
 
