@@ -3,6 +3,7 @@ import { Combustible } from 'src/app/models/Mcombustible';
 import { Gastos } from 'src/app/models/Mgastos';
 import { CrudService } from '../../services/crud.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Recordatorio } from 'src/app/models/Mrecordatorio';
 
 
 @Component({
@@ -17,7 +18,10 @@ export class MenucitoPage implements OnInit {
   ModalVisibleCombustible: boolean = false;
 
   coleccionGastos: Gastos[] = [];
-  gastoSelec!: Gastos;
+  gastoSelec!: Gastos
+
+  coleccionRecordatorio: Recordatorio[] = [];
+  recordatorioSelec!: Recordatorio
 
 
   Mcombustible = new FormGroup({
@@ -35,6 +39,14 @@ export class MenucitoPage implements OnInit {
     precio: new FormControl('$', Validators.required),
   })
 
+  Mrecordatorio = new FormGroup({
+    titulo: new FormControl('Recordatorio',Validators.required),
+    fecha: new FormControl('', Validators.required),
+    hora: new FormControl('', Validators.required),
+    nombreEvento: new FormControl('', Validators.required),
+    
+  })
+
   constructor(
     public servicioCrud: CrudService
   ) { }
@@ -46,6 +58,10 @@ export class MenucitoPage implements OnInit {
 
     this.servicioCrud.obtenerGastos().subscribe(gasto => {
       this.coleccionGastos = gasto;
+    })
+
+    this.servicioCrud.obtenerRecordatorio().subscribe(recordatorio => {
+      this.coleccionRecordatorio = recordatorio;
     })
 
   }
