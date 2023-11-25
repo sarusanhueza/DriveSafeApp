@@ -136,7 +136,7 @@ export class CrudService {
       eliminarRecordatorio(uid: string){
         return new Promise ((resolve,reject) => {
           try{
-            const resp = this.gastosColeccion.doc(uid).delete()
+            const resp = this.recordatorioColeccion.doc(uid).delete()
             resolve(resp)
           }
           catch (error){
