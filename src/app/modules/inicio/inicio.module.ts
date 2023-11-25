@@ -7,12 +7,13 @@ import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 import { EditarAutoComponent } from './componentes/editar-auto/editar-auto.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { EditarAuto1Component } from './componentes/editar-auto1/editar-auto1.component';
 
 
 
 @NgModule({
   declarations: [
-    InicioComponent, CarruselComponent, EditarAutoComponent
+    InicioComponent, CarruselComponent, EditarAutoComponent, EditarAuto1Component
   ],
   imports: [
     CommonModule,
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
   ],
   exports:[
     CarruselComponent,
-    EditarAutoComponent
+    EditarAutoComponent,
+    EditarAuto1Component
   ]
 })
 export class InicioModule { }
