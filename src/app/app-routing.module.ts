@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FormCombustiblePage } from './modules/inicio/page/form-combustible/form-combustible.page';
 import { FormGastosPage } from './modules/inicio/page/form-gastos/form-gastos.page';
+import { FormRecordatorioPage } from './modules/inicio/page/form-recordatorio/form-recordatorio.page';
 
 
 
@@ -21,6 +22,9 @@ const routes: Routes = [
   },
   {
     path: 'form-gastos', component: FormGastosPage
+  },
+  {
+    path: 'form-recordatorio', component: FormRecordatorioPage
   },
 
 ];

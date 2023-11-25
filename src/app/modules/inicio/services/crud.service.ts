@@ -4,6 +4,7 @@ import { Combustible } from 'src/app/models/Mcombustible';
 import { map } from 'rxjs/operators';
 import { find } from 'rxjs/operators';
 import { Gastos } from 'src/app/models/Mgastos';
+import { Recordatorio } from 'src/app/models/Mrecordatorio';
 
 
 @Injectable({
@@ -12,11 +13,13 @@ import { Gastos } from 'src/app/models/Mgastos';
 export class CrudService {
   private combustibleColeccion : AngularFirestoreCollection <Combustible>
   private gastosColeccion : AngularFirestoreCollection <Gastos>
+  private recordatorioColeccion : AngularFirestoreCollection <Recordatorio>
 
 
   constructor(private database : AngularFirestore) {
     this.combustibleColeccion = database.collection('Mcombustible');
     this.gastosColeccion = database.collection('Mgastos');
+    this.recordatorioColeccion = database.collection('Mrecordatorio');
    }
 
       crearCombustible (combustible: Combustible){
@@ -49,6 +52,21 @@ export class CrudService {
         )
       }
 
+      crearRecordatorio (recordatorio: Recordatorio){
+        return new Promise (async (resolve, reject) =>{
+          try {
+            const uid = this.database.createId();
+            recordatorio.uid = uid;
+
+            const resultado  = await this.recordatorioColeccion.doc(uid).set(recordatorio)
+            resolve(resultado);
+          } catch (error){
+            reject(error)
+          }
+        }
+        )
+      }
+
 
       obtenerCombustible(){
 
@@ -62,12 +80,22 @@ export class CrudService {
         pipe (map(action => action.map(a => a.payload.doc.data())))
       }
 
+      obtenerRecordatorio(){
+
+        return this.recordatorioColeccion.snapshotChanges().
+        pipe (map(action => action.map(a => a.payload.doc.data())))
+      }
+
 
        modificarCombustible(uid: string, nuevaData: Combustible){
         return this.database.collection('Mcombustible').doc(uid).update(nuevaData);
       }
 
       modificarGastos(uid: string, nuevaData: Gastos){
+        return this.database.collection('Mgastos').doc(uid).update(nuevaData);
+      }
+
+      modificarRecordatorio(uid: string, nuevaData: Gastos){
         return this.database.collection('Mgastos').doc(uid).update(nuevaData);
       }
 
