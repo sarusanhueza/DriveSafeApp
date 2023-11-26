@@ -134,6 +134,15 @@ export class MenucitoPage implements OnInit {
      this.servicioCrud.eliminarRecordatorio(uid)
   }
 
+  mostrarBorrar3(uid: string) {
+    // this.ModalVisibleCombustible = true;
+    // this.combustibleSelec = combustibleSelec;
+     
+
+     this.servicioCrud.eliminarViaje(uid)
+  }
+
+
   
   
 
@@ -151,6 +160,11 @@ export class MenucitoPage implements OnInit {
 
   borrarRecordatorio() { // boton para eliminar definitivamente
     this.servicioCrud.eliminarRecordatorio(this.recordatorioSelec.uid)
+
+  }
+
+  borrarViaje() { // boton para eliminar definitivamente
+    this.servicioCrud.eliminarViaje(this.viajeSelec.uid)
 
   }
 
@@ -190,6 +204,22 @@ export class MenucitoPage implements OnInit {
       fecha: recordatorioSelec.fecha,
       hora: recordatorioSelec.hora,
       nombreEvento: recordatorioSelec.nombreEvento,
+      
+     
+    })
+
+    // this.ModalVisibleCombustible = true;
+  }
+
+  mostrarEditar3(viajeSelec: Viaje) {
+    this.viajeSelec = viajeSelec;
+
+    this.Mviaje.setValue({
+      titulo: viajeSelec.titulo,
+      nombreEvento: viajeSelec.nombreEvento,
+      lugarSalida: viajeSelec.lugarSalida,
+      lugarDestino: viajeSelec.lugarDestino,
+      
       
      
     })
@@ -244,6 +274,23 @@ export class MenucitoPage implements OnInit {
 
 
     this.servicioCrud.modificarRecordatorio(this.recordatorioSelec.uid, datos)
+  }
+
+  editarViaje() {
+    let datos: Viaje = {
+      uid: this.viajeSelec.uid,
+
+      titulo: this.Mviaje.value.titulo!,
+      nombreEvento: this.Mviaje.value.nombreEvento!,
+      lugarSalida: this.Mviaje.value.lugarSalida!,
+      lugarDestino: this.Mviaje.value.lugarDestino!,
+      
+      
+      
+    }
+
+
+    this.servicioCrud.modificarViaje(this.viajeSelec.uid, datos)
   }
 
 

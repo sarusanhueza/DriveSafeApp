@@ -125,7 +125,7 @@
 
     
     <div class="custom-item">
-      <ion-item [button]="true" *ngFor ="let col of coleccionRecordatorio" >
+      <ion-item [button]="true" *ngFor ="let col of coleccionViaje" >
         <ion-icon color="primary" slot="start" name="map-outline" size="large"></ion-icon>
         <ion-label>
          <p> {{col.titulo}} </p>
@@ -134,14 +134,14 @@
 
 
 
-        <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" data-bs-target="#editarViaje" (click)="mostrarEditar2(col.uid)" >
+        <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" data-bs-target="#editarViaje" (click)="mostrarEditar3(col.uid)" >
           <ion-icon slot="icon-only" name="create-outline" size="small" ></ion-icon>
         </ion-button>
 
 
 
 
-       <ion-button id="present-alert" fill="outline" slot="end"  size="small" (click)="mostrarBorrar2(col.uid)">
+       <ion-button id="present-alert" fill="outline" slot="end"  size="small" (click)="mostrarBorrar3(col.uid)">
           <ion-icon slot="icon-only" name="trash-outline" size="small"></ion-icon>
         </ion-button>
 

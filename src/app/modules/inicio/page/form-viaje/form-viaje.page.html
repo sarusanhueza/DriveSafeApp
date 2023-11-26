@@ -1,13 +1,42 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>form-viaje</ion-title>
+    <ion-title>VIAJES</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">form-viaje</ion-title>
+      <ion-title size="large">VIAJES</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div [formGroup]="Mviajes" class="formulario">
+
+    <ion-list inset class="ilist" >
+  
+      <h2 style="color: #97CADB;"></h2>
+      
+      
+  
+      <ion-input  label="Ingrese nombre del evento" formControlName="nombreEvento"  label-placement="floating" fill="outline" placeholder=""></ion-input>
+
+      <ion-input  type="date" label="Ingrese lugar de salida" formControlName="lugarSalida" label-placement="floating" fill="outline" placeholder="" ></ion-input>
+  
+      <ion-input  label="Ingrese lugar de destino" formControlName="lugarDestino" label-placement="floating" fill="outline" placeholder=""></ion-input>
+
+
+
+    
+
+    </ion-list>
+  
+    <ion-list style="text-align:center">
+  
+      <ion-button (click)="agregarRecordatorio()" routerLink="/menu">GUARDAR</ion-button>
+  
+    </ion-list>
+  
+   </div>
+
 </ion-content>
