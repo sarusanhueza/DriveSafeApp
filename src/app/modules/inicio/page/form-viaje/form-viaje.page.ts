@@ -16,6 +16,7 @@ export class FormViajePage implements OnInit {
 
   Mviaje = new FormGroup({
     titulo: new FormControl('Viaje',Validators.required),
+    fecha: new FormControl('',Validators.required),
     nombreEvento: new FormControl('', Validators.required),
     lugarSalida: new FormControl('', Validators.required),
     lugarDestino: new FormControl('', Validators.required),
@@ -42,6 +43,7 @@ export class FormViajePage implements OnInit {
       let nuevoViaje : Viaje = {
         uid: '',
         titulo: this.Mviaje.value.titulo!,
+        fecha: this.Mviaje.value.fecha!,
         nombreEvento: this.Mviaje.value.nombreEvento!,
         lugarSalida: this.Mviaje.value.lugarSalida!,
         lugarDestino: this.Mviaje.value.lugarDestino!,
@@ -62,6 +64,7 @@ export class FormViajePage implements OnInit {
 
       this.Mviaje.setValue({
         titulo: viajeSelec.titulo,
+        fecha: viajeSelec.fecha,
         nombreEvento: viajeSelec.nombreEvento,
         lugarSalida: viajeSelec.lugarSalida,
         lugarDestino: viajeSelec.lugarDestino,
@@ -71,11 +74,12 @@ export class FormViajePage implements OnInit {
       })
     }
 
-    editarRecordatorio(){
+    editarViaje(){
       let datos: Viaje = {
         uid: this.viajeSelec.uid,
 
         titulo: this.Mviaje.value.titulo!,
+        fecha: this.Mviaje.value.fecha!,
         nombreEvento: this.Mviaje.value.nombreEvento!,
         lugarSalida: this.Mviaje.value.lugarSalida!,
         lugarDestino: this.Mviaje.value.lugarDestino!,

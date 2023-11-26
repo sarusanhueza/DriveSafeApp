@@ -11,7 +11,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <div [formGroup]="Mviajes" class="formulario">
+  <div [formGroup]="Mviaje" class="formulario">
 
     <ion-list inset class="ilist" >
   
@@ -21,8 +21,10 @@
   
       <ion-input  label="Ingrese nombre del evento" formControlName="nombreEvento"  label-placement="floating" fill="outline" placeholder=""></ion-input>
 
-      <ion-input  type="date" label="Ingrese lugar de salida" formControlName="lugarSalida" label-placement="floating" fill="outline" placeholder="" ></ion-input>
+      <ion-input  type="date" label="Ingrese fecha" formControlName="fecha" label-placement="floating" fill="outline" placeholder="" ></ion-input>
   
+      <ion-input  label="Ingrese lugar de salida" formControlName="lugarSalida" label-placement="floating" fill="outline" placeholder=""></ion-input>
+
       <ion-input  label="Ingrese lugar de destino" formControlName="lugarDestino" label-placement="floating" fill="outline" placeholder=""></ion-input>
 
 
@@ -33,7 +35,7 @@
   
     <ion-list style="text-align:center">
   
-      <ion-button (click)="agregarRecordatorio()" routerLink="/menu">GUARDAR</ion-button>
+      <ion-button (click)="agregarViaje()" routerLink="/menu">GUARDAR</ion-button>
   
     </ion-list>
   
