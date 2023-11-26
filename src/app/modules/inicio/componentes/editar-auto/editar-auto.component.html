@@ -1,79 +1,39 @@
-<div class="container">
+<div class="container1">
   <div class="row">
+    
+    <!--FORMULARIO VISUALIZAR PROPIEDADES EN REGISTRO-AUTO-->
+    <div class="formulario-editar-auto" style="text-align: center;" *ngFor="let col of coleccionVehiculos" >
+      <ion-list inset class="ilist">
 
-    <div class="titulo">
-      <h1> Edite propiedades del vehiculo </h1>
-    </div>
-
-    <!--comienzan propiedades a editar-->
-    <div class="container-Editar">
-
-      <ion-content class="ion-padding">
-
-        <ion-button id="open-modal" expand="block">Editar</ion-button>
-        {{ message }}
-
-        <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
-          <ng-template>
-
-            <ion-header>
-              <ion-toolbar>
-                <!--BOTON CANCELAR-->
-                <ion-buttons slot="start">
-                  <ion-button (click)="cancel()">Cancelar</ion-button>
-                </ion-buttons>
-                <!-- BOTON CONFIRMAR-->
-                <ion-buttons slot="end">
-                  <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
-                </ion-buttons>
-              </ion-toolbar>
-            </ion-header>
-
-            <!--Imputs-->
-            <ion-content class="ion-padding">
-
-              <!---NOMBRE-->
-
-              <ion-item>
-                <ion-input label="Editar Nombre" labelPlacement="stacked" type="text" placeholder=""
-                  [(ngModel)]="nombre"></ion-input>
-              </ion-item>
-
-              <!---PATENTE-->
-
-              <ion-item>
-                <ion-input label="Editar Patente" labelPlacement="stacked" type="text" placeholder=""
-                  [(ngModel)]="patente"></ion-input>
-              </ion-item>
-
-
-              <!---MARCA-->
-
-              <ion-item>
-                <ion-input label="Editar Marca " labelPlacement="stacked" type="text" placeholder=""
-                  [(ngModel)]="marca"></ion-input>
-              </ion-item>
-
-
-              <!---TIPO DE COMBUSTIBLE-->
-
-              <ion-item>
-                <ion-input label="Editar Tipo de Combustible" labelPlacement="stacked" type="text" placeholder=""
-                  [(ngModel)]="tcombustible"></ion-input>
-              </ion-item>
-
-            </ion-content>
-          </ng-template>
-        </ion-modal>
-      </ion-content>
-    </div>
-
-
-    <!--BOTON GUARDAR-->
-    <div class="container2">
-      <ion-list style="text-align:center">
-        <ion-button routerLink="/menu">GUARDAR</ion-button>
+        <h2 style="color: #97CADB;">Edite las propiedades de su vehiculo</h2>
+        
+          <!--NOMBRE-->
+          <ion-item>
+            <ion-input  class="form-control"formControlName="nombre" type="text" label="Nombre:">{{col.nombre}}</ion-input>
+          </ion-item>
+         <!--PATENTE-->
+          <ion-item>
+            <ion-input  class="form-control" formControlName="patente" type="text" label="Patente:">{{col.patente}}</ion-input>
+          </ion-item>
+          <!--MARCA:-->
+          <ion-item>
+            <ion-input  class="form-control" formControlName="marca"  type="text" label="Marca:">{{col.marca}}</ion-input>
+          </ion-item>
+          <!--TIPO COMBUSTIBLE-->
+          <ion-item>
+            <ion-input   class="form-control" formControlName="combustible" type="text" label="Tipo de combustible:">{{col.combustible}}</ion-input>
+          </ion-item>
       </ion-list>
+  
+
+      <ion-list style="text-align:center">
+        <ion-button  size="default" routerLink="/menu" >GUARDAR CAMBIOS</ion-button>
+      
+      </ion-list>
+      
     </div>
+    
+    
   </div>
+
 </div>

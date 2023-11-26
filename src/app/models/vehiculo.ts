@@ -1,6 +1,8 @@
 export interface Vehiculo {
-    nombre:string;
-    patente: string;
-    marca: string;
-    tcombustible: string;
+
+    uidVehiculo: string | any; // id proveniente del usuario
+    nombre: string; // -> nombre del auto
+    patente: string; // -> patente
+    marca: string; // -> marca  
+    combustible: string; //-->tipo de combustible
 }

@@ -6,24 +6,25 @@ import { InicioComponent } from './page/inicio/inicio.component';
 import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 import { EditarAutoComponent } from './componentes/editar-auto/editar-auto.component';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
-import { EditarAuto1Component } from './componentes/editar-auto1/editar-auto1.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    InicioComponent, CarruselComponent, EditarAutoComponent, EditarAuto1Component
+    InicioComponent, CarruselComponent, EditarAutoComponent
   ],
   imports: [
     CommonModule,
     InicioRoutingModule,IonicModule, // IonicModule importar porque sino cuando pego compomenetes de ionic no se encuentra(importamos el padre)
-    FormsModule                              
+    FormsModule, 
+    ReactiveFormsModule                            
   ],
   exports:[
     CarruselComponent,
     EditarAutoComponent,
-    EditarAuto1Component
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class InicioModule { }
