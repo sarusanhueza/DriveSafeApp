@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
 import { CrudService } from '../../services/crud.service';
 import { FormControl, FormGroup, Validators, FormsModule } from '@angular/forms';
