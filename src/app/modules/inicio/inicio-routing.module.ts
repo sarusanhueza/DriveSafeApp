@@ -41,7 +41,11 @@ const routes: Routes = [
 ]},
 
 
-{path: 'carrusel', component: CarruselComponent},
+{path: 'carrusel', component: CarruselComponent},  {
+    path: 'form-viaje',
+    loadChildren: () => import('./page/form-viaje/form-viaje.module').then( m => m.FormViajePageModule)
+  },
+
  
 
  
