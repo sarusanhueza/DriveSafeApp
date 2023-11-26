@@ -6,6 +6,7 @@ import { CarruselComponent } from '../inicio/componentes/carrusel/carrusel.compo
 import { FormCombustiblePageModule } from './page/form-combustible/form-combustible.module';
 import { FormGastosPageModule } from './page/form-gastos/form-gastos.module';
 import { FormRecordatorioPageModule } from './page/form-recordatorio/form-recordatorio.module';
+import { FormViajePageModule } from './page/form-viaje/form-viaje.module';
 
 const routes: Routes = [
   //rutas secundarias
@@ -37,14 +38,16 @@ const routes: Routes = [
     path: 'form-recordatorio',
     loadChildren: () => import('./page/form-recordatorio/form-recordatorio.module').then( m => m.FormRecordatorioPageModule)
   },
+  {
+    path: 'form-viaje',
+    loadChildren: () => import('./page/form-viaje/form-viaje.module').then( m => m.FormViajePageModule)
+  },
 
 ]},
 
 
-{path: 'carrusel', component: CarruselComponent},  {
-    path: 'form-viaje',
-    loadChildren: () => import('./page/form-viaje/form-viaje.module').then( m => m.FormViajePageModule)
-  },
+{path: 'carrusel', component: CarruselComponent},
+  
 
  
 
