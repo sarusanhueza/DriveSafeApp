@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FormCombustiblePage } from './modules/inicio/page/form-combustible/form-combustible.page';
 import { FormGastosPage } from './modules/inicio/page/form-gastos/form-gastos.page';
 import { FormRecordatorioPage } from './modules/inicio/page/form-recordatorio/form-recordatorio.page';
+import { FormViajePage } from './modules/inicio/page/form-viaje/form-viaje.page';
 
 
 
@@ -26,6 +27,9 @@ const routes: Routes = [
   {
     path: 'form-recordatorio', component: FormRecordatorioPage
   },
+  {
+  path: 'form-viaje', component: FormViajePage
+  }
 
 ];
 
