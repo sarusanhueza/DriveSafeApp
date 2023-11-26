@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { find } from 'rxjs/operators';
 import { Gastos } from 'src/app/models/Mgastos';
 import { Recordatorio } from 'src/app/models/Mrecordatorio';
+import { Viaje } from 'src/app/models/Mviajes';
 
 
 @Injectable({
@@ -14,12 +15,14 @@ export class CrudService {
   private combustibleColeccion : AngularFirestoreCollection <Combustible>
   private gastosColeccion : AngularFirestoreCollection <Gastos>
   private recordatorioColeccion : AngularFirestoreCollection <Recordatorio>
+  private viajeColeccion : AngularFirestoreCollection <Viaje>
 
 
   constructor(private database : AngularFirestore) {
     this.combustibleColeccion = database.collection('Mcombustible');
     this.gastosColeccion = database.collection('Mgastos');
     this.recordatorioColeccion = database.collection('Mrecordatorio');
+    this.viajeColeccion = database.collection('Mviajes');
    }
 
       crearCombustible (combustible: Combustible){
@@ -67,6 +70,22 @@ export class CrudService {
         )
       }
 
+      
+      crearViaje (viaje: Viaje){
+        return new Promise (async (resolve, reject) =>{
+          try {
+            const uid = this.database.createId();
+            viaje.uid = uid;
+
+            const resultado  = await this.viajeColeccion.doc(uid).set(viaje)
+            resolve(resultado);
+          } catch (error){
+            reject(error)
+          }
+        }
+        )
+      }
+
 
       obtenerCombustible(){
 
@@ -86,6 +105,12 @@ export class CrudService {
         pipe (map(action => action.map(a => a.payload.doc.data())))
       }
 
+      obtenerViaje(){
+
+        return this.viajeColeccion.snapshotChanges().
+        pipe (map(action => action.map(a => a.payload.doc.data())))
+      }
+
 
        modificarCombustible(uid: string, nuevaData: Combustible){
         return this.database.collection('Mcombustible').doc(uid).update(nuevaData);
@@ -97,6 +122,10 @@ export class CrudService {
 
       modificarRecordatorio(uid: string, nuevaData: Recordatorio){
         return this.database.collection('Mrecordatorio').doc(uid).update(nuevaData);
+      }
+
+      modificarViaje(uid: string, nuevaData: Viaje){
+        return this.database.collection('Mviajes').doc(uid).update(nuevaData);
       }
 
       // editarForm(combustible: Combustible){
@@ -137,6 +166,18 @@ export class CrudService {
         return new Promise ((resolve,reject) => {
           try{
             const resp = this.recordatorioColeccion.doc(uid).delete()
+            resolve(resp)
+          }
+          catch (error){
+            reject(error)
+          }
+        })
+      }
+
+      eliminarViaje(uid: string){
+        return new Promise ((resolve,reject) => {
+          try{
+            const resp = this.viajeColeccion.doc(uid).delete()
             resolve(resp)
           }
           catch (error){

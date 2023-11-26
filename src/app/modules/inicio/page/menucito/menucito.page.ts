@@ -4,6 +4,7 @@ import { Gastos } from 'src/app/models/Mgastos';
 import { CrudService } from '../../services/crud.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Recordatorio } from 'src/app/models/Mrecordatorio';
+import { Viaje } from 'src/app/models/Mviajes';
 
 
 @Component({
@@ -22,6 +23,9 @@ export class MenucitoPage implements OnInit {
 
   coleccionRecordatorio: Recordatorio[] = [];
   recordatorioSelec!: Recordatorio
+
+  coleccionViaje: Viaje[] = [];
+  viajeSelec!: Viaje
 
 
   Mcombustible = new FormGroup({
@@ -47,6 +51,16 @@ export class MenucitoPage implements OnInit {
     
   })
 
+  Mviaje = new FormGroup({
+    titulo: new FormControl('Viaje',Validators.required),
+    nombreEvento: new FormControl('', Validators.required),
+    lugarSalida: new FormControl('', Validators.required),
+    lugarDestino: new FormControl('', Validators.required),
+    
+    
+  })
+
+
   constructor(
     public servicioCrud: CrudService
   ) { }
@@ -62,6 +76,10 @@ export class MenucitoPage implements OnInit {
 
     this.servicioCrud.obtenerRecordatorio().subscribe(recordatorio => {
       this.coleccionRecordatorio = recordatorio;
+    })
+
+    this.servicioCrud.obtenerViaje().subscribe(viaje => {
+      this.coleccionViaje = viaje;
     })
 
   }
