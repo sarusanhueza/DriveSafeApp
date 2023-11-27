@@ -7,6 +7,10 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AuthService {
 
+  iniciarSesion(email: string, contrasena: string) {
+    return this.auth.signInWithEmailAndPassword(email, contrasena);
+  }
+
  
   constructor(public auth: AngularFireAuth) {}
 

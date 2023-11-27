@@ -49,7 +49,7 @@ crearIdVehiculo(vehiculo: Vehiculo, usuario: Usuario ){
     try{
       const uidVehiculo = this.database.createId();
       vehiculo.uidVehiculo = uidVehiculo
-      usuario.uidVehiculo = uidVehiculo
+      usuario.uidVehiculo = uidVehiculo 
 
       const muestro = await this.vehiculoCollection.doc(uidVehiculo).set(vehiculo)
       resolve(muestro);
