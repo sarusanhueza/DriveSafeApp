@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/compat/firestore';
-import { rejects } from 'assert';
 import { Usuario } from 'src/app/models/usuario';
 import { Vehiculo } from 'src/app/models/vehiculo';
 import { map } from 'rxjs';
@@ -18,13 +17,6 @@ export class ServiceVehiculoService {
       this.vehiculoCollection = database.collection('usuarios').doc().collection('vehiculos')
   }
 
-  vehiculos: Vehiculo = {
-    uidVehiculo: '',
-    nombre: '',
-    patente: '',
-    marca: '',
-    combustible: '',
-  }
 
   crearVehiculo(vehiculo: Vehiculo) { //genero el id del vehiculo y luego recibe al vehiculo con sus propiedades
     // let uidVehiculo =  this.vehiculos.uidVehiculo = '1'
@@ -34,7 +26,7 @@ export class ServiceVehiculoService {
         const uidVehiculo = this.database.createId();
         vehiculo.uidVehiculo = uidVehiculo
 
-        const muestro = await this.vehiculoCollection.doc(uidVehiculo).set(vehiculo)
+        const muestro = await this.vehiculoCollection.doc(uidVehiculo).set(vehiculo) 
         resolve(muestro);
 
       } catch (error) {
@@ -58,12 +50,23 @@ obtenerVehiculo(){
   pipe(map(action => action.map(a => a.payload.doc.data())))
 }
 
-// ngOnInit(){
-//   console.log(this.crearVehiculo())
-// }
+modificarVehiculo(uidVehiculo: string, nuevaData: Vehiculo){
+  return this.database.collection('vehiculos').doc(uidVehiculo).update(nuevaData)
+}
 
+eliminarVehiculo(uidVehiculo: string){
+  return new Promise((resolve, reject) => {
 
+    try{
+      const respuesta= this.vehiculoCollection.doc(uidVehiculo).delete()
+      resolve( respuesta)
+    }catch(error){
+       reject(error)
+    }
+   })
+  }
 }
 
 
 
+ 

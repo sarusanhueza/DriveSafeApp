@@ -17,6 +17,7 @@ import { error } from 'console';
 export class ResgistroAuto2Component  implements OnInit {
   //creamos coleccion basada en las propiedades sugeridas  ingregar del vehiculo
   coleccionVehiculos: Vehiculo[] = [];
+  vehiculoSeleccionado!: Vehiculo;
    
   //formulario que se vincula con el HTML
   vehiculo = new FormGroup({
@@ -39,7 +40,7 @@ export class ResgistroAuto2Component  implements OnInit {
     })
   }
 
-   async registrarVehiculo (){//validamos valores que se ingresan del vehiculo
+   async registrarVehiculo (){//validamos valores que se ingresan del vehiculo 
    if(this.vehiculo.valid){
     let nuevoVehiculo: Vehiculo ={
       uidVehiculo:'',
@@ -48,7 +49,7 @@ export class ResgistroAuto2Component  implements OnInit {
       marca: this.vehiculo.value.marca!,
       combustible: this.vehiculo.value.combustible!,
     }; 
-      //llamamos al servioAuto;  crearVehiculo; seteamos(subimos/ousheamos) el nuevoProducto o el registro del vehiculo
+      //llamamos al servioAuto;  crearVehiculo; seteamos(subimos/pusheamos) el nuevoVehiculo o el registro del vehiculo
     await this.servicioAuto.crearVehiculo(nuevoVehiculo)
      
     .then(vehiculo =>{
@@ -59,6 +60,38 @@ export class ResgistroAuto2Component  implements OnInit {
     })
 
    }
+  }
+   mostrarEditar(vehiculoSeleccionado:Vehiculo){
+    this.vehiculoSeleccionado = vehiculoSeleccionado;
+        /* retomamos y enviamos los valores de ese producto 
+    seleccionado, el ID no se vuelve a enviar porque 
+    no se modifica */
+
+    this.vehiculo.setValue({
+      nombre: vehiculoSeleccionado.nombre,
+      patente: vehiculoSeleccionado.patente,
+      marca: vehiculoSeleccionado.marca,
+      combustible: vehiculoSeleccionado.combustible
+    })
+  }
+
+  editarVehiculo(){
+    let datos: Vehiculo = {
+      uidVehiculo: this.vehiculoSeleccionado.uidVehiculo,
+      // signo de exclamación "!" -> puede recibir valores vacíos al inicializar
+      nombre: this.vehiculo.value.nombre!,
+      patente: this.vehiculo.value.patente!,
+      marca: this.vehiculo.value.marca!,
+      combustible: this.vehiculo.value.combustible!
+    }
+
+    this.servicioAuto.modificarVehiculo(this.vehiculoSeleccionado.uidVehiculo, datos)
+    .then(vehuiculo => {
+      alert("La propiedad fue modificado con éxito :).");
+    })
+    .catch(error => {
+      alert("No se pudo modificar el producto :( \n"+error);
+    })
   }
  
 
