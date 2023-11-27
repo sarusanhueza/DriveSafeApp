@@ -6,9 +6,6 @@ import { Router } from '@angular/router';
 import { ServiceVehiculoService } from '../../services/service-vehiculo.service';
 
 
-
-
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -24,7 +21,7 @@ export class RegistroComponent  implements OnInit {
     public servicioAuth: AuthService,
     public servicioFirestore: FirestoreService,
     public router: Router,
-    public servicioAuto: ServiceVehiculoService,
+    public servicioAuto:ServiceVehiculoService,
     ) { }
 
   usuarios: Usuario = {
@@ -54,7 +51,7 @@ export class RegistroComponent  implements OnInit {
       alert("Se registro un usuario con exito!");
       console.log(res)
 
-      this.router.navigate(["/inicio"]);
+      this.router.navigate(["/registroAuto"]);
     })
 
     .catch((error: string) =>
