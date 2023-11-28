@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { CrudService } from '../../services/crud.service';
 import { FormControl, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { Gastos } from 'src/app/models/Mgastos';
@@ -11,11 +11,13 @@ import { Gastos } from 'src/app/models/Mgastos';
 })
 export class FormGastosPage implements OnInit {
 
+  _gastosID: any = '';
   coleccionGastos: Gastos[] = [];
   gastoSelec!: Gastos;
 
 
   Mgastos = new FormGroup({
+    uid: new FormControl(''),
     titulo: new FormControl('Gastos',Validators.required),
     fecha: new FormControl('', Validators.required),
     nombreArticulo: new FormControl('', Validators.required),
@@ -26,20 +28,49 @@ export class FormGastosPage implements OnInit {
 
   constructor(
     public router: Router,
+    private activatedRoute: ActivatedRoute,
     public servicioCrud : CrudService,
   ) { }
 
   ngOnInit(): void {
-    this.servicioCrud.obtenerGastos().subscribe (gasto =>{
-      this.coleccionGastos = gasto;
-    })
+
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+      this._gastosID = params.get("uid");
+      if (this._gastosID) {
+          this.prepareDataForUpdate();
+      }
+  });
+    // this.servicioCrud.obtenerGastos().subscribe (gasto =>{
+    //   this.coleccionGastos = gasto;
+    // })
   }
+
+  prepareDataForUpdate(){  
+    this.servicioCrud.obtenerGastosById(this._gastosID).subscribe(
+      docSnap => {
+        if (docSnap.exists){
+          const gastos: any = docSnap.data();
+          this.Mgastos = new FormGroup({
+            uid: new FormControl(gastos.uid),
+            titulo: new FormControl('Gastos'),
+            fecha: new FormControl(gastos.fecha, Validators.required),
+            nombreArticulo: new FormControl(gastos.nombreArticulo, Validators.required),
+            precio: new FormControl(gastos.precio, Validators.required),
+           
+          })
+        }
+        
+      }
+    );
+
+  }
+
 
   async agregarGastos (){
     console.log("hola")
     //if(this.Mcombustible.valid){
       let nuevoGastos : Gastos = {
-        uid: '',
+        uid: this.Mgastos.value.uid!,
         titulo: this.Mgastos.value.titulo!,
         fecha: this.Mgastos.value.fecha!,
         nombreArticulo: this.Mgastos.value.nombreArticulo!,
@@ -47,9 +78,15 @@ export class FormGastosPage implements OnInit {
        
       };
       console.log(nuevoGastos);
-      const valor = await this.servicioCrud.crearGastos(nuevoGastos);
+      let valor: any;
+      if (nuevoGastos.uid){
+      valor = await this.servicioCrud.modificarGastos(nuevoGastos.uid, nuevoGastos);
+      
+      }
+      else{
+        valor = await this.servicioCrud.crearGastos(nuevoGastos)
+      }
       console.log(valor)
-  
       //}
       //else{
       //  console.log(this.Mcombustible)
@@ -60,6 +97,7 @@ export class FormGastosPage implements OnInit {
       this.gastoSelec = gastoSelec;
 
       this.Mgastos.setValue({
+        uid: gastoSelec.uid,
         titulo: gastoSelec.titulo,
         fecha: gastoSelec.fecha,
         nombreArticulo: gastoSelec.nombreArticulo,
