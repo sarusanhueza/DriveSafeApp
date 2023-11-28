@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/compat/firestore';
+import { rejects } from 'assert';
 import { Usuario } from 'src/app/models/usuario';
 import { Vehiculo } from 'src/app/models/vehiculo';
 import { map } from 'rxjs';
+import { resolve } from 'dns';
 
 @Injectable({
   providedIn: 'root'
@@ -18,21 +20,36 @@ export class ServiceVehiculoService {
   }
 
 
-  crearVehiculo(vehiculo: Vehiculo) { //genero el id del vehiculo y luego recibe al vehiculo con sus propiedades
-    // let uidVehiculo =  this.vehiculos.uidVehiculo = '1'
-    // return uidVehiculo
-    return new Promise(async (resolve, reject) => {
-      try {
-        const uidVehiculo = this.database.createId();
-        vehiculo.uidVehiculo = uidVehiculo
+//   crearVehiculo(vehiculo: Vehiculo) { //genero el id del vehiculo y luego recibe al vehiculo con sus propiedades
+//     // let uidVehiculo =  this.vehiculos.uidVehiculo = '1'
+//     // return uidVehiculo
+//     return new Promise(async (resolve, reject) => {
+//       try {
+//         // const uidVehiculo = this.database.createId();
+//         // vehiculo.uidVehiculo = uidVehiculo
 
-        const muestro = await this.vehiculoCollection.doc(uidVehiculo).set(vehiculo) 
-        resolve(muestro);
+//         const muestro = await this.vehiculoCollection.doc().set(vehiculo)
+//         resolve(muestro);
 
-      } catch (error) {
-        reject(error)
-      }
-    })
+//       } catch (error) {
+//         reject(error)
+//       }
+//     })
+// }
+//propiedad/nombreInterfaz      
+crearIdVehiculo(vehiculo: Vehiculo ){
+  return new Promise(async(resolve, reject) =>{
+    try{
+      const uidVehiculo = this.database.createId();
+      vehiculo.uidVehiculo = uidVehiculo
+
+      const muestro = await this.vehiculoCollection.doc(uidVehiculo).set(vehiculo)
+      resolve(muestro);
+
+    } catch (error) {
+      reject(error)
+    }
+  })
 }
 
 //obtenemos al usuario con sus datos
@@ -49,11 +66,12 @@ obtenerVehiculo(){
   return this.vehiculoCollection.snapshotChanges().
   pipe(map(action => action.map(a => a.payload.doc.data())))
 }
-
+  // envíamos el ID del vehiculo y la nueva información de las propiedades
 modificarVehiculo(uidVehiculo: string, nuevaData: Vehiculo){
   return this.database.collection('vehiculos').doc(uidVehiculo).update(nuevaData)
 }
 
+  // envíamos el ID del producto
 eliminarVehiculo(uidVehiculo: string){
   return new Promise((resolve, reject) => {
 
@@ -65,6 +83,7 @@ eliminarVehiculo(uidVehiculo: string){
     }
    })
   }
+
 }
 
 

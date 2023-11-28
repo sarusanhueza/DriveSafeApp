@@ -9,12 +9,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { error } from 'console';
 
 
+
 @Component({
-  selector: 'app-resgistro-auto2',
-  templateUrl: './resgistro-auto2.component.html',
-  styleUrls: ['./resgistro-auto2.component.scss'],
+  selector: 'app-registro-auto',
+  templateUrl: './registro-auto.component.html',
+  styleUrls: ['./registro-auto.component.scss'],
 })
-export class ResgistroAuto2Component  implements OnInit {
+export class RegistroAutoComponent  implements OnInit {
+
   //creamos coleccion basada en las propiedades sugeridas  ingregar del vehiculo
   coleccionVehiculos: Vehiculo[] = [];
   vehiculoSeleccionado!: Vehiculo;
@@ -50,10 +52,13 @@ export class ResgistroAuto2Component  implements OnInit {
       combustible: this.vehiculo.value.combustible!,
     }; 
       //llamamos al servioAuto;  crearVehiculo; seteamos(subimos/pusheamos) el nuevoVehiculo o el registro del vehiculo
-    await this.servicioAuto.crearVehiculo(nuevoVehiculo)
+    await this.servicioAuto.crearIdVehiculo(nuevoVehiculo)
      
     .then(vehiculo =>{
       alert("Ha agregado un nuevo vehiculo con exito")
+      console.log(vehiculo)
+
+      this.router.navigate(["/editarAuto"]);
     })
     .catch(error=>{
       alert("Hubo un error al agregar un nuevo vehiculo")
@@ -86,13 +91,13 @@ export class ResgistroAuto2Component  implements OnInit {
     }
 
     this.servicioAuto.modificarVehiculo(this.vehiculoSeleccionado.uidVehiculo, datos)
-    .then(vehuiculo => {
+    .then(vehiculo => {
       alert("La propiedad fue modificado con éxito :).");
     })
     .catch(error => {
       alert("No se pudo modificar el producto :( \n"+error);
     })
   }
- 
 
-}
+  }
+
