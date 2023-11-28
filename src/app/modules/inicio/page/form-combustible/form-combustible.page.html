@@ -11,7 +11,7 @@
     </ion-toolbar>
   </ion-header>
 
-    <div [formGroup]="Mcombustible" class="formulario">
+    <div [formGroup]="Mcombustible" class="formulario" >
 
       <ion-list inset class="ilist" >
     
@@ -31,11 +31,14 @@
         
       </ion-list>
     
-      <ion-list style="text-align:center">
-    
-        <ion-button (click)="agregarCombustible()" routerLink="/menu">GUARDAR</ion-button>
+      <ion-list class="boton-guardar">
+        <ion-button (click)="guardarCombustible()" routerLink="/menu">GUARDAR</ion-button>
+
+        
     
       </ion-list>
+    
+      
     
      </div>
  

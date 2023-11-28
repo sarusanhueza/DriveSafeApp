@@ -114,6 +114,9 @@ export class MenucitoPage implements OnInit {
   mostrarBorrar(uid: string) {
     // this.ModalVisibleCombustible = true;
     // this.combustibleSelec = combustibleSelec;
+
+   
+
      this.servicioCrud.eliminarCombustible(uid)
 
   }
@@ -169,8 +172,10 @@ export class MenucitoPage implements OnInit {
 
   }
 
-  mostrarEditar(combustibleSelec: Combustible) {
+  mostrarEditarCombustible(combustibleSelec: Combustible) {
     this.combustibleSelec = combustibleSelec;
+
+    
 
     this.Mcombustible.setValue({
       titulo: combustibleSelec.titulo,

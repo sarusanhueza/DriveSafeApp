@@ -55,7 +55,8 @@
 
 
 
-        <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" data-bs-target="#editarCombustible" (click)="mostrarEditar(col.uid)" >
+        <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" data-bs-target="#editarCombustible"
+           routerLink="/form-combustible/{{col.uid}}">
           <ion-icon slot="icon-only" name="create-outline" size="small" ></ion-icon>
         </ion-button>
 
@@ -161,14 +162,16 @@
 
 
 
-<!-- 
+
 <div class="div" *ngIf="ModalVisibleCombustible">
 
-  <div formGroup="Mcombustible" class="formulario">
+  <div [formGroup]="Mcombustible" class="formulario">
 
     <ion-list inset class="ilist" >
   
       <h2 style="color: #97CADB;"></h2>
+
+      
 
       <ion-input  type="date" label="Ingrese fecha" formControlName="fecha" label-placement="floating" fill="outline" placeholder="" ></ion-input>
   
@@ -191,9 +194,9 @@
     </ion-list>
   
    </div>
-</div> -->
+</div> 
 
-<div class="modal fade" *ngFor="let col of coleccionCombustible" id="editarCombustible" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" *ngFor="let col of coleccionCombustible" id="editarCombustible" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -204,7 +207,7 @@
 
         <!-- <label class="form-control" type="text" formControlName="titulo">{{col.titulo}}</label>  -->
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label class="form-label">Ingrese fecha:</label>
           <input class="form-control" type="text" formControlName="fecha" placeholder="{{col.fecha}}">
         </div>
@@ -231,7 +234,10 @@
     
     </div>
   </div>
-</div>
+</div> --> 
+
+
+
 
 <!-- 
 (click)="mostrarBorrar(col.uid)" -->

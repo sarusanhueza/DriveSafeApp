@@ -6,9 +6,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'form',
     component: FormCombustiblePage
-  }
+  },
+  
 ];
 
 @NgModule({

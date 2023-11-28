@@ -21,6 +21,9 @@ const routes: Routes = [
   { 
     path: 'form-combustible', component: FormCombustiblePage 
   },
+  { 
+    path: 'form-combustible/:uid', component: FormCombustiblePage 
+  },
   {
     path: 'form-gastos', component: FormGastosPage
   },

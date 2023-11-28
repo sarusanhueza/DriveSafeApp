@@ -93,6 +93,10 @@ export class CrudService {
         pipe (map(action => action.map(a => a.payload.doc.data())))
       }
 
+      obtenerCombustibleById(uid: string){
+        return this.database.collection('Mcombustible').doc(uid).get()
+      }
+
       obtenerGastos(){
 
         return this.gastosColeccion.snapshotChanges().
