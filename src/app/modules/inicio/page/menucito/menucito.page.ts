@@ -27,6 +27,9 @@ export class MenucitoPage implements OnInit {
   coleccionViaje: Viaje[] = [];
   viajeSelec!: Viaje
 
+  coleccionEventos: any[] = [];
+  eventoSelec!: any
+
 
   Mcombustible = new FormGroup({
     titulo: new FormControl('Combustible',Validators.required),
@@ -68,7 +71,28 @@ export class MenucitoPage implements OnInit {
 
   ngOnInit(): void {
     this.servicioCrud.obtenerCombustible().subscribe(combustible => {
-      this.coleccionCombustible = combustible;
+    this.coleccionCombustible = combustible;
+
+    this.servicioCrud.obtenerGastos().subscribe(gasto => {
+    this.coleccionGastos = gasto;
+
+    this.servicioCrud.obtenerRecordatorio().subscribe(recordatorio => {
+    this.coleccionRecordatorio = recordatorio;
+
+    this.servicioCrud.obtenerViaje().subscribe(viaje => {
+    this.coleccionViaje = viaje;
+
+    this.coleccionEventos = [...this.coleccionCombustible, ...this.coleccionGastos, 
+    ...this.coleccionRecordatorio, ...this.coleccionViaje]
+
+    this.coleccionEventos = this.coleccionEventos.sort(
+    (objA, objB) => Number(new Date(objB.fecha)) - Number(new Date(objA.fecha)),
+            );
+            
+          })
+        })
+         
+      })  
     })
 
     this.servicioCrud.obtenerGastos().subscribe(gasto => {
@@ -88,27 +112,27 @@ export class MenucitoPage implements OnInit {
  
   
 
-  // public alertButtons =
-  // [
+  public alertButtons =
+  [
     
-  //   {
-  //     text: 'No',
-  //     cssClass: 'alert-button-cancel',
-  //     confirm: false
-  //   },
-  //   {
-  //     text: 'Si',
-  //     cssClass: 'alert-button-confirm',
-  //     handler:() =>{
+    {
+      text: 'No',
+      cssClass: 'alert-button-cancel',
+      confirm: false
+    },
+    {
+      text: 'Si',
+      cssClass: 'alert-button-confirm',
+      handler:() =>{
        
         
-  //     }
+      }
 
-  //   }, {
+    }, {
 
-  //   }
+    }
 
-  // ]
+  ]
 
 
   mostrarBorrar(uid: string) {
