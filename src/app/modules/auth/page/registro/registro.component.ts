@@ -27,6 +27,7 @@ export class RegistroComponent  implements OnInit {
 
   usuarios: Usuario = {
     uid: '',
+    uidVehiculo:'',
     nombre: '',
     email: '',
     fecha: '',
