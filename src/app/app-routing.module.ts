@@ -7,13 +7,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
  
   
-//para usar la etiqueta routing deben ir vacias las rutas. 
+//para usar la etiqueta routing deben ir vacias las rutas. //rutas padres
   {
      path: '',loadChildren: () => import('./modules/inicio/inicio.module').then( m => m.InicioModule)
    },
   {
     path: '',loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthModule)
   },
+  {
+    path:'',loadChildren: () => import('./modules/inicio-admin/inicio-admin.module').then( m => m.InicioAdminModule)
+  }
 
 ];
 
