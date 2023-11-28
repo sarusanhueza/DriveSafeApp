@@ -113,6 +113,10 @@ export class CrudService {
         pipe (map(action => action.map(a => a.payload.doc.data())))
       }
 
+      obtenerRecordatoriobyId(uid: string){
+        return this.database.collection('Mrecordatorio').doc(uid).get()
+      }
+
       obtenerViaje(){
 
         return this.viajeColeccion.snapshotChanges().

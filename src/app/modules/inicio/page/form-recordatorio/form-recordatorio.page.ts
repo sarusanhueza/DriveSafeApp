@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { CrudService } from '../../services/crud.service';
 import { FormControl, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { Recordatorio } from 'src/app/models/Mrecordatorio';
@@ -11,10 +11,12 @@ import { Recordatorio } from 'src/app/models/Mrecordatorio';
 })
 export class FormRecordatorioPage implements OnInit {
 
+  _recordatorioID: any = '';
   coleccionRecordario: Recordatorio[] = [];
   recordatorioSelec!: Recordatorio;
 
   Mrecordatorio = new FormGroup({
+    uid: new FormControl(''),
     titulo: new FormControl('Recordatorio',Validators.required),
     fecha: new FormControl('', Validators.required),
     hora: new FormControl('', Validators.required),
@@ -26,13 +28,42 @@ export class FormRecordatorioPage implements OnInit {
 
   constructor(
     public router: Router,
+    private activatedRoute: ActivatedRoute,
     public servicioCrud : CrudService,
   ) { }
 
   ngOnInit(): void {
-    this.servicioCrud.obtenerRecordatorio().subscribe (recordatorio =>{
-      this.coleccionRecordario = recordatorio;
-    })
+
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+      this._recordatorioID = params.get("uid");
+      if (this._recordatorioID) {
+          this.prepareDataForUpdate();
+      }
+  });
+    // this.servicioCrud.obtenerRecordatorio().subscribe (recordatorio =>{
+    //   this.coleccionRecordario = recordatorio;
+    // })
+  }
+
+  prepareDataForUpdate(){  
+    this.servicioCrud.obtenerRecordatoriobyId(this._recordatorioID).subscribe(
+      docSnap => {
+        if (docSnap.exists){
+          const recordatorio: any = docSnap.data();
+          this.Mrecordatorio = new FormGroup({
+            uid: new FormControl(recordatorio.uid),
+            titulo: new FormControl('Recordatorio'),
+            fecha: new FormControl(recordatorio.fecha, Validators.required),
+            hora: new FormControl(recordatorio.hora, Validators.required),
+            nombreEvento: new FormControl(recordatorio.nombreEvento, Validators.required),
+          
+           
+          })
+        }
+        
+      }
+    );
+
   }
 
   async agregarRecordatorio (){
@@ -61,6 +92,7 @@ export class FormRecordatorioPage implements OnInit {
       this.recordatorioSelec = recordatorioSelec;
 
       this.Mrecordatorio.setValue({
+        uid: recordatorioSelec.uid,
         titulo: recordatorioSelec.titulo,
         fecha: recordatorioSelec.fecha,
         hora: recordatorioSelec.hora,

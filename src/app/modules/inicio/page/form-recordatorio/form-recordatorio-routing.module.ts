@@ -5,7 +5,7 @@ import { FormRecordatorioPage } from './form-recordatorio.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'form',
     component: FormRecordatorioPage
   }
 ];
