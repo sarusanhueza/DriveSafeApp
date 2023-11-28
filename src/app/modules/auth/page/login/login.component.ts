@@ -48,6 +48,30 @@ export class LoginComponent {
       console.log(credenciales.email);
     })
   }
+
+  // .then(res =>{
+  //   if(credencialess.email == "sarasanhueza@gmail.com" && credencialess.contrasena == "sarasanhueza10" ){
+  //     alert("Acceso consedido");
+  //     console.log(credencialess.email)
+  //     }else if(credencialess.email =="ayelennievas@gmail.com"  && credencialess.contrasena == "ayelenievass10"){
+  //       alert("Acceso consedido");
+  //       console.log(credencialess.email)
+  //     }else if(credencialess.email == "thiarapalma@gmail.com" && credencialess.contrasena == "thiarapalma10"){
+  //       alert("Acceso consedido");
+  //       console.log(credencialess.email)
+  //     }else{
+  //         alert("Debe registrarse")
+  //       console.log("hola")
+  
+  //       this.router.navigate(["/editarAuto"]);
+        
+  //     }
+      
+  //   })
+  //   .catch(error => {
+  //     alert("Usted no tiene acceso consedido\n"+ error);
+  //     console.log(credencialess.email)
+  //   })
 }
 
 
