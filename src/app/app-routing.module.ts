@@ -34,6 +34,9 @@ const routes: Routes = [
     path: 'form-recordatorio', component: FormRecordatorioPage
   },
   {
+    path: 'form-recordatorio/:uid', component: FormRecordatorioPage
+   },
+  {
   path: 'form-viaje', component: FormViajePage
   }
 
