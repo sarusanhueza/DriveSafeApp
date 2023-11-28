@@ -5,6 +5,8 @@ import { CrudService } from '../../services/crud.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Recordatorio } from 'src/app/models/Mrecordatorio';
 import { Viaje } from 'src/app/models/Mviajes';
+import { MatDialog } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -66,7 +68,8 @@ export class MenucitoPage implements OnInit {
 
 
   constructor(
-    public servicioCrud: CrudService
+    public servicioCrud: CrudService,
+   
   ) { }
 
   ngOnInit(): void {
@@ -88,7 +91,7 @@ export class MenucitoPage implements OnInit {
     this.coleccionEventos = this.coleccionEventos.sort(
     (objA, objB) => Number(new Date(objB.fecha)) - Number(new Date(objA.fecha)),
             );
-            
+
           })
         })
          
@@ -112,37 +115,38 @@ export class MenucitoPage implements OnInit {
  
   
 
-  public alertButtons =
-  [
+  // public alertButtons =
+  // [
     
-    {
-      text: 'No',
-      cssClass: 'alert-button-cancel',
-      confirm: false
-    },
-    {
-      text: 'Si',
-      cssClass: 'alert-button-confirm',
-      handler:() =>{
+  //   {
+  //     text: 'No',
+  //     cssClass: 'alert-button-cancel',
+  //     confirm: false
+  //   },
+  //   {
+  //     text: 'Si',
+  //     cssClass: 'alert-button-confirm',
+  //     handler:() =>{
        
         
-      }
+  //     }
 
-    }, {
+  //   }, {
 
-    }
+  //   }
 
-  ]
+  // ]
 
 
   mostrarBorrar(uid: string) {
     // this.ModalVisibleCombustible = true;
     // this.combustibleSelec = combustibleSelec;
 
-   
+    
 
      this.servicioCrud.eliminarCombustible(uid)
 
+     
   }
 
   
@@ -158,6 +162,8 @@ export class MenucitoPage implements OnInit {
     // this.ModalVisibleCombustible = true;
     // this.combustibleSelec = combustibleSelec;
      
+  
+
 
      this.servicioCrud.eliminarRecordatorio(uid)
   }
@@ -188,6 +194,8 @@ export class MenucitoPage implements OnInit {
 
   borrarRecordatorio() { // boton para eliminar definitivamente
     this.servicioCrud.eliminarRecordatorio(this.recordatorioSelec.uid)
+
+    
 
   }
 

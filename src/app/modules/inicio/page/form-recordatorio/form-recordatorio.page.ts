@@ -126,7 +126,7 @@ export class FormRecordatorioPage implements OnInit {
       this.recordatorioSelec = recordatorioSelec;
     }
 
-    borrarGastos(){
+    borrarRecordatorio(){
       this.servicioCrud.eliminarRecordatorio(this.recordatorioSelec.uid);
 
     }
