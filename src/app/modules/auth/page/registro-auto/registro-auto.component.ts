@@ -6,7 +6,6 @@ import { Vehiculo } from 'src/app/models/vehiculo';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { ServiceVehiculoService } from '../../services/service-vehiculo.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { error } from 'console';
 
 
 
@@ -62,7 +61,7 @@ export class RegistroAutoComponent  implements OnInit {
       this.router.navigate(["/editarAuto"]);
     })
     .catch(error=>{
-      alert("Hubo un error al agregar un nuevo vehiculo")
+      alert("Hubo un error al agregar un nuevo vehiculo \n" + error)
     })
 
    }

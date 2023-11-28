@@ -24,10 +24,11 @@ export class EditarAutoComponent  implements OnInit {
    marca: new FormControl('',Validators.required),
    combustible: new FormControl('',Validators.required),
   })
-  router: any;
+
  
   constructor(
-    public servicioAuto: ServiceVehiculoService //patentamos servico de manera local
+    public servicioAuto: ServiceVehiculoService, //patentamos servico de manera local
+    public router: Router
   ) { }
 
   ngOnInit(): void{ 
@@ -47,6 +48,16 @@ export class EditarAutoComponent  implements OnInit {
    }
 
    await this.servicioAuto.crearIdVehiculo(nuevoVehiculo)
+
+   .then(respuesta => {
+      alert("Se ha agrego un vehiculo con exito :).");
+      console.log(respuesta)
+
+      this.router.navigate(["/inicio"]); //CAMBIAR  LUEGOO
+    })
+    .catch(error => {
+      alert("No se pudo agregar un vehiculo :( \n"+error);
+    })
    }
   }
 
