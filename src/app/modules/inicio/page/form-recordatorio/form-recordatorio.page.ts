@@ -17,7 +17,7 @@ export class FormRecordatorioPage implements OnInit {
 
   Mrecordatorio = new FormGroup({
     uid: new FormControl(''),
-    titulo: new FormControl('Recordatorio',Validators.required),
+    titulo: new FormControl('Recordatorio'),
     fecha: new FormControl('', Validators.required),
     hora: new FormControl('', Validators.required),
     nombreEvento: new FormControl('', Validators.required),
@@ -40,9 +40,7 @@ export class FormRecordatorioPage implements OnInit {
           this.prepareDataForUpdate();
       }
   });
-    // this.servicioCrud.obtenerRecordatorio().subscribe (recordatorio =>{
-    //   this.coleccionRecordario = recordatorio;
-    // })
+   
   }
 
   prepareDataForUpdate(){  
@@ -70,7 +68,7 @@ export class FormRecordatorioPage implements OnInit {
     console.log("hola")
     //if(this.Mcombustible.valid){
       let nuevoRecordatorio : Recordatorio = {
-        uid: '',
+        uid: this.Mrecordatorio.value.uid!,
         titulo: this.Mrecordatorio.value.titulo!,
         fecha: this.Mrecordatorio.value.fecha!,
         hora: this.Mrecordatorio.value.hora!,
@@ -79,13 +77,18 @@ export class FormRecordatorioPage implements OnInit {
        
       };
       console.log(nuevoRecordatorio);
-      const valor = await this.servicioCrud.crearRecordatorio(nuevoRecordatorio);
+      let valor: any;
+      if (nuevoRecordatorio.uid){
+        // Estamos editando un objeto existente
+        valor = await this.servicioCrud.modificarRecordatorio(nuevoRecordatorio.uid, nuevoRecordatorio)
+      }
+      else{
+        // Estamos dando de alta un nuevo objeto
+        valor = await this.servicioCrud.crearRecordatorio(nuevoRecordatorio);
+      }
       console.log(valor)
   
-      //}
-      //else{
-      //  console.log(this.Mcombustible)
-     // }
+     
     }
 
     mostrarEditar(recordatorioSelec: Recordatorio){

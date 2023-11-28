@@ -5,7 +5,7 @@ import { FormViajePage } from './form-viaje.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'form',
     component: FormViajePage
   }
 ];

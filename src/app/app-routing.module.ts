@@ -38,7 +38,10 @@ const routes: Routes = [
    },
   {
   path: 'form-viaje', component: FormViajePage
-  }
+  },
+  {
+    path: 'form-viaje/:uid', component: FormViajePage
+   },
 
 ];
 

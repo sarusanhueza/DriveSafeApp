@@ -123,6 +123,10 @@ export class CrudService {
         pipe (map(action => action.map(a => a.payload.doc.data())))
       }
 
+      obtenerViajeById(uid: string){
+        return this.database.collection('Mviajes').doc(uid).get()
+      }
+
 
        modificarCombustible(uid: string, nuevaData: Combustible){
         return this.database.collection('Mcombustible').doc(uid).update(nuevaData);

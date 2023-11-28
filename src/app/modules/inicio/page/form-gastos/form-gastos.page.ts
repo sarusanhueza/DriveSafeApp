@@ -18,7 +18,7 @@ export class FormGastosPage implements OnInit {
 
   Mgastos = new FormGroup({
     uid: new FormControl(''),
-    titulo: new FormControl('Gastos',Validators.required),
+    titulo: new FormControl('Gastos'),
     fecha: new FormControl('', Validators.required),
     nombreArticulo: new FormControl('', Validators.required),
     precio: new FormControl('$', Validators.required),

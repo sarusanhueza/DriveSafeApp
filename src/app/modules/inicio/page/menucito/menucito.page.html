@@ -55,7 +55,7 @@
 
 
 
-        <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" data-bs-target="#editarCombustible"
+        <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" 
            routerLink="/form-combustible/{{col.uid}}">
           <ion-icon slot="icon-only" name="create-outline" size="small" ></ion-icon>
         </ion-button>
@@ -135,7 +135,7 @@
 
 
 
-        <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" data-bs-target="#editarViaje" (click)="mostrarEditar3(col.uid)" >
+        <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" data-bs-target="#editarViaje" routerLink="/form-viaje/{{col.uid}}" >
           <ion-icon slot="icon-only" name="create-outline" size="small" ></ion-icon>
         </ion-button>
 
@@ -163,128 +163,4 @@
 
 
 
-<div class="div" *ngIf="ModalVisibleCombustible">
 
-  <div [formGroup]="Mcombustible" class="formulario">
-
-    <ion-list inset class="ilist" >
-  
-      <h2 style="color: #97CADB;"></h2>
-
-      
-
-      <ion-input  type="date" label="Ingrese fecha" formControlName="fecha" label-placement="floating" fill="outline" placeholder="" ></ion-input>
-  
-      <ion-input  label="Ingrese tipo de combustible" formControlName="tipo"  label-placement="floating" fill="outline" placeholder=""></ion-input>
-  
-      <ion-input  label="Ingrese litros cargados" formControlName="litros" label-placement="floating" fill="outline" placeholder=""></ion-input>
-    
-      <ion-input  label="Ingrese su gasto $" formControlName="gasto" label-placement="floating" fill="outline" placeholder="" required></ion-input>
-        
-      
-  
-    
-      
-    </ion-list>
-  
-    <ion-list style="text-align:center">
-  
-      <ion-button  routerLink="/menu">EDITAR</ion-button>
-  
-    </ion-list>
-  
-   </div>
-</div> 
-
-<!-- <div class="modal fade" *ngFor="let col of coleccionCombustible" id="editarCombustible" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Edite el siguiente producto</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div [formGroup]="Mcombustible"  class="modal-body">
-
-        <!-- <label class="form-control" type="text" formControlName="titulo">{{col.titulo}}</label>  -->
-
-        <!-- <div class="mb-3">
-          <label class="form-label">Ingrese fecha:</label>
-          <input class="form-control" type="text" formControlName="fecha" placeholder="{{col.fecha}}">
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Ingrese tipo de combustible:</label>
-          <input class="form-control" type="text" formControlName="tipo" placeholder="{{col.tipo}}">
-        </div>
-
-        <div class="mb-3">
-        <label class="form-label">Ingrese litros cargados:</label>
-          <input class="form-control" type="text" formControlName="litros" placeholder="{{col.litros}}">
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Ingrese el gasto:</label>
-          <input class="form-control" type="text" formControlName="gasto" placeholder="{{col.gasto}}">
-        </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="editarCombustible()">Guardar cambios</button>
-        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-      </div>
-    
-    </div>
-  </div>
-</div> --> 
-
-
-
-
-<!-- 
-(click)="mostrarBorrar(col.uid)" -->
-
-
-
-<!--<form class="row g-3">
-  <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">Email</label>
-    <input type="email" class="form-control" id="inputEmail4">
-  </div>
-  <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Password</label>
-    <input type="password" class="form-control" id="inputPassword4">
-  </div>
-  <div class="col-12">
-    <label for="inputAddress" class="form-label">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="col-12">
-    <label for="inputAddress2" class="form-label">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="col-md-6">
-    <label for="inputCity" class="form-label">City</label>
-    <input type="text" class="form-control" id="inputCity">
-  </div>
-  <div class="col-md-4">
-    <label for="inputState" class="form-label">State</label>
-    <select id="inputState" class="form-select">
-      <option selected>Choose...</option>
-      <option>...</option>
-    </select>
-  </div>
-  <div class="col-md-2">
-    <label for="inputZip" class="form-label">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  <div class="col-12">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </div>
-</form>-->
