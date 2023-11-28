@@ -15,6 +15,7 @@ export class LoginComponent {
 
   usuarios: Usuario = {
     uid: '',
+    uidVehiculo: '',
     nombre: '',
     email: '',
     contrasena: '',
@@ -37,7 +38,8 @@ export class LoginComponent {
     const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
 
     .then(res => {
-      this.router.navigate(["/menu"])
+      alert("Acceso consedido");
+      console.log(credenciales.email);
     })
     // MÉTODO THEN -> ENCAPSULA UN FALLO
     .catch(error => {
@@ -47,6 +49,14 @@ export class LoginComponent {
     })
   }
 }
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,41 @@
+<div class="container1">
+  <div class="row">
+    <!--FORMULARIO VISUALIZAR PROPIEDADES EN REGISTRO-AUTO-->
+    <div class="formulario-editar-auto" style="text-align: center;" *ngFor="let col of coleccionVehiculos" >
+      <ion-list inset class="ilist">
+
+        <h2 style="color: #97CADB;">Edite las propiedades de su vehiculo</h2>
+        <div [formGroup]="vehiculo">
+         
+            <!--NOMBRE-->
+            <ion-item>
+              <ion-input   formControlName="nombre" type="text" label="Nombre:">{{col.nombre}}</ion-input>
+            </ion-item>
+           <!--PATENTE-->
+            <ion-item>
+              <ion-input   formControlName="patente" type="text" label="Patente:">{{col.patente}}</ion-input>
+            </ion-item>
+            <!--MARCA:-->
+            <ion-item>
+              <ion-input   formControlName="marca"  type="text" label="Marca:">{{col.marca}}</ion-input>
+            </ion-item>
+            <!--TIPO COMBUSTIBLE-->
+            <ion-item>
+              <ion-input formControlName="combustible" type="text"  label="Combustible:">{{col.combustible}}</ion-input>
+            </ion-item>
+
+        </div>
+      </ion-list>
+  
+
+      <ion-list style="text-align:center">
+        <ion-button  size="default" routerLink="/menu" (click)="editarVehiculo()" >GUARDAR CAMBIOS</ion-button>
+      
+      </ion-list>
+      
+    </div>
+    
+    
+  </div>
+
+</div>

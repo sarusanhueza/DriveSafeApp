@@ -2,12 +2,14 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './page/inicio/inicio.component';
 import { MapaComponent } from './componentes/mapa/mapa.component';
+import { EditarAutoComponent } from './componentes/editar-auto/editar-auto.component';
 
 const routes: Routes = [
 
 {path: 'inicio', component: InicioComponent  }
 ,
-{path: 'mapa-ubicaciones', component: MapaComponent}
+{path: 'mapa-ubicaciones', component: MapaComponent},
+{path:'editarAuto', component:EditarAutoComponent}
 
 ];
 

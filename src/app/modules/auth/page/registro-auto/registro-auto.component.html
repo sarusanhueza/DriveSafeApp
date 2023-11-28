@@ -1,28 +1,33 @@
 <div class="container">
   <div class="row">
-     
-     <div class="tituloo">
-      <ion-text style="color: #97CADB;"> Registre su vehiculo </ion-text>
-     </div>
-    
+
+    <div class="tituloo">
+      <h2> Registre su vehiculo</h2>
+    </div>
+
 
     <div class="container1">
 
-      <ion-list class="lista-input">
+      <div [formGroup]="vehiculo">
 
-        <ion-input label="Ingrese un nombre para su vehiculo" label-placement="floating" fill="outline"
-          placeholder=""></ion-input>
+        <ion-list class="lista-input">
+
+          <ion-input formControlName="nombre" label="Ingrese un nombre para su vehiculo" label-placement="floating"
+            fill="outline" placeholder=""></ion-input>
+
+          <ion-input formControlName="patente" label="Ingrese la patente" label-placement="floating" fill="outline"
+            placeholder=""></ion-input>
+
+          <ion-input formControlName="marca" label="Ingrese marca" label-placement="floating" fill="outline"
+            placeholder=""></ion-input>
+
+          <ion-input formControlName="combustible" label="Ingrese tipo de combustible" label-placement="floating"
+            fill="outline" placeholder=""></ion-input>
+
+        </ion-list>
 
 
-          <ion-input label="Ingrese la patente" label-placement="floating" fill="outline" placeholder=""></ion-input>
-
-          <ion-input label="Ingrese marca" label-placement="floating" fill="outline" placeholder=""></ion-input>
-
-         <ion-input label="Ingrese tipo de combustible" label-placement="floating" fill="outline"
-          placeholder=""></ion-input>
-
-
-      </ion-list>
+      </div>
 
     </div>
 
@@ -30,12 +35,11 @@
 
       <ion-list style="text-align:center">
 
-        <ion-button  routerLink="/menu">CONTINUAR</ion-button>
+        <ion-button   (click)="registrarVehiculo()">CONTINUAR</ion-button>
 
       </ion-list>
 
     </div>
-
 
 
   </div>

@@ -3,9 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { Usuario } from 'src/app/models/usuario';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
 import { Router } from '@angular/router';
-
-
-
+import { ServiceVehiculoService } from '../../services/service-vehiculo.service';
 
 
 @Component({
@@ -14,20 +12,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro.component.scss'],
 })
 export class RegistroComponent  implements OnInit {
-  hide = true; // input de contraseña
+  hide = true;
   password_type: string = 'password'
 
  
-// DEFINIMOS DE FORMA PUBLICA EL SERVICIO 
+
   constructor(
     public servicioAuth: AuthService,
     public servicioFirestore: FirestoreService,
-    public router: Router
+    public router: Router,
+    public servicioAuto:ServiceVehiculoService,
     ) { }
 
-    //importacion del modulo
   usuarios: Usuario = {
     uid: '',
+    uidVehiculo: '',
     nombre: '',
     email: '',
     fecha: '',
@@ -40,7 +39,7 @@ export class RegistroComponent  implements OnInit {
 
   async registrarse(){
     const credenciales = {
-      email: this.usuarios.email, //llama al modulo usuario y a su comp email
+      email: this.usuarios.email,
       contrasena: this.usuarios.contrasena
 
     };
@@ -48,14 +47,13 @@ export class RegistroComponent  implements OnInit {
 
   const res = await this.servicioAuth.registrar(credenciales.email, credenciales.contrasena)
 
-  //then toma una nueva promesa, toma la respuesta correcta
     .then(res => {
       alert("Se registro un usuario con exito!");
+      console.log(res)
 
-      this.router.navigate(["/inicio"]);
+      this.router.navigate(["/registroAuto"]);
     })
 
-    //toma el error
     .catch((error: string) =>
       alert("Hubo un error al crear el usuario \n" + error)
       );
@@ -67,7 +65,6 @@ export class RegistroComponent  implements OnInit {
     this.guardarUser();
   }
 
-  //funcion asincronica para guardar usuario
   async guardarUser(){
     this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
     .then(res => {
@@ -88,4 +85,3 @@ export class RegistroComponent  implements OnInit {
  }
 
 }
-
