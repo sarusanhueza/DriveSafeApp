@@ -28,6 +28,9 @@ const routes: Routes = [
     path: 'form-gastos', component: FormGastosPage
   },
   {
+   path: 'form-gastos/:uid', component: FormGastosPage
+  },
+  {
     path: 'form-recordatorio', component: FormRecordatorioPage
   },
   {
