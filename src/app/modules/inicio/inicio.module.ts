@@ -5,6 +5,7 @@ import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './page/inicio/inicio.component';
 import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 import { MapaComponent } from './componentes/mapa/mapa.component';
+import { MenuComponent } from './componentes/menu/menu.component';
 import { IonicModule } from '@ionic/angular';
 import { EditarAutoComponent } from './componentes/editar-auto/editar-auto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    InicioComponent, CarruselComponent, MapaComponent, EditarAutoComponent
+    InicioComponent, CarruselComponent, MapaComponent, EditarAutoComponent, MenuComponent
   ],
   imports: [
     CommonModule,
@@ -31,3 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ]
 })
 export class InicioModule { }
+
+
+
+

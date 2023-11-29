@@ -1,0 +1,45 @@
+
+.btn{
+    margin: auto;
+    color: rgb(0, 0, 0);
+}
+
+ion-segment-button {
+    --indicator-color: #00000;
+  }
+  
+  /* Material Design styles */
+  ion-segment-button.md {
+    --color: #000;
+    --color-checked: #97cadb;
+    --indicator-height: 4px;
+  }
+
+  .ion-padding{
+    background-color: #18abdc;
+  }
+
+  .custom-item  {
+    margin-bottom: 25px; 
+   
+   
+  }
+  .editar{
+    margin-right: -12%;
+  }
+
+  p{
+    color: black;
+  }
+
+
+  ion-item{
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: #97cadb;
+  }
+
+
+ 
+

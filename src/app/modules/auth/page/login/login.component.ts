@@ -61,7 +61,7 @@ export class LoginComponent {
     })
     // MÉTODO THEN -> ENCAPSULA UN FALLO
     .catch(error => {
-      alert("Error al ininciar sesion\n"+error);
+      alert("Error al iniciar sesion\n"+error);
 
       console.log(credenciales.email);
     })
