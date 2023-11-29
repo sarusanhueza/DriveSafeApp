@@ -28,6 +28,7 @@ export class RegistroComponent  implements OnInit {
     //importacion del modulo
   usuarios: Usuario = {
     uid: '',
+    uidVehiculo: '',
     nombre: '',
     email: '',
     fecha: '',

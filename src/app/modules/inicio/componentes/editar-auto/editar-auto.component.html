@@ -1,6 +1,5 @@
 <div class="container1">
   <div class="row">
-    
     <!--FORMULARIO VISUALIZAR PROPIEDADES EN REGISTRO-AUTO-->
     <div class="formulario-editar-auto" style="text-align: center;" *ngFor="let col of coleccionVehiculos" >
       <ion-list inset class="ilist">
@@ -27,7 +26,7 @@
   
 
       <ion-list style="text-align:center">
-        <ion-button  size="default" routerLink="/menu" >GUARDAR CAMBIOS</ion-button>
+        <ion-button  size="default" routerLink="/menu" (click)="editarVehiculo()" >GUARDAR CAMBIOS</ion-button>
       
       </ion-list>
       

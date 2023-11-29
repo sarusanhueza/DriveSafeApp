@@ -6,6 +6,7 @@ import { InicioComponent } from './page/inicio/inicio.component';
 import { CarruselComponent } from './componentes/carrusel/carrusel.component';
 import { EditarAutoComponent } from './componentes/editar-auto/editar-auto.component';
 import { IonicModule } from '@ionic/angular';
+//angular
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 

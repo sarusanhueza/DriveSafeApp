@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonModal } from '@ionic/angular';
-import { OverlayEventDetail } from '@ionic/core/components'
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Vehiculo } from 'src/app/models/vehiculo';
+import { ServiceVehiculoService } from 'src/app/modules/auth/services/service-vehiculo.service';
 
 @Component({
   selector: 'app-editar-auto',
@@ -11,14 +11,77 @@ import { Vehiculo } from 'src/app/models/vehiculo';
 
 
 export class EditarAutoComponent  implements OnInit {
-  
   coleccionVehiculos: Vehiculo[] = [];
 
   vehiculoSeleccionado!: Vehiculo //! ->  recibe calores vacios
 
+  vehiculo = new FormGroup({
+  nombre: new FormControl('',Validators.required),
+   patente: new FormControl('',Validators.required),
+   marca: new FormControl('',Validators.required),
+   combustible: new FormControl('',Validators.required),
+  })
+  router: any;
  
-  constructor() { }
+  constructor(
+    public servicioAuto: ServiceVehiculoService //patentamos servico de manera local
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit(): void{ 
+    this.servicioAuto.obtenerVehiculo().subscribe(vehiculo => {
+      this.coleccionVehiculos = vehiculo;
+    })
+   }
 
+   async agregarVehiculo(){
+   if(this.vehiculo.valid){
+   let nuevoVehiculo: Vehiculo ={
+     uidVehiculo:'',
+     nombre: '',
+     patente: '',
+     marca: '',
+     combustible: ''
+   }
+
+   await this.servicioAuto.crearIdVehiculo(nuevoVehiculo)
+   }
+  }
+
+  mostrarEditar(vehiculoSeleccionado: Vehiculo){
+    this.vehiculoSeleccionado = this.vehiculoSeleccionado;
+    /* retomamos y enviamos los valores de ese producto 
+    seleccionado, el ID no se vuelve a enviar porque 
+    no se modifica */
+    this.vehiculo.setValue({
+      nombre: vehiculoSeleccionado.nombre,
+      patente: vehiculoSeleccionado.patente,
+      marca: vehiculoSeleccionado.marca,
+      combustible: vehiculoSeleccionado.combustible
+     
+    })
+  }
+ 
+  //vinculaos voton GUARDAR CAMBIOS
+  //recibe propiedad nueva que ingresamos en el fomrmulario
+  editarVehiculo(){
+    let datos: Vehiculo = {
+      uidVehiculo: this.vehiculoSeleccionado.uidVehiculo,
+      // signo de exclamación "!" -> puede recibir valores vacíos al inicializar
+      nombre: this.vehiculo.value.nombre!,
+      patente: this.vehiculo.value.patente!,
+      marca: this.vehiculo.value.marca!,
+      combustible: this.vehiculo.value.combustible!
+    }
+
+    this.servicioAuto.modificarVehiculo(this.vehiculoSeleccionado.uidVehiculo, datos)
+    .then(vehiculo => {
+      alert("La propiedad fue modificada con éxito :).");
+      console.log(vehiculo)
+
+      this.router.navigate(["/menu"]);
+    })
+    .catch(error => {
+      alert("No se pudo modificar la propiedad de vehiculo :( \n"+error);
+    })
+  }
 }

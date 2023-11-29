@@ -15,6 +15,7 @@ export class LoginComponent {
 
   usuarios: Usuario = {
     uid: '',
+    uidVehiculo: '',
     nombre: '',
     email: '',
     contrasena: '',
