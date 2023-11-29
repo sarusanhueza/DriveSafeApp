@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './page/inicio/inicio.component';
 
 import { MapaComponent } from './componentes/mapa/mapa.component';
-import { EditarAutoComponent } from './componentes/editar-auto/editar-auto.component';
+
 
 import { MenuComponent } from './componentes/menu/menu.component';
 import { CarruselComponent } from '../inicio/componentes/carrusel/carrusel.component';
@@ -12,6 +12,7 @@ import { FormCombustiblePageModule } from './page/form-combustible/form-combusti
 import { FormGastosPageModule } from './page/form-gastos/form-gastos.module';
 import { FormRecordatorioPageModule } from './page/form-recordatorio/form-recordatorio.module';
 import { FormViajePageModule } from './page/form-viaje/form-viaje.module';
+import { EditarAutoComponent } from './componentes/editar-auto/editar-auto.component';
 
 
 const routes: Routes = [
@@ -72,7 +73,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), IonicModule],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class InicioRoutingModule { }
