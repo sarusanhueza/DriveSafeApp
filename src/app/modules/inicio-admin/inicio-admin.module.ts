@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { InicioAdminRoutingModule } from './inicio-admin-routing.module';
-import { IonicModule } from '@ionic/angular';
+
 //componentes
 import { ReconocimientoComponent } from './componentes/reconocimiento/reconocimiento.component';
 
 import { MenuUsuariosComponent } from './componentes/menu-usuarios/menu-usuarios.component';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { MenuUsuariosComponent } from './componentes/menu-usuarios/menu-usuarios
   ],
   exports:[
    ReconocimientoComponent, 
-  MenuUsuariosComponent
+  MenuUsuariosComponent,
+
   ]
 })
 export class InicioAdminModule { }

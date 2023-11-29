@@ -1,3 +1,28 @@
-<p>
-  menu-usuarios works!
-</p>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Drive safe</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+<ion-list [inset]="true">
+<div class="custom-item" *ngFor ="let col of coleccionUsuarios">
+  <ion-item [button]="true">
+    <ion-icon style="color: #97cadb;" slot="start" name="speedometer-outline" size="large"></ion-icon>
+    <ion-label>
+     <h1>{{col.nombre}} </h1>
+     <p>{{col.email}}</p>
+
+    </ion-label>
+   
+   <ion-button id="present-alert" fill="outline" slot="end"  size="small" (click)="mostrarBorrarUsuario(col.uid)">
+      <ion-icon   slot="icon-only" name="trash-outline" size="small"></ion-icon>
+    </ion-button>
+  </ion-item>
+</div>
+</ion-list>
+  </ion-content>
