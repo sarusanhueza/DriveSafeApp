@@ -5,6 +5,7 @@ import { FormCombustiblePage } from './modules/inicio/page/form-combustible/form
 import { FormGastosPage } from './modules/inicio/page/form-gastos/form-gastos.page';
 import { FormRecordatorioPage } from './modules/inicio/page/form-recordatorio/form-recordatorio.page';
 import { FormViajePage } from './modules/inicio/page/form-viaje/form-viaje.page';
+import { ReconocimientoComponent } from './modules/inicio-admin/componentes/reconocimiento/reconocimiento.component';
 
 
 
@@ -21,6 +22,9 @@ const routes: Routes = [
   },
   {
     path: 'configuracion', component: ConfiguracionComponent
+  },
+  {
+    path: 'configuracion/:uid', component: ConfiguracionComponent
   },
   {
     path: 'form-combustible', component: FormCombustiblePage 
@@ -45,6 +49,9 @@ const routes: Routes = [
   },
   {
     path: 'form-viaje/:uid', component: FormViajePage
+   },
+   {
+    path: 'reconocimiento', component: ReconocimientoComponent
    },
 
 ];

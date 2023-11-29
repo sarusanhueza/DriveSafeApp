@@ -13,6 +13,8 @@ import { FormGastosPageModule } from './page/form-gastos/form-gastos.module';
 import { FormRecordatorioPageModule } from './page/form-recordatorio/form-recordatorio.module';
 import { FormViajePageModule } from './page/form-viaje/form-viaje.module';
 import { EditarAutoComponent } from './componentes/editar-auto/editar-auto.component';
+import { ConfiguracionComponent } from './componentes/configuracion/configuracion.component';
+import { ReconocimientoComponent } from '../inicio-admin/componentes/reconocimiento/reconocimiento.component';
 
 
 const routes: Routes = [
@@ -49,6 +51,7 @@ const routes: Routes = [
     path: 'form-viaje',
     loadChildren: () => import('./page/form-viaje/form-viaje.module').then( m => m.FormViajePageModule)
   },
+ 
 
 ]},
 
@@ -58,7 +61,9 @@ const routes: Routes = [
 {path: 'inicio', component: InicioComponent  }
 ,
 {path: 'mapa-ubicaciones', component: MapaComponent},
-{path:'editarAuto', component:EditarAutoComponent}
+{path:'editarAuto', component:EditarAutoComponent},
+{path: 'configuracion',component: ConfiguracionComponent},
+{path: 'reconocimiento', component: ReconocimientoComponent}
 
 ];
 

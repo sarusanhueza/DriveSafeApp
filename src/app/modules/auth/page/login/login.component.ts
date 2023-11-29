@@ -39,15 +39,16 @@ export class LoginComponent {
     await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
     .then(async res => {
       (await this.servicioAuth.obtenerUsuario(res.user?.uid)).subscribe(
-        docSnap => {
+        docSnap => {  
           if (docSnap.exists){
             const user: any = docSnap.data();
             if (user.administrador){
               // Navegar a la pagina del administrador
-              
+              this.router.navigate(['/reconocimiento'])
             }
             else{
               // Navegar a la pagina de usuario
+              this.router.navigate(['/menu/menucito'])
             }
           }
           else{
@@ -56,7 +57,9 @@ export class LoginComponent {
           
         }
       );
-      alert("Acceso consedido");
+      alert("Acceso concedido");
+
+      
       
     })
     // MÉTODO THEN -> ENCAPSULA UN FALLO
