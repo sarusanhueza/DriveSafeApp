@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ConfiguracionComponent } from './modules/inicio/componentes/configuracion/configuracion.component';
 
 
 
@@ -14,6 +15,9 @@ const routes: Routes = [
   {
     path: '',loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthModule)
   },
+  {
+    path: 'configuracion', component: ConfiguracionComponent
+   },
 
 ];
 
