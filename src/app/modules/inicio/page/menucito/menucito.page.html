@@ -47,7 +47,7 @@
     <ion-list [inset]="true">
       <div class="custom-item" *ngFor ="let col of coleccionEventos">
         <ion-item [button]="true" *ngIf="col.titulo === 'Combustible'">
-          <ion-icon color="primary" slot="start" name="speedometer-outline" size="large"></ion-icon>
+          <ion-icon style="color: #97cadb;" slot="start" name="speedometer-outline" size="large"></ion-icon>
           <ion-label>
            <p> {{col.titulo}} </p>
             <ion-note color="medium" class="ion-text-wrap">{{col.fecha}}</ion-note>
@@ -57,12 +57,12 @@
             <ion-icon slot="icon-only" name="create-outline" size="small" ></ion-icon>
           </ion-button> 
          <ion-button id="present-alert" fill="outline" slot="end"  size="small" (click)="mostrarBorrar(col.uid)">
-            <ion-icon slot="icon-only" name="trash-outline" size="small"></ion-icon>
+            <ion-icon   slot="icon-only" name="trash-outline" size="small"></ion-icon>
           </ion-button>
         </ion-item>
 
         <ion-item [button]="true" *ngIf="col.titulo === 'Gastos'">
-          <ion-icon color="primary" slot="start" name="receipt-outline" size="large"></ion-icon>
+          <ion-icon style="color: #97cadb;" slot="start" name="receipt-outline" size="large"></ion-icon>
           <ion-label>
            <p> {{col.titulo}} </p>
             <ion-note color="medium" class="ion-text-wrap">{{col.fecha}}</ion-note>
@@ -76,7 +76,7 @@
         </ion-item>
 
         <ion-item [button]="true" *ngIf="col.titulo === 'Recordatorio'">
-          <ion-icon color="primary" slot="start" name="today-outline" size="large"></ion-icon>
+          <ion-icon style="color: #97cadb;" slot="start" name="today-outline" size="large"></ion-icon>
           <ion-label>
            <p> {{col.titulo}} </p>
             <ion-note color="medium" class="ion-text-wrap">{{col.fecha}}</ion-note>
@@ -90,7 +90,7 @@
         </ion-item>
 
         <ion-item [button]="true" *ngIf="col.titulo === 'Viaje'">
-          <ion-icon color="primary" slot="start" name="map-outline" size="large"></ion-icon>
+          <ion-icon style="color: #97cadb;" slot="start" name="map-outline" size="large"></ion-icon>
           <ion-label>
            <p> {{col.titulo}} </p>
             <ion-note color="medium" class="ion-text-wrap">{{col.fecha}}</ion-note>

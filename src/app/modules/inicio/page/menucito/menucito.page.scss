@@ -21,7 +21,7 @@ ion-segment-button {
 
   .custom-item  {
     margin-bottom: 25px; 
-    background-color: #18abdc;
+   
    
   }
   .editar{
@@ -30,6 +30,14 @@ ion-segment-button {
 
   p{
     color: black;
+  }
+
+
+  ion-item{
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: #97cadb;
   }
 
 
