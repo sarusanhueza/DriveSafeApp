@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { RouteReuseStrategy } from '@angular/router';
@@ -34,6 +34,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebaseConfig), 
     ReactiveFormsModule,
     FormsModule
+  ],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA
   ],
 
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

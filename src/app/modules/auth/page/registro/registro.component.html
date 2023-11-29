@@ -2,53 +2,50 @@
 
   <div class="row">
 
-<ion-col>
-<ion-col>
-<ion-avatar style="margin: 0 auto;">
-  <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-</ion-avatar>
-</ion-col>
-</ion-col>
+    <ion-col>
+      <ion-col>
+        <ion-avatar style="margin: 0 auto;">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+      </ion-col>
+    </ion-col>
 
 
 
-<div class="formulario">
+    <div class="formulario">
 
-  <ion-list inset class="ilist">
+      <ion-list inset class="ilist">
 
-    <h2 style="color: #97CADB;">Cree su cuenta</h2>
+        <h2 style="color: #97CADB;">Cree su cuenta </h2>
 
-    <ion-input [(ngModel)]="usuarios.nombre" label="Ingrese un nombre de usuario" label-placement="floating" fill="outline" placeholder=""></ion-input>
+          <ion-input [(ngModel)]="usuarios.nombre" label="Ingrese un nombre de usuario" label-placement="floating"
+            fill="outline" placeholder=""></ion-input>
 
-    <ion-input [(ngModel)]="usuarios.email"  label="Ingrese un email" label-placement="floating" fill="outline" placeholder=""></ion-input>
-  
-    <ion-input [(ngModel)]="usuarios.fecha" type="date" label="Ingrese fecha de nacimiento" label-placement="floating" fill="outline" placeholder="" ></ion-input>
-  
-    <ion-input [(ngModel)]="usuarios.contrasena" [type]="password_type" type="password" label="Crear contraseña" label-placement="floating" fill="outline" placeholder="" required>
+          <ion-input [(ngModel)]="usuarios.email" label="Ingrese un email" label-placement="floating" fill="outline"
+            placeholder=""></ion-input>
 
-      <!--<ion-icon name="eye" item-right (click)="togglePasswordMode()"></ion-icon>-->
-      
-    </ion-input>
-      
-    
+          <ion-input [(ngModel)]="usuarios.fecha" type="date" label="Ingrese fecha de nacimiento"
+            label-placement="floating" fill="outline" placeholder=""></ion-input>
 
-  
-    
-  </ion-list>
+          <ion-input [(ngModel)]="usuarios.contrasena" [type]="password_type" type="password" label="Crear contraseña"
+            label-placement="floating" fill="outline" placeholder="" required>  </ion-input>
 
-  <ion-list style="text-align:center">
+            <!--<ion-icon name="eye" item-right (click)="togglePasswordMode()"></ion-icon>-->
 
-    <ion-button  (click)="registrarse()">CONTINUAR</ion-button>
+         
 
-  </ion-list>
 
- </div>
+
+      </ion-list>
+
+      <ion-list style="text-align:center">
+
+        <ion-button (click)="registrarse()">CONTINUAR</ion-button>
+
+      </ion-list>
+
+    </div>
 
   </div>
 
 </div>
-
-
-
-
-

@@ -9,9 +9,9 @@ import { FormViajePage } from './modules/inicio/page/form-viaje/form-viaje.page'
 
 //creamos las rutas de inicio y auth.
 const routes: Routes = [
-
-
-//para usar la etiqueta routing deben ir vacias las rutas.
+ 
+  
+//para usar la etiqueta routing deben ir vacias las rutas. //rutas padres
   {
      path: '',loadChildren: () => import('./modules/inicio/inicio.module').then( m => m.InicioModule)
    },

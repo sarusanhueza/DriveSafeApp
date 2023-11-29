@@ -14,17 +14,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro.component.scss'],
 })
 export class RegistroComponent  implements OnInit {
-  hide = true;
+  hide = true; // input de contraseña
   password_type: string = 'password'
 
  
-
+// DEFINIMOS DE FORMA PUBLICA EL SERVICIO 
   constructor(
     public servicioAuth: AuthService,
     public servicioFirestore: FirestoreService,
     public router: Router
     ) { }
 
+    //importacion del modulo
   usuarios: Usuario = {
     uid: '',
     nombre: '',
@@ -39,7 +40,7 @@ export class RegistroComponent  implements OnInit {
 
   async registrarse(){
     const credenciales = {
-      email: this.usuarios.email,
+      email: this.usuarios.email, //llama al modulo usuario y a su comp email
       contrasena: this.usuarios.contrasena
 
     };
@@ -47,12 +48,14 @@ export class RegistroComponent  implements OnInit {
 
   const res = await this.servicioAuth.registrar(credenciales.email, credenciales.contrasena)
 
+  //then toma una nueva promesa, toma la respuesta correcta
     .then(res => {
       alert("Se registro un usuario con exito!");
 
       this.router.navigate(["/inicio"]);
     })
 
+    //toma el error
     .catch((error: string) =>
       alert("Hubo un error al crear el usuario \n" + error)
       );
@@ -64,6 +67,7 @@ export class RegistroComponent  implements OnInit {
     this.guardarUser();
   }
 
+  //funcion asincronica para guardar usuario
   async guardarUser(){
     this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
     .then(res => {
