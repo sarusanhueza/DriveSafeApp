@@ -6,6 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Recordatorio } from 'src/app/models/Mrecordatorio';
 import { Viaje } from 'src/app/models/Mviajes';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 
 
@@ -31,6 +32,8 @@ export class MenucitoPage implements OnInit {
 
   coleccionEventos: any[] = [];
   eventoSelec!: any
+
+  userId: any = '';
 
 
   Mcombustible = new FormGroup({
@@ -69,10 +72,14 @@ export class MenucitoPage implements OnInit {
 
   constructor(
     public servicioCrud: CrudService,
+    public servicioAuth: AuthService,
    
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.userId = await this.servicioAuth.getUid();
+    
+
     this.servicioCrud.obtenerCombustible().subscribe(combustible => {
     this.coleccionCombustible = combustible;
 

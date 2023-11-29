@@ -6,16 +6,23 @@ import { find } from 'rxjs/operators';
 import { Gastos } from 'src/app/models/Mgastos';
 import { Recordatorio } from 'src/app/models/Mrecordatorio';
 import { Viaje } from 'src/app/models/Mviajes';
+import { Usuario } from 'src/app/models/usuario';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
+  crearIdVehiculo(nuevoVehiculo: any) {
+    throw new Error('Method not implemented.');
+  }
   private combustibleColeccion : AngularFirestoreCollection <Combustible>
   private gastosColeccion : AngularFirestoreCollection <Gastos>
   private recordatorioColeccion : AngularFirestoreCollection <Recordatorio>
   private viajeColeccion : AngularFirestoreCollection <Viaje>
+
+  private usuariosCollection : AngularFirestoreCollection <Usuario>
+
 
 
   constructor(private database : AngularFirestore) {
@@ -23,6 +30,8 @@ export class CrudService {
     this.gastosColeccion = database.collection('Mgastos');
     this.recordatorioColeccion = database.collection('Mrecordatorio');
     this.viajeColeccion = database.collection('Mviajes');
+
+    this.usuariosCollection = database.collection('usuarios')
    }
 
       crearCombustible (combustible: Combustible){
@@ -85,6 +94,19 @@ export class CrudService {
         }
         )
       }
+
+      obtenerUsuarioById(uid:string){
+        return this.database.collection('usuarios').doc(uid).get()
+      }
+
+      modificarUsuario(uid: string, nuevaData: Usuario){
+        return this.database.collection('usuarios').doc(uid).update(nuevaData);
+      }
+
+    
+
+
+
 
 
       obtenerCombustible(){

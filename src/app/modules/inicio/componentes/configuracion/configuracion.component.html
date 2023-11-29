@@ -15,26 +15,26 @@
         <ion-list inset class="ilist">
   
           <h2 style="color: black;">Edite sus datos de usuario</h2>
-          <div >
+          <div [formGroup]="usuario" class="formulario">
            
               <!--NOMBRE-->
               <ion-item>
-                <ion-input   label="Nombre:" placeholder=""></ion-input>
+                <ion-input formControlName="nombre"  label="Nombre:" placeholder=""></ion-input>
                 <!-- <ion-input   formControlName="nombre" type="text" label="Nombre:">{{col.nombre}}</ion-input> -->
               </ion-item>
              <!--PATENTE-->
               <ion-item>
-                <ion-input  label="Email:" placeholder=""></ion-input>
+                <ion-input formControlName="email" label="Email:" placeholder=""></ion-input>
                 <!-- <ion-input   formControlName="patente" type="text" label="Patente:">{{col.patente}}</ion-input> -->
               </ion-item>
               <!--MARCA:-->
               <ion-item>
-                <ion-input   label="Contraseña:" placeholder=""></ion-input>
+                <ion-input  formControlName="contrasena" label="Contraseña:" placeholder=""></ion-input>
                 <!-- <ion-input   formControlName="marca"  type="text" label="Marca:">{{col.marca}}</ion-input> -->
               </ion-item>
               <!--TIPO COMBUSTIBLE-->
               <ion-item>
-                <ion-input  label=" Fecha de nacimiento:" placeholder=""></ion-input>
+                <ion-input type="date" formControlName="fecha" label=" Fecha de nacimiento:" placeholder=""></ion-input>
                 <!-- <ion-input formControlName="combustible" type="text"  label="Combustible:">{{col.combustible}}</ion-input> -->
               </ion-item>
   
@@ -43,7 +43,7 @@
 
 
      <ion-list style="text-align:center">
-          <ion-button  size="default" routerLink="/menu" >CONFIRMAR CAMBIOS</ion-button>
+          <ion-button  size="default" (click)="guardarUsuario()" routerLink="/menu" >CONFIRMAR CAMBIOS</ion-button>
         
         </ion-list>
   
