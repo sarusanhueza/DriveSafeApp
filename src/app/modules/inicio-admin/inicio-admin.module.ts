@@ -5,11 +5,12 @@ import { InicioAdminRoutingModule } from './inicio-admin-routing.module';
 import { IonicModule } from '@ionic/angular';
 //componentes
 import { ReconocimientoComponent } from './componentes/reconocimiento/reconocimiento.component';
-import { Carrusel1Component } from './componentes/carrusel1/carrusel1.component';
+
+import { MenuUsuariosComponent } from './componentes/menu-usuarios/menu-usuarios.component';
 
 
 @NgModule({
-  declarations: [Carrusel1Component, ReconocimientoComponent],
+  declarations: [ ReconocimientoComponent, MenuUsuariosComponent],
   imports: [
     CommonModule,
     InicioAdminRoutingModule,
@@ -18,7 +19,7 @@ import { Carrusel1Component } from './componentes/carrusel1/carrusel1.component'
   ],
   exports:[
    ReconocimientoComponent, 
-   Carrusel1Component
+  MenuUsuariosComponent
   ]
 })
 export class InicioAdminModule { }
