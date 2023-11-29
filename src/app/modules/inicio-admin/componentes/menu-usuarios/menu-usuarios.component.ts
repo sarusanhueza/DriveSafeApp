@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario';
+import { CrudService } from 'src/app/modules/inicio/services/crud.service';
 
 @Component({
   selector: 'app-menu-usuarios',
@@ -7,8 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuUsuariosComponent  implements OnInit {
 
-  constructor() { }
+    coleccionUsuarios: Usuario[] = [];
+    usuarioSelec!: Usuario;
+  constructor(
+    public servicioCrud: CrudService,
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.servicioCrud.obtenerUsuario().subscribe(usuario => {
+    this.coleccionUsuarios = usuario;
+    })
 
+  
+  }
+
+  mostrarBorrarUsuario(uid: string){
+    this.servicioCrud.eliminarUsuario(uid)
+  }
 }
