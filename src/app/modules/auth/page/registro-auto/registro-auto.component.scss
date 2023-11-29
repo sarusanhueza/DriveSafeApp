@@ -1,0 +1,37 @@
+h2{
+    text-align: center;
+    margin-top: 10%;
+    margin-top: 50px;
+    color:#97cadb;
+    margin-bottom: 15%;
+    position: relative; //no se vuelva a sobrepongan inputs
+}
+
+
+.lista-input{
+    justify-content: center;
+    align-items: center!important;
+}
+
+ion-input{
+    margin-top: 10px;
+}
+
+ion-button{
+
+   --background: #97CADB;
+
+    --color: white
+}
+
+
+.container1{
+    margin-top:5% ;
+    margin-bottom: 5%;
+    position: relative;
+}
+.container2{
+    margin-top: 5%;
+    margin-bottom: 30%;
+    position: relative;
+}

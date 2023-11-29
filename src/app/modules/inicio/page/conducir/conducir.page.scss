@@ -1,0 +1,33 @@
+h1{
+    letter-spacing: 0.035em;
+    justify-content: center;
+}
+
+ion-button {
+    --background: #97CADB;
+  
+    --color: white;
+  
+  
+  }
+p{
+    font-size: small;
+    margin-left: 5%;
+}
+.stopwatch{
+    min-height: 50vh;
+    margin-top: 90%;
+}
+.result{
+    height: 50vh;
+    overflow-y: scroll;
+}
+
+/* image 4 */
+
+img{
+position: absolute;
+width: 60%;
+margin-left: 21%;
+margin-top: 20%;
+}

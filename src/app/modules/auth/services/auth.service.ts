@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 //importamos el servicio de FIREBASE
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Usuario } from 'src/app/models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +10,21 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 export class AuthService {
+
+  private usuarioColeccion : AngularFirestoreCollection <Usuario>
+
+  
+  constructor(public auth: AngularFireAuth, private database: AngularFirestore) {
+    this.usuarioColeccion = database.collection('usuarios');
+  }
+
+  ///perteneciente al login
   iniciarSesion(email: string, contrasena: string) {
     return this.auth.signInWithEmailAndPassword(email, contrasena);
   }
 
 
-  constructor(public auth: AngularFireAuth) {}
-
-
-
+    //perteneciente al registro
   // retorna nueva informacion de register
   registrar(nombre: string, contrasena: string) {
     return this.auth.createUserWithEmailAndPassword(nombre, contrasena);
@@ -32,4 +40,27 @@ export class AuthService {
       return user.uid;
     }
    }
+
+   async obtenerUsuario(uid){
+    return this.database.collection('usuarios').doc(uid).get()
+   }
+
+   ///////////
+    /*registrarVehiculo( nombreAuto:string, patente: string  ){ 
+     return this.auth.createUserAndPatent( nombreAuto, patente);
+    }
+    async getUser(){
+      const user = await this.auth.currentUser;
+        
+      if(user == null){
+        return null;
+      }else{
+        return user.uid
+      }
+    }*/
+
+
+   
+
+
   }

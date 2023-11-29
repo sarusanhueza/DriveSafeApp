@@ -3,9 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { Usuario } from 'src/app/models/usuario';
 import { FirestoreService } from 'src/app/shared/services/firestore.service';
 import { Router } from '@angular/router';
-
-
-
+import { ServiceVehiculoService } from '../../services/service-vehiculo.service';
 
 
 @Component({
@@ -22,15 +20,18 @@ export class RegistroComponent  implements OnInit {
   constructor(
     public servicioAuth: AuthService,
     public servicioFirestore: FirestoreService,
-    public router: Router
+    public router: Router,
+    public servicioAuto:ServiceVehiculoService,
     ) { }
 
   usuarios: Usuario = {
     uid: '',
+    uidVehiculo: '',
     nombre: '',
     email: '',
     fecha: '',
     contrasena: '',
+    administrador: false
   }
 
   Uid = '';
@@ -49,8 +50,9 @@ export class RegistroComponent  implements OnInit {
 
     .then(res => {
       alert("Se registro un usuario con exito!");
+      console.log(res)
 
-      this.router.navigate(["/inicio"]);
+      this.router.navigate(["/registroAuto"]);
     })
 
     .catch((error: string) =>
@@ -84,4 +86,3 @@ export class RegistroComponent  implements OnInit {
  }
 
 }
-

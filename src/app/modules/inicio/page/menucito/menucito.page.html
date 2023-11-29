@@ -1,0 +1,117 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <div class="col">
+      <div>
+  
+        <ion-segment-button value="buttons" >
+          <ion-label>Configuracion</ion-label>
+        </ion-segment-button>
+        </div>
+        <div>
+          <ion-segment-button value="buttons">
+            <ion-label>Mapa</ion-label>
+          </ion-segment-button>
+        </div>
+        <div>
+          <ion-segment-button value="buttons">
+            <ion-label>Informes</ion-label>
+          </ion-segment-button>
+        </div>
+        <div>
+          <ion-segment-button value="buttons">
+            <ion-label>Editar propiedades</ion-label>
+          </ion-segment-button>
+      </div>
+    </div>
+  </ion-content>
+
+
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Drive safe</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding"> 
+
+    <ion-list [inset]="true">
+      <div class="custom-item" *ngFor ="let col of coleccionEventos">
+        <ion-item [button]="true" *ngIf="col.titulo === 'Combustible'">
+          <ion-icon style="color: #97cadb;" slot="start" name="speedometer-outline" size="large"></ion-icon>
+          <ion-label>
+           <p> {{col.titulo}} </p>
+            <ion-note color="medium" class="ion-text-wrap">{{col.fecha}}</ion-note>
+          </ion-label>
+          <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" 
+             routerLink="/form-combustible/{{col.uid}}">
+            <ion-icon slot="icon-only" name="create-outline" size="small" ></ion-icon>
+          </ion-button> 
+         <ion-button id="present-alert" fill="outline" slot="end"  size="small" (click)="mostrarBorrar(col.uid)">
+            <ion-icon   slot="icon-only" name="trash-outline" size="small"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item [button]="true" *ngIf="col.titulo === 'Gastos'">
+          <ion-icon style="color: #97cadb;" slot="start" name="receipt-outline" size="large"></ion-icon>
+          <ion-label>
+           <p> {{col.titulo}} </p>
+            <ion-note color="medium" class="ion-text-wrap">{{col.fecha}}</ion-note>
+          </ion-label>
+          <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" data-bs-target="#editarGastos" routerLink="/form-gastos/{{col.uid}}" >
+            <ion-icon slot="icon-only" name="create-outline" size="small" ></ion-icon>
+          </ion-button>
+         <ion-button id="present-alert" fill="outline" slot="end"  size="small" (click)="mostrarBorrar1(col.uid)">
+            <ion-icon slot="icon-only" name="trash-outline" size="small"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item [button]="true" *ngIf="col.titulo === 'Recordatorio'">
+          <ion-icon style="color: #97cadb;" slot="start" name="today-outline" size="large"></ion-icon>
+          <ion-label>
+           <p> {{col.titulo}} </p>
+            <ion-note color="medium" class="ion-text-wrap">{{col.fecha}}</ion-note>
+          </ion-label>
+          <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" data-bs-target="#editarRecordatorio" routerLink="/form-recordatorio/{{col.uid}}" >
+            <ion-icon slot="icon-only" name="create-outline" size="small" ></ion-icon>
+          </ion-button>
+         <ion-button id="present-alert" fill="outline" slot="end"  size="small" (click)="mostrarBorrar2(col.uid)">
+            <ion-icon slot="icon-only" name="trash-outline" size="small"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item [button]="true" *ngIf="col.titulo === 'Viaje'">
+          <ion-icon style="color: #97cadb;" slot="start" name="map-outline" size="large"></ion-icon>
+          <ion-label>
+           <p> {{col.titulo}} </p>
+            <ion-note color="medium" class="ion-text-wrap">{{col.fecha}}</ion-note>
+          </ion-label>
+          <ion-button  class="editar" fill="outline" slot="end" color="dark" size="small" data-bs-target="#editarViaje" routerLink="/form-viaje/{{col.uid}}" >
+            <ion-icon slot="icon-only" name="create-outline" size="small" ></ion-icon>
+          </ion-button>
+         <ion-button id="present-alert" fill="outline" slot="end"  size="small" (click)="mostrarBorrar3(col.uid)">
+            <ion-icon slot="icon-only" name="trash-outline" size="small"></ion-icon>
+          </ion-button>
+        </ion-item>
+      
+      </div>
+    </ion-list>
+
+ 
+   
+  </ion-content>
+</div>
+
+
+
+
+
