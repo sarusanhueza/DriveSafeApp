@@ -31,6 +31,7 @@ export class RegistroComponent  implements OnInit {
     email: '',
     fecha: '',
     contrasena: '',
+    administrador: false
   }
 
   Uid = '';

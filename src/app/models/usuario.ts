@@ -5,4 +5,5 @@ export interface Usuario {
     nombre: string;
     fecha: string;
     contrasena: string;
+    administrador: boolean;
 }

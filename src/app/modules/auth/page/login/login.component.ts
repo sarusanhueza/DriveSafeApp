@@ -19,7 +19,8 @@ export class LoginComponent {
     nombre: '',
     email: '',
     contrasena: '',
-    fecha: ''
+    fecha: '',
+    administrador: false
   }
 
   constructor(
@@ -35,42 +36,59 @@ export class LoginComponent {
       contrasena: this.usuarios.contrasena
     };
 
-    const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
-
-    // .then(res => {
-    //   alert("Acceso consedido");
-    //   console.log(credenciales.email);
-    // })
-    // // MÉTODO THEN -> ENCAPSULA UN FALLO
-    // .catch(error => {
-    //   alert("Error al ininciar sesion\n"+error);
-
-    //   console.log(credenciales.email);
-    // })
-
-    .then(res =>{
-      if(credenciales.email == "sarasanhueza@gmail.com" && credenciales.contrasena == "sarasanhueza10" ){
-        alert("Acceso consedido");
-        console.log(credenciales.email)
-        }else if(credenciales.email =="ayelennievas@gmail.com"  && credenciales.contrasena == "ayelenievass10"){
-          alert("Acceso consedido");
-          console.log(credenciales.email)
-        }else if(credenciales.email == "thiarapalma@gmail.com" && credenciales.contrasena == "thiarapalma10"){
-          alert("Acceso consedido");
-          console.log(credenciales.email)
-        }else{
-            alert("Debe registrarse")
-          console.log(credenciales.email)
-    
-          this.router.navigate(["/inicio"]);
+    await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
+    .then(async res => {
+      (await this.servicioAuth.obtenerUsuario(res.user?.uid)).subscribe(
+        docSnap => {
+          if (docSnap.exists){
+            const user: any = docSnap.data();
+            if (user.administrador){
+              // Navegar a la pagina del administrador
+              
+            }
+            else{
+              // Navegar a la pagina de usuario
+            }
+          }
+          else{
+            console.log('Houston tenemos un problema!')
+          }
           
         }
+      );
+      alert("Acceso consedido");
+      
+    })
+    // MÉTODO THEN -> ENCAPSULA UN FALLO
+    .catch(error => {
+      alert("Error al ininciar sesion\n"+error);
+
+      console.log(credenciales.email);
+    })
+
+    // .then(res =>{
+    //   if(credenciales.email == "sarasanhueza@gmail.com" && credenciales.contrasena == "sarasanhueza10" ){
+    //     alert("Acceso consedido");
+    //     console.log(credenciales.email)
+    //     }else if(credenciales.email =="ayelennievas@gmail.com"  && credenciales.contrasena == "ayelenievass10"){
+    //       alert("Acceso consedido");
+    //       console.log(credenciales.email)
+    //     }else if(credenciales.email == "thiarapalma@gmail.com" && credenciales.contrasena == "thiarapalma10"){
+    //       alert("Acceso consedido");
+    //       console.log(credenciales.email)
+    //     }else{
+    //         alert("Debe registrarse")
+    //       console.log(credenciales.email)
+    
+    //       this.router.navigate(["/inicio"]);
+          
+    //     }
         
-      })
-      .catch(error => {
-        alert("Usted no tiene acceso consedido\n"+ error);
-        console.log(credenciales.email)
-      })
+    //   })
+    //   .catch(error => {
+    //     alert("Usted no tiene acceso consedido\n"+ error);
+    //     console.log(credenciales.email)
+    //   })
 
 
   }
