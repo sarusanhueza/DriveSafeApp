@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>CONFIGURACIÓN</ion-title>
+    <ion-title><ion-icon name="arrow-back-outline" routerLink="/menu/menucito"></ion-icon>   CONFIGURACIÓN</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -48,7 +48,7 @@
         </ion-list>
   
         <ion-list  style="text-align:center">
-          <ion-button class="boton-cerrarsesion" size="default" routerLink="/menu" >CERRAR SESIÓN</ion-button>
+          <ion-button class="boton-cerrarsesion" size="default" (click)="salir()"  >CERRAR SESIÓN</ion-button>
         
         </ion-list>
         

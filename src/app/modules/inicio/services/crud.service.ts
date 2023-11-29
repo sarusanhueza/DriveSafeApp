@@ -13,6 +13,7 @@ import { Usuario } from 'src/app/models/usuario';
   providedIn: 'root'
 })
 export class CrudService {
+  
   crearIdVehiculo(nuevoVehiculo: any) {
     throw new Error('Method not implemented.');
   }
@@ -23,6 +24,8 @@ export class CrudService {
 
   private usuariosCollection : AngularFirestoreCollection <Usuario>
 
+  private usuarioColeccion : AngularFirestoreCollection <Usuario>
+
 
 
   constructor(private database : AngularFirestore) {
@@ -32,6 +35,8 @@ export class CrudService {
     this.viajeColeccion = database.collection('Mviajes');
 
     this.usuariosCollection = database.collection('usuarios')
+
+    this.usuarioColeccion = database.collection('usuarios')
    }
 
       crearCombustible (combustible: Combustible){
@@ -95,12 +100,29 @@ export class CrudService {
         )
       }
 
+      obtenerUsuario(){
+        return this.usuarioColeccion.snapshotChanges().
+        pipe (map(action => action.map(a => a.payload.doc.data())))
+      }
+
       obtenerUsuarioById(uid:string){
         return this.database.collection('usuarios').doc(uid).get()
       }
 
       modificarUsuario(uid: string, nuevaData: Usuario){
         return this.database.collection('usuarios').doc(uid).update(nuevaData);
+      }
+
+      eliminarUsuario(uid: string){
+        return new Promise ((resolve,reject) => {
+          try{
+            const resp = this.usuarioColeccion.doc(uid).delete()
+            resolve(resp)
+          }
+          catch (error){
+            reject(error)
+          }
+        })
       }
 
     

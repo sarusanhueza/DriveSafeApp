@@ -58,7 +58,7 @@ export class RegistroAutoComponent  implements OnInit {
       alert("Ha agregado un nuevo vehiculo con exito")
       console.log(vehiculo)
 
-      this.router.navigate(["/editarAuto"]);
+      this.router.navigate(["/menu/menucito"]);
     })
     .catch(error=>{
       alert("Hubo un error al agregar un nuevo vehiculo \n" + error)

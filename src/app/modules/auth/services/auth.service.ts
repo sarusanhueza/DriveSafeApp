@@ -58,7 +58,12 @@ export class AuthService {
         return user.uid
       }
     }*/
-
+   
+    cerrarSesion(){
+      //devuelve una promesa vacia
+      return this.auth.signOut();
+    }
+  
 
    
 

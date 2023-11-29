@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { CrudService } from '../../services/crud.service';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 
 @Component({
@@ -36,6 +37,7 @@ col: any;
     public router: Router,
     private activatedRoute: ActivatedRoute,
     public servicioCrud : CrudService,
+    public servicioAuth: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -125,6 +127,15 @@ col: any;
     this.servicioCrud.modificarUsuario(this.usuarioSelec.uid, datos)
   }
 
+  //llamamos funcion para CERRAR SESION
+  async salir(){
+    const res = await this.servicioAuth.cerrarSesion()
+    .then(res => {
+      alert("Ha cerrado sesion con exito.")
+      console.log(res);
 
+      this.router.navigate(['/carrusel']);
+    })
+  }
 
 }

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { Carrusel1Component } from './carrusel1.component';
+import { MenuUsuariosComponent } from './menu-usuarios.component';
 
-describe('Carrusel1Component', () => {
-  let component: Carrusel1Component;
-  let fixture: ComponentFixture<Carrusel1Component>;
+describe('MenuUsuariosComponent', () => {
+  let component: MenuUsuariosComponent;
+  let fixture: ComponentFixture<MenuUsuariosComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ Carrusel1Component ],
+      declarations: [ MenuUsuariosComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Carrusel1Component);
+    fixture = TestBed.createComponent(MenuUsuariosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

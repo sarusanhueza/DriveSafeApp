@@ -6,6 +6,8 @@ import { FormGastosPage } from './modules/inicio/page/form-gastos/form-gastos.pa
 import { FormRecordatorioPage } from './modules/inicio/page/form-recordatorio/form-recordatorio.page';
 import { FormViajePage } from './modules/inicio/page/form-viaje/form-viaje.page';
 import { ReconocimientoComponent } from './modules/inicio-admin/componentes/reconocimiento/reconocimiento.component';
+import { MenuUsuariosComponent } from './modules/inicio-admin/componentes/menu-usuarios/menu-usuarios.component';
+import { EditarAutoComponent } from './modules/inicio/componentes/editar-auto/editar-auto.component';
 
 
 
@@ -19,6 +21,12 @@ const routes: Routes = [
    },
   {
     path: '',loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthModule)
+  },
+  {
+    path: '',loadChildren: () => import('./modules/inicio-admin/inicio-admin.module').then( m => m.InicioAdminModule)
+  },
+  {
+    path: 'editarAuto', component: EditarAutoComponent
   },
   {
     path: 'configuracion', component: ConfiguracionComponent
@@ -52,6 +60,9 @@ const routes: Routes = [
    },
    {
     path: 'reconocimiento', component: ReconocimientoComponent
+   },
+   {
+    path: 'menu-usuarios', component: MenuUsuariosComponent
    },
 
 ];
