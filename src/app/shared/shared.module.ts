@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { AppRoutingModule } from '../app-routing.module';
@@ -22,7 +21,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    IonicModule,
     
   ],
   exports: [NavbarComponent,

@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { InicioAdminRoutingModule } from './inicio-admin-routing.module';
-import { IonicModule } from '@ionic/angular';
+
+
 //componentes
 import { ReconocimientoComponent } from './componentes/reconocimiento/reconocimiento.component';
 import { Carrusel1Component } from './componentes/carrusel1/carrusel1.component';
+import { IonicModule } from '@ionic/angular';
+
+
 
 
 @NgModule({
@@ -14,11 +18,13 @@ import { Carrusel1Component } from './componentes/carrusel1/carrusel1.component'
     CommonModule,
     InicioAdminRoutingModule,
     //funcionamiento componentes ionic
-    IonicModule
+  IonicModule
+  
   ],
   exports:[
-   ReconocimientoComponent, 
-   Carrusel1Component
+    
+   Carrusel1Component,
+   ReconocimientoComponent
   ]
 })
 export class InicioAdminModule { }

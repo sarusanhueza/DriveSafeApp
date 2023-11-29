@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/models/usuario';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -36,6 +37,10 @@ export class LoginComponent {
       contrasena: this.usuarios.contrasena
     };
 
+ 
+
+ 
+
     await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
     .then(async res => {
       (await this.servicioAuth.obtenerUsuario(res.user?.uid)).subscribe(
@@ -44,10 +49,11 @@ export class LoginComponent {
             const user: any = docSnap.data();
             if (user.administrador){
               // Navegar a la pagina del administrador
-              
+              this.router.navigate(["/reconocimiento"]);
             }
             else{
               // Navegar a la pagina de usuario
+              this.router.navigate(["/menu/menucito"])
             }
           }
           else{
@@ -56,16 +62,65 @@ export class LoginComponent {
           
         }
       );
-      alert("Acceso consedido");
+      alert("Acceso concedido");
       
     })
+
     // MÉTODO THEN -> ENCAPSULA UN FALLO
+
     .catch(error => {
       alert("Error al iniciar sesion\n"+error);
 
       console.log(credenciales.email);
     })
 
+
+
+    // try {
+    //   const res = await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena);
+    
+    //   (await this.servicioAuth.obtenerUsuario(res.user?.uid)).subscribe(
+    //     (docSnap) => {
+    //       if (docSnap.exists) {
+    //         const user: any = docSnap.data();
+    
+    //         if (user.administrador) {
+    //           // Navegar a la página del administrador
+    //           this.router.navigate(['/reconocimiento']);
+    //         } else {
+    //           // Navegar a la página de usuario normal
+    //           this.router.navigate(['/menu/menucito']);
+    //         }
+    //       } else {
+    //         console.log('Houston, tenemos un problema!');
+    //       }
+    
+    //       alert('Acceso concedido');
+    //     },
+    //     (error) => {
+    //       console.error('Error al obtener usuario:', error);
+    //       // Manejar el error de obtener usuario, mostrar un mensaje, etc.
+    //     }
+    //   );
+    // } catch (error) {
+    //   console.error('Error durante el inicio de sesión:', error);
+    //   // Manejar el error de inicio de sesión, mostrar un mensaje, etc.
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     // .then(res =>{
     //   if(credenciales.email == "sarasanhueza@gmail.com" && credenciales.contrasena == "sarasanhueza10" ){
     //     alert("Acceso consedido");
