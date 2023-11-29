@@ -9,7 +9,7 @@ import { LoginComponent } from './page/login/login.component';
 //servicio que nos provee
 import { AuthService } from './services/auth.service';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -21,7 +21,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    FormsModule,
     IonicModule, 
     FormsModule,
     ReactiveFormsModule
