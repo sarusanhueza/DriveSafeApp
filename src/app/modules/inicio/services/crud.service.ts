@@ -16,6 +16,7 @@ export class CrudService {
   private gastosColeccion : AngularFirestoreCollection <Gastos>
   private recordatorioColeccion : AngularFirestoreCollection <Recordatorio>
   private viajeColeccion : AngularFirestoreCollection <Viaje>
+  
 
 
   constructor(private database : AngularFirestore) {

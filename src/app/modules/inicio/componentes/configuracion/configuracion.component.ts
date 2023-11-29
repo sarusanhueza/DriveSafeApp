@@ -11,6 +11,7 @@ import { IonModal } from '@ionic/angular';
 export class ConfiguracionComponent  implements OnInit {
 
 
+_usuarioID: any = '';
 
 
 
