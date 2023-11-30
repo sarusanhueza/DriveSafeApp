@@ -28,14 +28,14 @@ export class RegistroAutoComponent  implements OnInit {
     marca:  new FormControl('',Validators.required),
     combustible: new FormControl('',Validators.required),
   })
-
+  // defunimos de manera publica los cuatro servicios
   constructor( 
     public servicioAuth: AuthService,
     public servicioFirestore: FirestoreService,
     public router: Router,
     public servicioAuto: ServiceVehiculoService
   ) { }
-  
+  //llmamos a l servico "obtenerVehiculo()" y  cambia datos del vehiculo
   ngOnInit() {
     this.servicioAuto.obtenerVehiculo().subscribe(vehiculo => {
       this.coleccionVehiculos = vehiculo;
