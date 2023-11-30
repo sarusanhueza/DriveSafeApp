@@ -83,8 +83,11 @@ export class MenucitoPage implements OnInit {
     // await ---> esperar promesa devuelta por 'getUid' sea resuelta antes de que el codigo siga ejecutandose
     // luego de que la promesa se resuelva, el valor queda asignado en 'userId'
 
-    this.servicioCrud.obtenerCombustible().subscribe(combustible => {
-    this.coleccionCombustible = combustible;
+
+    //servicio para la obtencion de datos del combustible
+    this.servicioCrud.obtenerCombustible().subscribe(combustible => { // subscribe---> estar atento a los cambios en la coleccion
+    this.coleccionCombustible = combustible; // asigna datos de la coleccion de combustibles a la propiedad 'coleccionCombustible' y de ahi se actualiza
+    //a los datos mas recientes
 
     this.servicioCrud.obtenerGastos().subscribe(gasto => {
     this.coleccionGastos = gasto;
@@ -98,6 +101,7 @@ export class MenucitoPage implements OnInit {
     this.coleccionEventos = [...this.coleccionCombustible, ...this.coleccionGastos, 
     ...this.coleccionRecordatorio, ...this.coleccionViaje]
 
+    //acomoda los objetos (notas) desde el mas reciente al mas antiguo
     this.coleccionEventos = this.coleccionEventos.sort(
     (objA, objB) => Number(new Date(objB.fecha)) - Number(new Date(objA.fecha)),
             );
@@ -122,78 +126,33 @@ export class MenucitoPage implements OnInit {
 
   }
 
- 
-  
-
-  // public alertButtons =
-  // [
-    
-  //   {
-  //     text: 'No',
-  //     cssClass: 'alert-button-cancel',
-  //     confirm: false
-  //   },
-  //   {
-  //     text: 'Si',
-  //     cssClass: 'alert-button-confirm',
-  //     handler:() =>{
-       
-        
-  //     }
-
-  //   }, {
-
-  //   }
-
-  // ]
-
-
+  //invoca funcion eliminar combustible de servicioCrud
   mostrarBorrar(uid: string) {
-    // this.ModalVisibleCombustible = true;
-    // this.combustibleSelec = combustibleSelec;
-
     
+    this.servicioCrud.eliminarCombustible(uid)
 
-     this.servicioCrud.eliminarCombustible(uid)
-
-     
   }
 
   
   mostrarBorrar1(uid: string) {
-    // this.ModalVisibleCombustible = true;
-    // this.combustibleSelec = combustibleSelec;
-     
-
+    
      this.servicioCrud.eliminarGastos(uid)
   }
 
   mostrarBorrar2(uid: string) {
-    // this.ModalVisibleCombustible = true;
-    // this.combustibleSelec = combustibleSelec;
-     
-  
-
-
+    
      this.servicioCrud.eliminarRecordatorio(uid)
   }
 
   mostrarBorrar3(uid: string) {
-    // this.ModalVisibleCombustible = true;
-    // this.combustibleSelec = combustibleSelec;
-     
-
+   
      this.servicioCrud.eliminarViaje(uid)
   }
 
 
   
-  
-
-
-
   borrarCombustible() { // boton para eliminar definitivamente
-    this.servicioCrud.eliminarCombustible(this.combustibleSelec.uid)
+    this.servicioCrud.eliminarCombustible(this.combustibleSelec.uid)// realiza la funcion eliminarCombustible desde su uid
 
   }
 
@@ -214,12 +173,13 @@ export class MenucitoPage implements OnInit {
 
   }
 
+  //el formulario 'Mcombustible' con los datos de una nota seleccionada para editar
   mostrarEditarCombustible(combustibleSelec: Combustible) {
-    this.combustibleSelec = combustibleSelec;
 
-    
+    this.combustibleSelec = combustibleSelec; // almacena 'combustibleSelec' en la propiedad 'combustibleSelec'
+    //servira  para edicion de datos
 
-    this.Mcombustible.setValue({
+    this.Mcombustible.setValue({ //mostra los valores existentes en el formulario
       titulo: combustibleSelec.titulo,
       fecha: combustibleSelec.fecha,
       litros: combustibleSelec.litros,
@@ -227,7 +187,6 @@ export class MenucitoPage implements OnInit {
       gasto: combustibleSelec.gasto
     })
 
-    // this.ModalVisibleCombustible = true;
   }
 
   mostrarEditar1(gastoSelec: Gastos) {
@@ -241,7 +200,6 @@ export class MenucitoPage implements OnInit {
      
     })
 
-    // this.ModalVisibleCombustible = true;
   }
 
   mostrarEditar2(recordatorioSelec: Recordatorio) {
@@ -256,7 +214,6 @@ export class MenucitoPage implements OnInit {
      
     })
 
-    // this.ModalVisibleCombustible = true;
   }
 
   mostrarEditar3(viajeSelec: Viaje) {
@@ -273,7 +230,6 @@ export class MenucitoPage implements OnInit {
      
     })
 
-    // this.ModalVisibleCombustible = true;
   }
 
   // recibir los valores nuevos que ingresemos en el formulario
