@@ -17,19 +17,20 @@ export class CrudService {
   crearIdVehiculo(nuevoVehiculo: any) {
     throw new Error('Method not implemented.');
   }
+
+  // las colecciones interactuan con la BD de Firestore
   private combustibleColeccion : AngularFirestoreCollection <Combustible>
   private gastosColeccion : AngularFirestoreCollection <Gastos>
   private recordatorioColeccion : AngularFirestoreCollection <Recordatorio>
   private viajeColeccion : AngularFirestoreCollection <Viaje>
 
-  private usuariosCollection : AngularFirestoreCollection <Usuario>
-
   private usuarioColeccion : AngularFirestoreCollection <Usuario>
 
-
+  private usuariosCollection : AngularFirestoreCollection <Usuario>
 
   constructor(private database : AngularFirestore) {
-    this.combustibleColeccion = database.collection('Mcombustible');
+    // se inicializa las colecciones de AngularFirestore haciendo referencia a las diferentes colecciones de la BD
+    this.combustibleColeccion = database.collection('Mcombustible'); // inicializa 'combustibleColeccion' para interacturar con 'Mcombustible'
     this.gastosColeccion = database.collection('Mgastos');
     this.recordatorioColeccion = database.collection('Mrecordatorio');
     this.viajeColeccion = database.collection('Mviajes');
@@ -42,13 +43,14 @@ export class CrudService {
       crearCombustible (combustible: Combustible){
         return new Promise (async (resolve, reject) =>{
           try {
+            // genera identificador unico para combustible
             const uid = this.database.createId();
-            combustible.uid = uid;
+            combustible.uid = uid; // asigna el id unico al objeto
 
-            const resultado  = await this.combustibleColeccion.doc(uid).set(combustible)
-            resolve(resultado);
+            const resultado  = await this.combustibleColeccion.doc(uid).set(combustible)//añade el objeto combustible como nuevo doc en la coleccion
+            resolve(resultado); // resuelve la promesa con el resultado exitoso
           } catch (error){
-            reject(error)
+            reject(error) // rechaza la promesa si surge un error
           }
         }
         )
@@ -100,17 +102,25 @@ export class CrudService {
         )
       }
 
+      // funcion que retorna un observable que proporcion cambios en la coleccion
       obtenerUsuario(){
-        return this.usuarioColeccion.snapshotChanges().
+        return this.usuarioColeccion.snapshotChanges(). //observable emite cambios (añadir, actualizar y eliminar)
         pipe (map(action => action.map(a => a.payload.doc.data())))
+        //transforma los cambios en los docs a los datos de los docs
+        //map --> extraer los datos reales
       }
 
+      // obtiene usuario desde su ID
       obtenerUsuarioById(uid:string){
-        return this.database.collection('usuarios').doc(uid).get()
+        //accede al doc en la coleccion 'usuarios' con su 'uid'
+        return this.database.collection('usuarios').doc(uid).get()// get ---> solicitud para obtener el contenido del doc
+        // devolvera una promesa con los datos del doc
       }
 
+      //modifica doc desde su ID y actualiza datos con 'nuevaData'
       modificarUsuario(uid: string, nuevaData: Usuario){
-        return this.database.collection('usuarios').doc(uid).update(nuevaData);
+        //accede a la coleccion desde ID
+        return this.database.collection('usuarios').doc(uid).update(nuevaData); // solicitud para actualizar los datos con la nueva info
       }
 
       eliminarUsuario(uid: string){
