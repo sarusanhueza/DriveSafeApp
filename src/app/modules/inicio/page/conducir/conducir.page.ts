@@ -26,27 +26,27 @@ export class ConducirPage implements OnInit {
  
 
 
-  start() {
+  inicio() {
     if(this.running) return;
     if (this.timeBegan === null) {
-        this.reset();
+        this.resetear();
         this.timeBegan = new Date();
     }
     if (this.timeStopped !== null) {
       let newStoppedDuration:any = (+new Date() - this.timeStopped)
       this.stoppedDuration = this.stoppedDuration + newStoppedDuration;
     }
-    this.started = setInterval(this.clockRunning.bind(this), 10);
+    this.started = setInterval(this.reloj.bind(this), 10);
       this.running = true;
     }
     
-    stop() {
+    parar() {
       this.running = false;
       this.timeStopped = new Date();
       clearInterval(this.started);
    }
 
-    reset() {
+    resetear() {
       this.running = false;
       clearInterval(this.started);
       this.stoppedDuration = 0;
@@ -63,7 +63,7 @@ export class ConducirPage implements OnInit {
       return (zero + num).slice(-digit);
     }
 
-    clockRunning(){
+    reloj(){
       let currentTime:any = new Date()
       let timeElapsed:any = new Date(currentTime - this.timeBegan - this.stoppedDuration)
       let hour = timeElapsed.getUTCHours()
