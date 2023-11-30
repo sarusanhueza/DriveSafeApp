@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Vehiculo } from 'src/app/models/vehiculo';
 import { ServiceVehiculoService } from 'src/app/modules/auth/services/service-vehiculo.service';
-
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -138,7 +138,8 @@ export class EditarAutoComponent  implements OnInit {
  
   constructor(
     public servicioAuto: ServiceVehiculoService, //patentamos servico de manera local
-    public router: Router
+    public router: Router,
+    public alertController: AlertController
   ) { }
 
   ngOnInit(): void{ 
@@ -207,6 +208,18 @@ export class EditarAutoComponent  implements OnInit {
     .catch(error => {
       alert("No se pudo modificar la propiedad de vehiculo :( \n"+error);
     })
+  }
+
+  async mostrarAlerta() {
+    const alert = await this.alertController.create({
+      header: 'Ups. Algo no salio bien',
+      message: 'Esta acción se encuentra en mantenimiento. Disculpe las molestias.',
+      buttons: ['Aceptar']
+    });
+  
+    await alert.present();
+
+    this.router.navigate(['/menu/menucito'])
   }
 
 }
