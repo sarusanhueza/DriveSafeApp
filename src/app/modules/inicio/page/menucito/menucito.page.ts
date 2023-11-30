@@ -77,8 +77,11 @@ export class MenucitoPage implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.userId = await this.servicioAuth.getUid();
-    
+
+    //proporcionado por un servicio de autenticacion. 
+    this.userId = await this.servicioAuth.getUid(); // devuelve el uid del usuario autenticado
+    // await ---> esperar promesa devuelta por 'getUid' sea resuelta antes de que el codigo siga ejecutandose
+    // luego de que la promesa se resuelva, el valor queda asignado en 'userId'
 
     this.servicioCrud.obtenerCombustible().subscribe(combustible => {
     this.coleccionCombustible = combustible;
