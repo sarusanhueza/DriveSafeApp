@@ -127,7 +127,8 @@ export class EditarAutoComponent  implements OnInit {
   coleccionVehiculos: Vehiculo[] = [];
 
   vehiculoSeleccionado!: Vehiculo //! ->  recibe calores vacios
-  //validamos valores del formulario que esta en HTML
+
+  //definimos valores del formulario que esta en HTML
   vehiculo = new FormGroup({
   nombre: new FormControl('',Validators.required),
    patente: new FormControl('',Validators.required),
@@ -135,7 +136,7 @@ export class EditarAutoComponent  implements OnInit {
    combustible: new FormControl('',Validators.required),
   })
 
- 
+  //declaramos de forma publica los tres servicios 
   constructor(
     public servicioAuto: ServiceVehiculoService, //patentamos servico de manera local
     public router: Router,
