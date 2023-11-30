@@ -35,14 +35,15 @@ export class RegistroAutoComponent  implements OnInit {
     public router: Router,
     public servicioAuto: ServiceVehiculoService
   ) { }
-  //llmamos a l servico "obtenerVehiculo()" y  cambia datos del vehiculo
+  //llmamos a l servico "obtenerVehiculo()" y  cambia datos del vehiculo que estan en el HTML
+  // y  luego llama a la "coleccionVehiculos" para guerdar los datos  del vehiculo
   ngOnInit() {
     this.servicioAuto.obtenerVehiculo().subscribe(vehiculo => {
       this.coleccionVehiculos = vehiculo;
     })
   }
 
-   async registrarVehiculo (){//validamos valores que se ingresan del vehiculo 
+   async registrarVehiculo (){//validamos valores que se ingresan del vehiculo en HTML (formulario) 
    if(this.vehiculo.valid){
     let nuevoVehiculo: Vehiculo ={
       uidVehiculo:'',
@@ -53,7 +54,9 @@ export class RegistroAutoComponent  implements OnInit {
     }; 
       //llamamos al servioAuto;  crearVehiculo; seteamos(subimos/pusheamos) el nuevoVehiculo o el registro del vehiculo
     await this.servicioAuto.crearIdVehiculo(nuevoVehiculo)
-     
+      // then --> se da cuando el vehiculo se registra correstamnete en b.d(promesa se da correctamente) 
+      // y sale cartel, hacemos click en aceptar y nos lleva a la page de menu
+      // catch --> si promesa ees completada  hubo error (pero no se  registro vehiculo) = cartel
     .then(vehiculo =>{
       alert("Ha agregado un nuevo vehiculo con exito")
       console.log(vehiculo)
@@ -66,38 +69,41 @@ export class RegistroAutoComponent  implements OnInit {
 
    }
   }
-   mostrarEditar(vehiculoSeleccionado:Vehiculo){
-    this.vehiculoSeleccionado = vehiculoSeleccionado;
-        /* retomamos y enviamos los valores de ese producto 
-    seleccionado, el ID no se vuelve a enviar porque 
-    no se modifica */
 
-    this.vehiculo.setValue({
-      nombre: vehiculoSeleccionado.nombre,
-      patente: vehiculoSeleccionado.patente,
-      marca: vehiculoSeleccionado.marca,
-      combustible: vehiculoSeleccionado.combustible
-    })
-  }
+   
+//    mostrarEditar(vehiculoSeleccionado:Vehiculo){
+//     this.vehiculoSeleccionado = vehiculoSeleccionado;
+//         /* retomamos y enviamos los valores de ese producto 
+//     seleccionado, el ID no se vuelve a enviar porque 
+//     no se modifica */
 
- // declara los datos
-  editarVehiculo(){
-    let datos: Vehiculo = {
-      uidVehiculo: this.vehiculoSeleccionado.uidVehiculo,
-      // signo de exclamación "!" -> puede recibir valores vacíos al inicializar
-      nombre: this.vehiculo.value.nombre!,
-      patente: this.vehiculo.value.patente!,
-      marca: this.vehiculo.value.marca!,
-      combustible: this.vehiculo.value.combustible!
-    }
+//     this.vehiculo.setValue({
+//       nombre: vehiculoSeleccionado.nombre,
+//       patente: vehiculoSeleccionado.patente,
+//       marca: vehiculoSeleccionado.marca,
+//       combustible: vehiculoSeleccionado.combustible
+//     })
+//   }
 
-    this.servicioAuto.modificarVehiculo(this.vehiculoSeleccionado.uidVehiculo, datos)
-    .then(vehiculo => {
-      alert("La propiedad fue modificado con éxito :).");
-    })
-    .catch(error => {
-      alert("No se pudo modificar el producto :( \n"+error);
-    })
-  }
+//  // declara los datos
+//   editarVehiculo(){
+//     let datos: Vehiculo = {
+//       uidVehiculo: this.vehiculoSeleccionado.uidVehiculo,
+//       // signo de exclamación "!" -> puede recibir valores vacíos al inicializar
+//       nombre: this.vehiculo.value.nombre!,
+//       patente: this.vehiculo.value.patente!,
+//       marca: this.vehiculo.value.marca!,
+//       combustible: this.vehiculo.value.combustible!
+//     }
+
+//     this.servicioAuto.modificarVehiculo(this.vehiculoSeleccionado.uidVehiculo, datos)
+//     .then(vehiculo => {
+//       alert("La propiedad fue modificado con éxito :).");
+//     })
+//     .catch(error => {
+//       alert("No se pudo modificar el producto :( \n"+error);
+//     })
+//   }
+
 
   }
