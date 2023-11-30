@@ -17,7 +17,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistroAutoComponent  implements OnInit {
 
-  //creamos coleccion basada en las propiedades sugeridas  ingregar del vehiculo
+  //creamos coleccion para usuario  
   coleccionVehiculos: Vehiculo[] = [];
   vehiculoSeleccionado!: Vehiculo;
    
@@ -80,6 +80,7 @@ export class RegistroAutoComponent  implements OnInit {
     })
   }
 
+ // declara los datos
   editarVehiculo(){
     let datos: Vehiculo = {
       uidVehiculo: this.vehiculoSeleccionado.uidVehiculo,
