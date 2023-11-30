@@ -18,10 +18,11 @@ export class FormCombustiblePage implements OnInit {
   combustibleSelec!: Combustible; // la variable se inicializara antes de ser utilizada
   ModalVisibleCombustible: boolean = false;
 
-  Mcombustible = new FormGroup({
-    uid: new FormControl(''),
-    titulo: new FormControl('Combustible'),
-    fecha: new FormControl('',Validators.required),
+  //pertenece a formularios reactivos
+  Mcombustible = new FormGroup({ 
+    uid: new FormControl(''), // identificador unico
+    titulo: new FormControl('Combustible'), // valor inicial "combustible"
+    fecha: new FormControl('',Validators.required), // cadena vacia, validators.required --> fecha es obligatoria
     litros: new FormControl('',Validators.required),
     tipo: new FormControl('',Validators.required),
     gasto: new FormControl('$',Validators.required),
@@ -38,10 +39,11 @@ col: any;
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      this._combustibleID = params.get("uid");
-      if (this._combustibleID) {
-          this.prepareDataForUpdate();
+    //cuando la ruta cambia, los parametros de la ruta tambien cambian ---> el codigo se ejecuta
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => { //contiene parametros de la ruta actual
+      this._combustibleID = params.get("uid");//obtiene id unicos de la URL y se le asigna a "_combustibleID"
+      if (this._combustibleID) { // se verifica si _combustibleID tiene un valor ---> hay id de combustible en la URL
+          this.prepareDataForUpdate(); // por lo que se llama a esta funcion ---> prepara datos para actualizarlos
       }
   });
   }
