@@ -123,13 +123,18 @@ export class CrudService {
         return this.database.collection('usuarios').doc(uid).update(nuevaData); // solicitud para actualizar los datos con la nueva info
       }
 
+      //elimina un doc desde ID
       eliminarUsuario(uid: string){
-        return new Promise ((resolve,reject) => {
+        return new Promise ((resolve,reject) => { // promesa que encapsula la funcion de eliminar
           try{
-            const resp = this.usuarioColeccion.doc(uid).delete()
+            // elimina en la coleccion 'usuarios' con su ID unico
+            const resp = this.usuarioColeccion.doc(uid).delete() // solicitud para eliminar
+
+            // resuelve la promesa con la respuesta 
             resolve(resp)
           }
           catch (error){
+            //rechaza la promesa si hubo algun error
             reject(error)
           }
         })
