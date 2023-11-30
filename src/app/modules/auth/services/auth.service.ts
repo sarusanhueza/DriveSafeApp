@@ -43,7 +43,7 @@ export class AuthService {
    }
 
    async obtenerUsuario(uid){
-    return this.database.collection('usuarios').doc(uid).get()
+    return this.database.collection('usuarios').doc(uid).get() //get --> tomamos datos
    }
 
    ///////////
