@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   hide = true;
 
+  // define un objeto llamado "Usuario" con sus respectivas propiedades para utilizar la app
   usuarios: Usuario = {
     uid: '',
     uidVehiculo: '',
