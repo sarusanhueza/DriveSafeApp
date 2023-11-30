@@ -69,10 +69,12 @@ col: any;
 
   }
 
+  // guardar o actualizar info sobre combustible en la BD
   async guardarCombustible (){
 
     console.log("hola")
     
+    // se crea un objeto 'nuevoCombustible" con los valores del formulario 'Mcombustible'
       let nuevoCombustible : Combustible = {
         uid: this.Mcombustible.value.uid!,
         titulo: this.Mcombustible.value.titulo!,
@@ -81,17 +83,17 @@ col: any;
         tipo: this.Mcombustible.value.tipo!,
         gasto: this.Mcombustible.value.gasto!,
       };
-      console.log(nuevoCombustible);
-      let valor: any;
-      if (nuevoCombustible.uid){
+      console.log(nuevoCombustible); // imprime para depuracion y verificar que los datos sean correctos
+      let valor: any; // declaracion de variable para almacenar la respuesta de la BD
+      if (nuevoCombustible.uid){ // verifica si combustible tiene ID, si tiene se edita un objeto ya existente, si no se crea uno nuevo
         // Estamos editando un objeto existente
-        valor = await this.servicioCrud.modificarCombustible(nuevoCombustible.uid, nuevoCombustible)
+        valor = await this.servicioCrud.modificarCombustible(nuevoCombustible.uid, nuevoCombustible)// se actualiza en la BD
       }
       else{
         // Estamos dando de alta un nuevo objeto
         valor = await this.servicioCrud.crearCombustible(nuevoCombustible);
       }
-      console.log(valor)
+      console.log(valor) // depuracion
   
       
     }
