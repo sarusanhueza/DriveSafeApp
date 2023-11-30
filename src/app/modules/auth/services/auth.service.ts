@@ -11,6 +11,7 @@ import { Usuario } from 'src/app/models/usuario';
 
 export class AuthService {
 
+  //creacion de collecion de usuarios
   private usuarioColeccion : AngularFirestoreCollection <Usuario>
 
   
