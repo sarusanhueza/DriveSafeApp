@@ -15,30 +15,34 @@ export class LoginComponent {
 
   // define un objeto llamado "Usuario" con sus respectivas propiedades para utilizar la app
   usuarios: Usuario = {
-    uid: '',
-    uidVehiculo: '',
+    uid: '', //identificador unico del usuario
+    uidVehiculo: '', //identificador unico del vehiculo del usuario
     nombre: '',
     email: '',
     contrasena: '',
     fecha: '',
-    administrador: false
+    administrador: false // booleano para corrobar si el ingresante es usuario o administrador
   }
 
+  // en el constructor declaramos los servicios a utilizar vinculados a la app
   constructor(
-    public servicioAuth: AuthService,
-    public servicioFirestore: FirestoreService,
-    public router: Router
+    public servicioAuth: AuthService, //servicio para autenticacion
+    public servicioFirestore: FirestoreService, // servicio interactuar con la bd
+    public router: Router // navegar entre paginas
   ){}
 
-  // llamamos función para INICIAR SESIÓN
+  // llamamos función iniciar() para INICIAR SESIÓN
   async iniciar(){
+    //objeto con credenciales de los usuarios con propiedades email y contraseña
     const credenciales = {
       email: this.usuarios.email,
       contrasena: this.usuarios.contrasena
     };
 
     await this.servicioAuth.iniciarSesion(credenciales.email, credenciales.contrasena)
+    // si el inicio de sesion funciona, se ejecuta lo que esta dentro del bloque then y si no, lo del bloque catch
     .then(async res => {
+      // servicioAuth --> obtener info del usuario// subscribe --> cambio en los datos
       (await this.servicioAuth.obtenerUsuario(res.user?.uid)).subscribe(
         docSnap => {  
           if (docSnap.exists){
@@ -70,56 +74,9 @@ export class LoginComponent {
       console.log(credenciales.email);
     })
 
-    // .then(res =>{
-    //   if(credenciales.email == "sarasanhueza@gmail.com" && credenciales.contrasena == "sarasanhueza10" ){
-    //     alert("Acceso consedido");
-    //     console.log(credenciales.email)
-    //     }else if(credenciales.email =="ayelennievas@gmail.com"  && credenciales.contrasena == "ayelenievass10"){
-    //       alert("Acceso consedido");
-    //       console.log(credenciales.email)
-    //     }else if(credenciales.email == "thiarapalma@gmail.com" && credenciales.contrasena == "thiarapalma10"){
-    //       alert("Acceso consedido");
-    //       console.log(credenciales.email)
-    //     }else{
-    //         alert("Debe registrarse")
-    //       console.log(credenciales.email)
-    
-    //       this.router.navigate(["/inicio"]);
-          
-    //     }
-        
-    //   })
-    //   .catch(error => {
-    //     alert("Usted no tiene acceso consedido\n"+ error);
-    //     console.log(credenciales.email)
-    //   })
-
 
   }
 
-  // .then(res =>{
-  //   if(credenciales.email == "sarasanhueza@gmail.com" && credenciales.contrasena == "sarasanhueza10" ){
-  //     alert("Acceso consedido");
-  //     console.log(credenciales.email)
-  //     }else if(credenciales.email =="ayelennievas@gmail.com"  && credenciales.contrasena == "ayelenievass10"){
-  //       alert("Acceso consedido");
-  //       console.log(credenciales.email)
-  //     }else if(credenciales.email == "thiarapalma@gmail.com" && credenciales.contrasena == "thiarapalma10"){
-  //       alert("Acceso consedido");
-  //       console.log(credenciales.email)
-  //     }else{
-  //         alert("Debe registrarse")
-  //       console.log(credenciales.email)
-  
-  //       this.router.navigate(["/inicio"]);
-        
-  //     }
-      
-  //   })
-  //   .catch(error => {
-  //     alert("Usted no tiene acceso consedido\n"+ error);
-  //     console.log(credencialess.email)
-  //   })
 }
 
 

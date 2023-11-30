@@ -13,9 +13,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormCombustiblePage implements OnInit {
 
-  _combustibleID: any = '';
-  coleccionCombustible: Combustible [] = [];
-  combustibleSelec!: Combustible;
+  _combustibleID: any = ''; // declaracion de variable que puede contenr cualquier tipo de valor
+  coleccionCombustible: Combustible [] = []; //array de objeto Combustible vacio, inicia como arreglo vacio
+  combustibleSelec!: Combustible; // la variable se inicializara antes de ser utilizada
   ModalVisibleCombustible: boolean = false;
 
   Mcombustible = new FormGroup({
