@@ -11,7 +11,7 @@ import { resolve } from 'dns';
 })
 export class ServiceVehiculoService {
 
-
+    //creamos coleccion de vehiculo y usuarios
   private vehiculoCollection: AngularFirestoreCollection <Vehiculo>
 
   private usuariosCollection: AngularFirestoreCollection<Usuario>
