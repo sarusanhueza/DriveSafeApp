@@ -122,12 +122,12 @@ export class EditarAutoComponent  implements OnInit {
 
 
 
-
+   // collecionVehiculos va a recibir array Vehiculo  vacio (luego los datos seran mandados)
    
   coleccionVehiculos: Vehiculo[] = [];
 
   vehiculoSeleccionado!: Vehiculo //! ->  recibe calores vacios
-
+  //validamos valores del formulario que esta en HTML
   vehiculo = new FormGroup({
   nombre: new FormControl('',Validators.required),
    patente: new FormControl('',Validators.required),
