@@ -17,9 +17,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistroAutoComponent  implements OnInit {
 
-  //creamos coleccion para usuario  
+  //// collecionVehiculos va a recibir array Vehiculo  vacio (luego los datos seran mandados)
   coleccionVehiculos: Vehiculo[] = [];
-  vehiculoSeleccionado!: Vehiculo;
+  vehiculoSeleccionado!: Vehiculo; //! ->  recibe calores vacios
    
   //formulario que se vincula con el HTML
   vehiculo = new FormGroup({
