@@ -235,8 +235,9 @@ export class MenucitoPage implements OnInit {
   // recibir los valores nuevos que ingresemos en el formulario
   // ! --> recibe valores vacios al inicializar
 
+  //recopila datos de 'Mcombustible' y se invoca el metodo 'modificarCombustible' para actualizar
   editarCombustible() {
-    let datos: Combustible = {
+    let datos: Combustible = { //objeto 'datos' almacenara los nuevos valores para actualizar la nota
       uid: this.combustibleSelec.uid,
 
       titulo: this.Mcombustible.value.titulo!,
@@ -247,7 +248,7 @@ export class MenucitoPage implements OnInit {
     }
 
 
-    this.servicioCrud.modificarCombustible(this.combustibleSelec.uid, datos)
+    this.servicioCrud.modificarCombustible(this.combustibleSelec.uid, datos) // actualizara los datos con los valores del objeto 'datos'
   }
 
   editarGastos() {
