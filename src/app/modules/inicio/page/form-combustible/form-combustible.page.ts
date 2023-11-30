@@ -48,15 +48,16 @@ col: any;
   });
   }
 
+  //llamamos a la funcion para actualizar datos
   prepareDataForUpdate(){  
-    this.servicioCrud.obtenerCombustibleById(this._combustibleID).subscribe(
-      docSnap => {
-        if (docSnap.exists){
-          const combustible: any = docSnap.data();
-          this.Mcombustible = new FormGroup({
+    this.servicioCrud.obtenerCombustibleById(this._combustibleID).subscribe( //obtiene combustible por ID --- suscribe funcion a respuesta observable para manejar los datos
+      docSnap => { //representa snapshot de los datos de combustible desde la BD --- se ejecuta cuando la respta esta disponible
+        if (docSnap.exists){ // verifica que los datos existane en la BD
+          const combustible: any = docSnap.data(); // si es asi, extrae los datos de la BD
+          this.Mcombustible = new FormGroup({ // inicialiaza form reactivo --> controles correspondinentes a los campos de combustible
             uid: new FormControl(combustible.uid),
             titulo: new FormControl('Combustible'),
-            fecha: new FormControl(combustible.fecha, Validators.required),
+            fecha: new FormControl(combustible.fecha, Validators.required), // asigna valores de combustible siendo estos obligatorios
             litros: new FormControl(combustible.litros, Validators.required),
             tipo: new FormControl(combustible.tipo, Validators.required),
             gasto: new FormControl(combustible.gasto, Validators.required),
@@ -71,7 +72,7 @@ col: any;
   async guardarCombustible (){
 
     console.log("hola")
-    //if(this.Mcombustible.valid){
+    
       let nuevoCombustible : Combustible = {
         uid: this.Mcombustible.value.uid!,
         titulo: this.Mcombustible.value.titulo!,
@@ -92,10 +93,7 @@ col: any;
       }
       console.log(valor)
   
-      //}
-      //else{
-      //  console.log(this.Mcombustible)
-     // }
+      
     }
 
     mostrarEditar(combustibleSelec: Combustible){
