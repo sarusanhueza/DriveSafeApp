@@ -30,7 +30,7 @@ export class AuthService {
   registrar(nombre: string, contrasena: string) {
     return this.auth.createUserWithEmailAndPassword(nombre, contrasena);
     }
-
+    //tomamos id de usuario
     async getUid() {
     const user = await this.auth.currentUser;
 
