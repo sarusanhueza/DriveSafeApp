@@ -10,8 +10,90 @@ import { resolve } from 'dns';
   providedIn: 'root'
 })
 export class ServiceVehiculoService {
+
+
+
+
+
+
+  // crearIdVehiculo(nuevoVehiculo: any) {
+  //   throw new Error('Method not implemented.');
+  // }
+  
+  private vehiculoCollection: AngularFirestoreCollection <Vehiculo>
+
+
+
+  // constructor(private database : AngularFirestore) {
+    
+
+   
+
+  //   this.vehiculosColeccion = database.collection('vehiculos')
+  //  }
+
+    
+
+  //     obtenerVehiculo(){
+  //       return this.vehiculosColeccion.snapshotChanges().
+  //       pipe (map(action => action.map(a => a.payload.doc.data())))
+  //     }
+
+  //     obtenerVehiculoById(uid:string){
+  //       return this.database.collection('vehiculos').doc(uid).get()
+  //     }
+
+  //     modificarVehiculo(uid: string, nuevaData: Vehiculo){
+  //       return this.database.collection('vehiculo').doc(uid).update(nuevaData);
+  //     }
+
+      
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   private usuariosCollection: AngularFirestoreCollection<Usuario>
-  private vehiculoCollection: AngularFirestoreCollection<Vehiculo>
+
+   
+
+
+
+
+
+
+
 
   //camino de la coleccion de (usuario) y su subcollecion (vehiculos)
   constructor(private database: AngularFirestore) {

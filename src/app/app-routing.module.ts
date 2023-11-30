@@ -7,6 +7,7 @@ import { FormRecordatorioPage } from './modules/inicio/page/form-recordatorio/fo
 import { FormViajePage } from './modules/inicio/page/form-viaje/form-viaje.page';
 import { ReconocimientoComponent } from './modules/inicio-admin/componentes/reconocimiento/reconocimiento.component';
 import { MenuUsuariosComponent } from './modules/inicio-admin/componentes/menu-usuarios/menu-usuarios.component';
+import { EditarAutoComponent } from './modules/inicio/componentes/editar-auto/editar-auto.component';
 
 
 
@@ -23,6 +24,9 @@ const routes: Routes = [
   },
   {
     path: '',loadChildren: () => import('./modules/inicio-admin/inicio-admin.module').then( m => m.InicioAdminModule)
+  },
+  {
+    path: 'editarAuto', component: EditarAutoComponent
   },
   {
     path: 'configuracion', component: ConfiguracionComponent
