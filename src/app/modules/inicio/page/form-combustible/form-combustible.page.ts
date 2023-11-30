@@ -93,15 +93,18 @@ col: any;
         // Estamos dando de alta un nuevo objeto
         valor = await this.servicioCrud.crearCombustible(nuevoCombustible);
       }
-      console.log(valor) // depuracion
+      console.log(valor) // depuracion, se muestran datos en consola
   
       
     }
 
+    //funcion para mostrar los datos de un objeto para su edicion
     mostrarEditar(combustibleSelec: Combustible){
+      //asigna el objeto combustibleSelec a la propiedad combustibleSelec
       this.combustibleSelec = combustibleSelec;
 
-      this.Mcombustible.setValue({
+      //configura el form reactivo Mcombustible con los valores del objeto combustibleSelec
+      this.Mcombustible.setValue({ // formulario va a mostrar los detalles del combustible seleccionado
         uid: combustibleSelec.uid,
         titulo: combustibleSelec.titulo,
         fecha: combustibleSelec.fecha,
@@ -111,7 +114,9 @@ col: any;
       })
     }
 
+    //recopila datos editdos en el form y actualiza los datos en la BD
     editarCombustible(){
+      // asignamos variable 'datos' con los valores ya editados del form 'Mcombustible'
       let datos: Combustible = {
         uid: this.combustibleSelec.uid,
         titulo: this.Mcombustible.value.titulo!,
@@ -121,16 +126,19 @@ col: any;
         gasto: this.Mcombustible.value.gasto!
       }
 
-
-      this.servicioCrud.modificarCombustible(this.combustibleSelec.uid, datos)
+       // se llama al servicio para modificar de combustible los datos en la BD
+      this.servicioCrud.modificarCombustible(this.combustibleSelec.uid, datos)// pasa el id del combustible sinedo editado y datos con las propiedades ya actualizadas
     }
 
+    // funcion para preparar el objeto para ser eliminado
     mostrarBorrar(combustibleSelec: Combustible){
-      this.ModalVisibleCombustible = true;
-      this.combustibleSelec = combustibleSelec;
+      
+      this.combustibleSelec = combustibleSelec; //mantiene el objeto seleccionado cuando se va a eliminar
     }
 
+    //funcion para eliminar la nota
     borrarCombustible(){
+      //llamamos al metodo 'eliminarCombustible' del servicio para eliminar la nota de la BD desde su ID
       this.servicioCrud.eliminarCombustible(this.combustibleSelec.uid);
 
     }
