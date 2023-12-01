@@ -128,7 +128,7 @@ export class EditarAutoComponent  implements OnInit {
 
   vehiculoSeleccionado!: Vehiculo //! ->  recibe calores vacios
 
-  //definimos valores del formulario que esta en HTML
+  //validamos valores del formulario que esta en HTML
   vehiculo = new FormGroup({
   nombre: new FormControl('',Validators.required),
    patente: new FormControl('',Validators.required),
@@ -136,38 +136,42 @@ export class EditarAutoComponent  implements OnInit {
    combustible: new FormControl('',Validators.required),
   })
 
-  //declaramos de forma publica los tres servicios 
+  //definimos de forma publica los tres servicios 
   constructor(
     public servicioAuto: ServiceVehiculoService, //patentamos servico de manera local
     public router: Router,
     public alertController: AlertController
   ) { }
-
+   
+   //llamamos al servico y dentro de el ejecutamos "obtenerVehiculo()" y  cambia datos del vehiculo que estan en el HTML
+  // y  luego llama a la "coleccionVehiculos" para guerdar los datos  del vehiculo en ella
   ngOnInit(): void{ 
     this.servicioAuto.obtenerVehiculo().subscribe(vehiculo => {
       this.coleccionVehiculos = vehiculo;
     })
    }
-
+   
+   
    async agregarVehiculo(){
-   if(this.vehiculo.valid){
-   let nuevoVehiculo: Vehiculo ={
+   if(this.vehiculo.valid){// si llamamos a vehiculo para validarlo
+   let nuevoVehiculo: Vehiculo ={// las poropiedades se guardaran en nuevoVehiculo
      uidVehiculo:'',
      nombre: '',
      patente: '',
      marca: '',
      combustible: ''
    }
-
+    
+   //espeamos  y llamamos a el servicioAuto para que cree un id al vehiculo y se agregue un vehiculo( junto a sus propiedades)
    await this.servicioAuto.crearIdVehiculo(nuevoVehiculo)
-
+   //then --> ejecutado cuando vehiculo fue agregado con exito 
    .then(respuesta => {
       alert("Se ha agrego un vehiculo con exito :).");
       console.log(respuesta)
 
-      this.router.navigate(["/inicio"]); //CAMBIAR  LUEGOO
-    })
-    .catch(error => {
+      this.router.navigate(["/menu"]); //CAMBIAR  LUEGOO
+    }) 
+    .catch(error => {//ejecutado cuando no se agrego vehiculo ya que hubo un error.
       alert("No se pudo agregar un vehiculo :( \n"+error);
     })
    }

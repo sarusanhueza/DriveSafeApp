@@ -35,8 +35,8 @@ export class RegistroAutoComponent  implements OnInit {
     public router: Router,
     public servicioAuto: ServiceVehiculoService
   ) { }
-  //llmamos a l servico "obtenerVehiculo()" y  cambia datos del vehiculo que estan en el HTML
-  // y  luego llama a la "coleccionVehiculos" para guerdar los datos  del vehiculo
+  //llamamos al servico y dentro de el ejecutamos "obtenerVehiculo()" y  cambia datos del vehiculo que estan en el HTML
+  // y  luego llama a la "coleccionVehiculos" para guerdar los datos  del vehiculo en ella
   ngOnInit() {
     this.servicioAuto.obtenerVehiculo().subscribe(vehiculo => {
       this.coleccionVehiculos = vehiculo;
