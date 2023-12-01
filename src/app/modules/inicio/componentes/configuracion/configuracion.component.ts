@@ -101,10 +101,13 @@ col: any;
     
     }
 
+  //funcion para mostrar los datos de un objeto para su edicion
   mostrarEditarUsuario(usuarioSelec: Usuario){
+    //asigna el objeto usuarioSelec a la propiedad usuarioSelec
     this.usuarioSelec = usuarioSelec;
 
-    this.usuario.setValue({
+    //configura el form reactivo usuario con los valores del objeto usuario
+    this.usuario.setValue({ // formulario va a mostrar los detalles del usuario seleccionado
       uid: usuarioSelec.uid,
       nombre: usuarioSelec.nombre,
       email: usuarioSelec.email,
