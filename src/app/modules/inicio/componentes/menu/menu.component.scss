@@ -60,3 +60,28 @@ ion-button {
   color: white; 
  
 }
+
+.textoB{
+  color: #000000;
+  text-align: center;
+}
+
+.ubi{
+
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+ 
+}
+
+
+.wrapper{
+  width: 200px;
+}
+
+.text-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}

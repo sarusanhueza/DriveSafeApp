@@ -24,7 +24,7 @@
 
 
     <!--NOTAS-->
-   <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+   <ion-modal  class="modalsito" id="example-modal" #modal trigger="open-custom-dialog">
     <ng-template>
 
       <div class="wrapper">
@@ -34,29 +34,60 @@
         <div>
           <!--aca estamos creando dos items en un dv para en cada uno poner dos iconos como botones para las notas y adjjuntarlos en el modal-->
           <!--Boton RECORDATORIOS-->
-           <ion-button (click)="cerrarModal()" routerLink="/form-viaje">
-            <ion-icon name="map-outline"> Recordatorio</ion-icon>
-          </ion-button>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button class="ubi" (click)="cerrarModal()" routerLink="/form-gastos" >
+                <ion-icon name="receipt-outline"></ion-icon>
+              </ion-button>
+              <p class="textoB">Gastos</p> 
+            </ion-col>
+              <ion-col class="text-center">
+                <ion-button  class="ubi" (click)="cerrarModal()" routerLink="/form-combustible">
+                <ion-icon name="speedometer-outline"> </ion-icon>
+              </ion-button>
+                <p class="textoB">Combustibles</p> 
+              </ion-col>
+            </ion-row>
+          </ion-grid>
           
-          <!--Boton GASTOS-->
-          <ion-button (click)="cerrarModal()" routerLink="/form-gastos">
-            <ion-icon name="receipt-outline"> Gastos</ion-icon>
-          </ion-button>
-         <!--Boton COMBUSTIBLE-->
-          <ion-button (click)="cerrarModal()" routerLink="/form-combustible">
-            <ion-icon name="speedometer-outline"> Combustible </ion-icon>
-          </ion-button>
-
-         <!--Boton VIAJES-->
-          <ion-button (click)="cerrarModal()" routerLink="/form-recordatorio">
-            <ion-icon  name="today-outline"> Viajes</ion-icon>
-          </ion-button>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                 <ion-button class="ubi" (click)="cerrarModal()" routerLink="/form-viaje">
+                <ion-icon name="map-outline"></ion-icon>
+              </ion-button>
+              <p class="textoB">Viajes</p>
+            </ion-col>
+              <ion-col class="text-center"> 
+                 <ion-button class="ubi" (click)="cerrarModal()" routerLink="/form-recordatorio">
+                <ion-icon  name="today-outline"></ion-icon>
+               </ion-button> 
+               <p class="textoB">Recordatorios</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          
         </div>
 
       </div>
     </ng-template>
   </ion-modal> 
 
+
+
+
+
+
+  
+  
+  <!--Boton GASTOS-->
+ 
+ <!--Boton COMBUSTIBLE-->
+ 
+
+
+ <!--Boton VIAJES-->
 
 
  
