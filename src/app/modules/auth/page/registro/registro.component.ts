@@ -54,7 +54,7 @@ export class RegistroComponent  implements OnInit {
 
   // si la promesa se resuelve correctamente, entonces el usuario se creara exitosamente
     .then(res => {
-      alert("Se registro un usuario con exito!");
+      alert("¡Se registro un usuario con exito!");
       console.log(res)
 
       //navegara automaticamente al registroAuto
