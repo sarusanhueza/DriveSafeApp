@@ -17,13 +17,14 @@ export class ConfiguracionComponent  implements OnInit {
 
  
 
-_usuarioID: any = '';
-coleccionUsuario: Usuario[] = [];
-usuarioSelec!: Usuario 
+_usuarioID: any = ''; // declaracio variable que puede contener cualquier tipo de valor
+coleccionUsuario: Usuario[] = []; //array de objeto Usuario vacio, inicia como arreglo vacio
+usuarioSelec!: Usuario // la variable se inicializara antes de ser utilizada
 
+//pertenece a formularios reactivos
 usuario = new FormGroup({
-  uid: new FormControl(''),
-  email:new FormControl('', Validators.required),
+  uid: new FormControl(''), // id unico
+  email:new FormControl('', Validators.required), // cadenas vacias, validators.required ---> campos obligatorio
   nombre: new FormControl('',Validators.required),
   fecha: new FormControl('',Validators.required),
   contrasena: new FormControl('',Validators.required),
@@ -41,14 +42,16 @@ col: any;
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      this._usuarioID = params.get("uid");
-      if (this._usuarioID) {
-          this.prepareDataForUpdate();
+    //cuando la ruta cambia, los parametros de la ruta tambien cambian ---> el codigo se ejecuta
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {//contiene parametros de la ruta actual
+      this._usuarioID = params.get("uid");//obtiene id unicos de la URL y se le asigna a "_usuarioID"
+      if (this._usuarioID) {// se verifica si _usuarioID tiene un valor ---> hay id de usuario en la URL
+          this.prepareDataForUpdate();// por lo que se llama a esta funcion ---> prepara datos para actualizarlos
       }
   });
   }
 
+  //llamamos a la funcion para actualizar datos
   prepareDataForUpdate(){  
     this.servicioCrud.obtenerUsuarioById(this._usuarioID).subscribe(
       docSnap => {
