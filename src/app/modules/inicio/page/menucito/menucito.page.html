@@ -41,7 +41,7 @@
 
     <ion-list [inset]="true">
       <div class="custom-item" *ngFor ="let col of coleccionEventos">
-        <ion-item [button]="true" *ngIf="col.titulo === 'Combustible'">
+        <ion-item class="ion-item" [button]="true" *ngIf="col.titulo === 'Combustible'">
           <ion-icon style="color: #97cadb;" slot="start" name="speedometer-outline" size="large"></ion-icon>
           <ion-label>
            <p> {{col.titulo}} </p>
@@ -56,7 +56,7 @@
           </ion-button>
         </ion-item>
 
-        <ion-item [button]="true" *ngIf="col.titulo === 'Gastos'">
+        <ion-item class="ion-item2" [button]="true" *ngIf="col.titulo === 'Gastos'">
           <ion-icon style="color: #97cadb;" slot="start" name="receipt-outline" size="large"></ion-icon>
           <ion-label>
            <p> {{col.titulo}} </p>
@@ -70,7 +70,7 @@
           </ion-button>
         </ion-item>
 
-        <ion-item [button]="true" *ngIf="col.titulo === 'Recordatorio'">
+        <ion-item class="ion-item3" [button]="true" *ngIf="col.titulo === 'Recordatorio'">
           <ion-icon style="color: #97cadb;" slot="start" name="today-outline" size="large"></ion-icon>
           <ion-label>
            <p> {{col.titulo}} </p>
@@ -84,7 +84,7 @@
           </ion-button>
         </ion-item>
 
-        <ion-item [button]="true" *ngIf="col.titulo === 'Viaje'">
+        <ion-item class="ion-item4" [button]="true" *ngIf="col.titulo === 'Viaje'">
           <ion-icon style="color: #97cadb;" slot="start" name="map-outline" size="large"></ion-icon>
           <ion-label>
            <p> {{col.titulo}} </p>
