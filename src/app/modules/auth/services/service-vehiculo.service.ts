@@ -59,7 +59,7 @@ crearIdVehiculo(vehiculo: Vehiculo ){
 //obtenemos al usuario con sus datos
 obtenerUsuario(){
   // snapshotChanges -> toma captura del estado de los datos
-    // pipe -> funciona como tubería, retorna el nuevo arreglo
+    // pipe ->  tubería, retorna el nuevo arreglo
     // map -> "mapea" o recorre esa nueva información
     // a -> resguarda la nueva información y la envía
   return this.usuariosCollection.snapshotChanges().
@@ -82,7 +82,7 @@ eliminarVehiculo(uidVehiculo: string){
     try{
       const respuesta= this.vehiculoCollection.doc(uidVehiculo).delete()
       resolve( respuesta)
-    }catch(error){ // reject retorna la respuesta del catch
+    }catch(error){ // reject retorna la respuesta del catch( si promesa se comple de manera incorrecta)
        reject(error)
     }
    })
