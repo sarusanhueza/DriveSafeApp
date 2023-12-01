@@ -15,7 +15,7 @@ export class RegistroComponent  implements OnInit {
   hide = true;
   password_type: string = 'password'
 
- 
+//definimos de manera publica a los servicios
 
   constructor(
     public servicioAuth: AuthService,
