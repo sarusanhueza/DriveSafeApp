@@ -49,6 +49,7 @@ export class RegistroComponent  implements OnInit {
     };
     //console.log('Hola')
 
+    //se utiliza al servicio de autenticacion para que el usuario sea registrado desde el metodo registrar
   const res = await this.servicioAuth.registrar(credenciales.email, credenciales.contrasena)
 
     .then(res => {
