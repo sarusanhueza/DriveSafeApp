@@ -78,11 +78,11 @@ modificarVehiculo(uidVehiculo: string, nuevaData: Vehiculo){
   // envíamos el ID del producto
 eliminarVehiculo(uidVehiculo: string){
   return new Promise((resolve, reject) => {
-
+     // resolve retorna  el resultado que lance el try( si la promesa se cumple corretamente)
     try{
       const respuesta= this.vehiculoCollection.doc(uidVehiculo).delete()
       resolve( respuesta)
-    }catch(error){
+    }catch(error){ // reject retorna la respuesta del catch
        reject(error)
     }
    })
