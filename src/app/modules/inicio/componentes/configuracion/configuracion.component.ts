@@ -117,7 +117,9 @@ col: any;
     })
   }
 
+  //recopila datos editados en el form y actualiza los datos en la BD
   editarUsuario(){
+    //asignamos variable 'datos' con los valores ya editados del form 'usuario'
     let datos: Usuario = {
       uid: this.usuarioSelec.uid,
       nombre: this.usuario.value.nombre!,
@@ -128,7 +130,7 @@ col: any;
       administrador: false
     }
 
-
+    //se llama al servicio para modificar de usuario los datos en la BD
     this.servicioCrud.modificarUsuario(this.usuarioSelec.uid, datos)
   }
 
