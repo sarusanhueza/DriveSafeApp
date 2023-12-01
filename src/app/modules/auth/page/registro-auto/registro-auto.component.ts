@@ -36,13 +36,14 @@ export class RegistroAutoComponent  implements OnInit {
     public servicioAuto: ServiceVehiculoService
   ) { }
   //llamamos al servico y dentro de el ejecutamos "obtenerVehiculo()" y  cambia datos del vehiculo que estan en el HTML
-  // y  luego llama a la "coleccionVehiculos" para guerdar los datos  del vehiculo en ella
+  // y  luego llama a la "coleccionVehiculos" para guerdar los datos  del vehiculo en el
   ngOnInit() {
     this.servicioAuto.obtenerVehiculo().subscribe(vehiculo => {
       this.coleccionVehiculos = vehiculo;
     })
   }
 
+  
    async registrarVehiculo (){//validamos valores que se ingresan del vehiculo en HTML (formulario) 
    if(this.vehiculo.valid){
     let nuevoVehiculo: Vehiculo ={

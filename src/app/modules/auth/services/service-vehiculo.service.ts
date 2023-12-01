@@ -40,6 +40,7 @@ export class ServiceVehiculoService {
 //       }
 //     })
 // }
+
 //propiedad/nombreInterfaz      
 crearIdVehiculo(vehiculo: Vehiculo ){
   return new Promise(async(resolve, reject) =>{
@@ -71,6 +72,7 @@ obtenerVehiculo(){
   pipe(map(action => action.map(a => a.payload.doc.data())))
 }
   // envíamos el ID del vehiculo y la nueva información de las propiedades
+  // modificamos al vehiculo con los datos  que se ingresaron al momento de registrarlo
 modificarVehiculo(uidVehiculo: string, nuevaData: Vehiculo){
   return this.database.collection('vehiculos').doc(uidVehiculo).update(nuevaData)
 }

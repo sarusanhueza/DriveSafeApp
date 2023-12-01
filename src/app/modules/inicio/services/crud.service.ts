@@ -187,6 +187,12 @@ export class CrudService {
       }
 
 
+
+
+
+
+      
+
        modificarCombustible(uid: string, nuevaData: Combustible){
         return this.database.collection('Mcombustible').doc(uid).update(nuevaData);
       }

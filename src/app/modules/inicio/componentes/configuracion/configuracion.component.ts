@@ -88,7 +88,7 @@ col: any;
       };
       console.log(nuevoUsuario);// imprime para depuracion y verificar que los datos sean correctos
       let valor: any; // declaracion de variable para almacenar la respuesta de la BD
-      if (nuevoUsuario.uid){// verifica si combustible tiene ID, si tiene se edita un objeto ya existente, si no se crea uno nuevo
+      if (nuevoUsuario.uid){// verifica si cusuario tiene ID, si tiene se edita un objeto ya existente, si no se crea uno nuevo
         // Estamos editando un objeto existente
         valor = await this.servicioCrud.modificarUsuario(nuevoUsuario.uid, nuevoUsuario)
       }

@@ -13,114 +13,6 @@ import { AlertController } from '@ionic/angular';
 })
 export class EditarAutoComponent  implements OnInit {
 
-//   _vehiculoID: any = '';
-// coleccionVehiculo: Vehiculo[] = [];
-// vehiculoSelec!: Vehiculo 
-
-// vehiculo = new FormGroup({
-//   uidVehiculo: new FormControl(''),
-//   nombre:new FormControl('', Validators.required),
-//   patente: new FormControl('',Validators.required),
-//   marca: new FormControl('',Validators.required),
-//   combustible: new FormControl('',Validators.required),
-// })
-// col: any;
-
-
-
-
-//   constructor(
-//     public router: Router,
-//     private activatedRoute: ActivatedRoute,
-//     public servicioAuto : ServiceVehiculoService,
-//   ) { }
-
-//   ngOnInit(): void {
-//     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-//       this._vehiculoID = params.get("uid");
-//       if (this._vehiculoID) {
-//           this.prepareDataForUpdate();
-//       }
-//   });
-//   }
-
-//   prepareDataForUpdate(){  
-//     this.servicioAuto.obtenerVehiculoById(this._vehiculoID).subscribe(
-//       docSnap => {
-//         if (docSnap.exists){
-//           const vehiculo: any = docSnap.data();
-//           this.vehiculo = new FormGroup({
-//             uidVehiculo: new FormControl(vehiculo.uidVehiculo),
-//             nombre: new FormControl(vehiculo.nombre, Validators.required),
-//             patente: new FormControl(vehiculo.patente, Validators.required),
-//             marca: new FormControl(vehiculo.marca, Validators.required),
-//             combustible: new FormControl(vehiculo.combustible, Validators.required),
-//           })
-//         }
-        
-//       }
-//     );
-
-//   }
-
-//   async guardarVehiculo (){
-
-//     console.log("hola")
-//     //if(this.Mcombustible.valid){
-//       let nuevoVehiculo : Vehiculo = {
-//         uidVehiculo: this.vehiculo.value.uidVehiculo!,
-//         nombre: this.vehiculo.value.nombre!,
-//         patente: this.vehiculo.value.patente!,
-//         marca: this.vehiculo.value.marca!,
-//         combustible: this.vehiculo.value.combustible!,
-        
-//       };
-//       console.log(nuevoVehiculo);
-//       let valor: any;
-//       if (nuevoVehiculo.uidVehiculo){
-//         // Estamos editando un objeto existente
-//         valor = await this.servicioAuto.modificarVehiculo(nuevoVehiculo.uidVehiculo, nuevoVehiculo)
-//       }
-//       // else{
-//       //   // Estamos dando de alta un nuevo objeto
-//       //   valor = await this.servicioCrud.crearCombustible(nuevoUsuario);
-//       // }
-//       console.log(valor)
-  
-//       //}
-//       //else{
-//       //  console.log(this.Mcombustible)
-//      // }
-//     }
-
-//   mostrarEditarVehiculo(vehiculoSelec: Vehiculo){
-//     this.vehiculoSelec = vehiculoSelec;
-
-//     this.vehiculo.setValue({
-//       uidVehiculo: vehiculoSelec.uidVehiculo,
-//       nombre: vehiculoSelec.nombre,
-//       patente: vehiculoSelec.patente,
-//       marca: vehiculoSelec.marca,
-//       combustible: vehiculoSelec.combustible,
-      
-//     })
-//   }
-
-//   editarVehiculo(){
-//     let datos: Vehiculo = {
-//       uidVehiculo: this.vehiculoSelec.uidVehiculo,
-//       nombre: this.vehiculo.value.nombre!,
-//       patente: this.vehiculo.value.patente!,
-//       marca: this.vehiculo.value.marca!,
-//       combustible: this.vehiculo.value.combustible!,
-      
-//     }
-
-
-//     this.servicioAuto.modificarVehiculo(this.vehiculoSelec.uidVehiculo, datos)
-//   }
-
-
 
    // collecionVehiculos va a recibir array Vehiculo  vacio (luego los datos seran mandados)
    
@@ -184,7 +76,7 @@ export class EditarAutoComponent  implements OnInit {
     seleccionado, el ID no se vuelve a enviar porque 
     no se modifica */
 
-    //confirma el form vehiculos con los valores del objeto vehiculoSleccionado
+    //confirma el form vehiculo con los valores del objeto vehiculoSleccionado
     this.vehiculo.setValue({ // formulario que mostrara los valores del vehiculoSeleccionado
       nombre: vehiculoSeleccionado.nombre,
       patente: vehiculoSeleccionado.patente,
@@ -194,7 +86,7 @@ export class EditarAutoComponent  implements OnInit {
     })
   }
  
-  //vinculaos voton GUARDAR CAMBIOS
+  //vinculaos boton GUARDAR CAMBIOS
   //recopilalos datos deditados en el formulario con los valores del objeto vehiculoSelecionado
   editarVehiculo(){
     //asignamos a la variable datos con los valores ya editados del form "vehiculo"

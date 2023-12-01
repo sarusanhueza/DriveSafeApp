@@ -67,7 +67,7 @@ export class LoginComponent {
       
       
     })
-    // MÉTODO THEN -> ENCAPSULA UN FALLO
+    // MÉTODO CATCH -> ENCAPSULA UN FALLO
     .catch(error => {
       alert("Error al iniciar sesion\n"+error);
 
