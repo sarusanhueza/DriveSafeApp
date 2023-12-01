@@ -14,18 +14,18 @@ export class ConducirPage implements OnInit {
 
   ngOnInit() {
   }
-  public timeBegan: any = null
-  public timeStopped:any = null
-  public stoppedDuration:any = 0
-  public started: any = null
-  public running = false
+  public timeBegan: any = null // inicio tiempo
+  public timeStopped:any = null // paro del tiempo
+  public stoppedDuration:any = 0 // tiempo que estuvo el tiempo detenido
+  public started: any = null // momento que se reinicio
+  public running = false // si el cronometro esta en ejecucion
   public blankTime = "00:00.000"
   public time = "00:00.000"
   
 
  
 
-
+//inicia el cronometro si no habia estado en ejecucion
   inicio() {
     if(this.running) return;
     if (this.timeBegan === null) {
