@@ -89,10 +89,11 @@ export class RegistroComponent  implements OnInit {
   }
 
   async ngOnInit() {
-    const uid = await this.servicioAuth.getUid();
+    const uid = await this.servicioAuth.getUid(); //obtiene uid del usuario actual de manera asincrona
     console.log(uid);
   }
 
+  //determina si la contraseña se muestra oculta o con texto
   togglePasswordMode() {   
     this.password_type = this.password_type === 'text' ? 'password' : 'text';
  }
