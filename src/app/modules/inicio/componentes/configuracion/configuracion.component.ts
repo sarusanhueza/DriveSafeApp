@@ -53,13 +53,13 @@ col: any;
 
   //llamamos a la funcion para actualizar datos
   prepareDataForUpdate(){  
-    this.servicioCrud.obtenerUsuarioById(this._usuarioID).subscribe(
-      docSnap => {
-        if (docSnap.exists){
-          const usuario: any = docSnap.data();
-          this.usuario = new FormGroup({
+    this.servicioCrud.obtenerUsuarioById(this._usuarioID).subscribe( //obtiene usuario por ID ---suscribe funcion a respuesta observable para manejar los datos
+      docSnap => { //representa snapshot de los datos de usuario desde la BD --- se ejecuta cuando la respta esta disponible
+        if (docSnap.exists){//verifica que los datos existan en la BD
+          const usuario: any = docSnap.data();// si es asi, extrae los datos de la BD
+          this.usuario = new FormGroup({// inicialiaza form reactivo --> controles correspondinentes a los campos de combustible
             uid: new FormControl(usuario.uid),
-            nombre: new FormControl(usuario.nombre, Validators.required),
+            nombre: new FormControl(usuario.nombre, Validators.required), // asigna valores de usuario siendo estos obligatorios
             email: new FormControl(usuario.email, Validators.required),
             fecha: new FormControl(usuario.fecha, Validators.required),
             contrasena: new FormControl(usuario.contrasena, Validators.required),
@@ -71,10 +71,12 @@ col: any;
 
   }
 
+  // guardar o actualziar info sobre usuario en la BD
   async guardarUsuario (){
 
     console.log("hola")
-    //if(this.Mcombustible.valid){
+
+     // se crea un objeto 'nuevoUsuario" con los valores del formulario 'Musuario'
       let nuevoUsuario : Usuario = {
         uid: this.usuario.value.uid!,
         nombre: this.usuario.value.nombre!,
@@ -84,9 +86,9 @@ col: any;
         uidVehiculo: '',
         administrador: false
       };
-      console.log(nuevoUsuario);
-      let valor: any;
-      if (nuevoUsuario.uid){
+      console.log(nuevoUsuario);// imprime para depuracion y verificar que los datos sean correctos
+      let valor: any; // declaracion de variable para almacenar la respuesta de la BD
+      if (nuevoUsuario.uid){// verifica si combustible tiene ID, si tiene se edita un objeto ya existente, si no se crea uno nuevo
         // Estamos editando un objeto existente
         valor = await this.servicioCrud.modificarUsuario(nuevoUsuario.uid, nuevoUsuario)
       }
@@ -94,12 +96,9 @@ col: any;
       //   // Estamos dando de alta un nuevo objeto
       //   valor = await this.servicioCrud.crearCombustible(nuevoUsuario);
       // }
-      console.log(valor)
+      console.log(valor)// depuracion, se muestran datos en consola
   
-      //}
-      //else{
-      //  console.log(this.Mcombustible)
-     // }
+    
     }
 
   mostrarEditarUsuario(usuarioSelec: Usuario){
