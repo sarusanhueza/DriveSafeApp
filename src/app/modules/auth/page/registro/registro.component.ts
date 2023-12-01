@@ -24,6 +24,7 @@ export class RegistroComponent  implements OnInit {
     public servicioAuto:ServiceVehiculoService,
     ) { }
 
+    // define una variable 'usuarios' del tipo 'Usuario', contiene propiedades que pertenecen a un usuario
   usuarios: Usuario = {
     uid: '',
     uidVehiculo: '',
@@ -31,13 +32,15 @@ export class RegistroComponent  implements OnInit {
     email: '',
     fecha: '',
     contrasena: '',
-    administrador: false
+    administrador: false 
+    //son cadenas vacias
   }
 
   Uid = '';
 
   coleccionUsuarios: Usuario[] = [];
 
+  //metodo asincrono que registrara usuarios obteniendo su email y contraseña de la cuenta 
   async registrarse(){
     const credenciales = {
       email: this.usuarios.email,
