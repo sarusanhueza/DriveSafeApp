@@ -52,30 +52,38 @@ export class RegistroComponent  implements OnInit {
     //se utiliza al servicio de autenticacion para que el usuario sea registrado desde el metodo registrar
   const res = await this.servicioAuth.registrar(credenciales.email, credenciales.contrasena)
 
+  // si la promesa se resuelve correctamente, entonces el usuario se creara exitosamente
     .then(res => {
       alert("Se registro un usuario con exito!");
       console.log(res)
 
+      //navegara automaticamente al registroAuto
       this.router.navigate(["/registroAuto"]);
     })
 
+    //en el caso contrario, si hay error, el mismo sera detectado por medio de catch
     .catch((error: string) =>
       alert("Hubo un error al crear el usuario \n" + error)
       );
 
     const uid = await this.servicioAuth.getUid();
 
+    // se asigna uid al objeto de usuario 
     this.usuarios.uid = uid;
 
+    //se llama a esta funcion para almacenar los datos del usuario
     this.guardarUser();
   }
 
   async guardarUser(){
+    // llama al metodo 'agregarUsuario' para que se guarde la info del usuario
     this.servicioFirestore.agregarUsuario(this.usuarios, this.usuarios.uid)
     .then(res => {
+      //maneja el resultado si la operacion es exitosa
       console.log(this.usuarios);
     })
     .catch(error => {
+      // manejara errores
       console.log('Error =>', error);
     })
   }
