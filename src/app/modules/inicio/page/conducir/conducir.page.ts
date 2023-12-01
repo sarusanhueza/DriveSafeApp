@@ -32,20 +32,25 @@ export class ConducirPage implements OnInit {
         this.resetear();
         this.timeBegan = new Date();
     }
+    //se ajusta al momento que fue detenido
     if (this.timeStopped !== null) {
       let newStoppedDuration:any = (+new Date() - this.timeStopped)
       this.stoppedDuration = this.stoppedDuration + newStoppedDuration;
     }
+    //se inicia intervalo para actualizar cada 10seg el tiempo transcurrido
     this.started = setInterval(this.reloj.bind(this), 10);
       this.running = true;
     }
     
+    //detiene el cronometro si esta en ejecucion
     parar() {
       this.running = false;
+      //registra momento de detencion y limpia el intervalo
       this.timeStopped = new Date();
       clearInterval(this.started);
    }
 
+   // detiene el cronometro, limpia el intervalo y establece variables desde 0
     resetear() {
       this.running = false;
       clearInterval(this.started);
@@ -55,6 +60,7 @@ export class ConducirPage implements OnInit {
       this.time = this.blankTime;
     }
 
+    // agrega ceros a la izquierda del numero para cumplir con la cantdad de digitios
     zeroPrefix(num, digit) {
       let zero = '';
       for(let i = 0; i < digit; i++) {
@@ -63,6 +69,7 @@ export class ConducirPage implements OnInit {
       return (zero + num).slice(-digit);
     }
 
+    //calcula y actualiza el tiempo transcurrido
     reloj(){
       let currentTime:any = new Date()
       let timeElapsed:any = new Date(currentTime - this.timeBegan - this.stoppedDuration)
