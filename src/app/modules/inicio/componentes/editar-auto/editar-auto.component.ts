@@ -228,7 +228,7 @@ export class EditarAutoComponent  implements OnInit {
   
     await alert.present();
 
-    this.router.navigate(['/menu/menucito']) //le damos al boton "aceptar" nos redirige a la page de menu
+    // this.router.navigate(['/menu/menucito']) //le damos al boton "aceptar" nos redirige a la page de menu
   }
 
 }
