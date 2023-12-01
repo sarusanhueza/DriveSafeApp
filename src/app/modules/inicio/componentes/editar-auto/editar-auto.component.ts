@@ -176,13 +176,16 @@ export class EditarAutoComponent  implements OnInit {
     })
    }
   }
-
+ //funcion para mostrar los datos de un   objeto para editarlos
   mostrarEditar(vehiculoSeleccionado: Vehiculo){
+    //asigna el objeto  vehiculoSeleccionado  a la propiedad vehiculoSeleccionado
     this.vehiculoSeleccionado = this.vehiculoSeleccionado;
     /* retomamos y enviamos los valores de ese producto 
     seleccionado, el ID no se vuelve a enviar porque 
     no se modifica */
-    this.vehiculo.setValue({
+
+    //confirma el form vehiculos con los valores del objeto vehiculoSleccionado
+    this.vehiculo.setValue({ // formulario que mostrara los valores del vehiculoSeleccionado
       nombre: vehiculoSeleccionado.nombre,
       patente: vehiculoSeleccionado.patente,
       marca: vehiculoSeleccionado.marca,
@@ -192,8 +195,9 @@ export class EditarAutoComponent  implements OnInit {
   }
  
   //vinculaos voton GUARDAR CAMBIOS
-  //recibe propiedad nueva que ingresamos en el fomrmulario
+  //recopilalos datos deditados en el formulario con los valores del objeto vehiculoSelecionado
   editarVehiculo(){
+    //asignamos a la variable datos con los valores ya editados del form "vehiculo"
     let datos: Vehiculo = {
       uidVehiculo: this.vehiculoSeleccionado.uidVehiculo,
       // signo de exclamación "!" -> puede recibir valores vacíos al inicializar
@@ -202,8 +206,8 @@ export class EditarAutoComponent  implements OnInit {
       marca: this.vehiculo.value.marca!,
       combustible: this.vehiculo.value.combustible!
     }
-
-    this.servicioAuto.modificarVehiculo(this.vehiculoSeleccionado.uidVehiculo, datos)
+    //en el servicioAuto modificar las propiedades del vehiculo 
+    this.servicioAuto.modificarVehiculo(this.vehiculoSeleccionado.uidVehiculo, datos)// pasa id modificado y datos ya actualizados
     .then(vehiculo => {
       alert("La propiedad fue modificada con éxito :).");
       console.log(vehiculo)
@@ -214,7 +218,7 @@ export class EditarAutoComponent  implements OnInit {
       alert("No se pudo modificar la propiedad de vehiculo :( \n"+error);
     })
   }
-
+   //mostramos alerta medinate un cartel
   async mostrarAlerta() {
     const alert = await this.alertController.create({
       header: 'Ups. Algo no salio bien',
@@ -224,7 +228,7 @@ export class EditarAutoComponent  implements OnInit {
   
     await alert.present();
 
-    this.router.navigate(['/menu/menucito'])
+    this.router.navigate(['/menu/menucito']) //le damos al boton "aceptar" nos redirige a la page de menu
   }
 
 }
